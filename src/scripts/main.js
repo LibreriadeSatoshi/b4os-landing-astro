@@ -1,5 +1,9 @@
-// JavaScript para B4OS
-document.addEventListener('DOMContentLoaded', function() {
+// src/scripts/main.js
+// Script principal con integración de APIs
+
+document.addEventListener('DOMContentLoaded', async function() {
+    console.log('🚀 Iniciando B4OS...');
+    
     // Mobile Navigation Toggle
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
@@ -37,128 +41,83 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Registration Form Handling
-    const registrationForm = document.getElementById('registrationForm');
-    if (registrationForm) {
-        registrationForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // Basic validation
-            if (!validateForm(data)) {
-                return;
-            }
-            
-            // Show loading state
-            const submitButton = this.querySelector('button[type="submit"]');
-            const originalText = submitButton.textContent;
-            submitButton.textContent = 'Enviando...';
-            submitButton.disabled = true;
-            
-            // Simulate form submission
-            setTimeout(() => {
-                showNotification('¡Aplicación enviada exitosamente! Te contactaremos pronto.', 'success');
-                registrationForm.reset();
-                submitButton.textContent = originalText;
-                submitButton.disabled = false;
-            }, 2000);
-        });
-    }
-    
-    // Form Validation
-    function validateForm(data) {
-        const requiredFields = ['name', 'email', 'country', 'experience', 'technologies', 'motivation'];
-        
-        for (let field of requiredFields) {
-            if (!data[field] || data[field].trim() === '') {
-                showNotification(`Por favor completa el campo: ${getFieldLabel(field)}`, 'error');
-                return false;
-            }
-        }
-        
-        // Email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(data.email)) {
-            showNotification('Por favor ingresa un email válido', 'error');
-            return false;
-        }
-        
-        // Terms checkbox validation
-        if (!data.terms) {
-            showNotification('Debes aceptar los términos y condiciones', 'error');
-            return false;
-        }
-        
-        return true;
-    }
-    
-    // Get field label for validation messages
-    function getFieldLabel(field) {
-        const labels = {
-            'name': 'Nombre completo',
-            'email': 'Email',
-            'country': 'País',
-            'experience': 'Años de experiencia',
-            'technologies': 'Tecnologías principales',
-            'motivation': 'Motivación'
-        };
-        return labels[field] || field;
-    }
-    
-    // Notification System
-    function showNotification(message, type = 'info') {
-        // Remove existing notifications
-        const existingNotifications = document.querySelectorAll('.notification');
-        existingNotifications.forEach(notification => notification.remove());
-        
-        // Create notification element
-        const notification = document.createElement('div');
-        notification.className = `notification notification-${type}`;
-        notification.innerHTML = `
-            <div class="notification-content">
-                <span class="notification-message">${message}</span>
-                <button class="notification-close" onclick="this.parentElement.parentElement.remove()">×</button>
-            </div>
-        `;
-        
-        // Add to page
-        document.body.appendChild(notification);
-        
-        // Auto remove after 5 seconds
-        setTimeout(() => {
-            if (notification.parentElement) {
-                notification.remove();
-            }
-        }, 5000);
-    }
-    
     // Header scroll effect
-    let lastScrollTop = 0;
     const header = document.querySelector('.header');
-    
     window.addEventListener('scroll', () => {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
-        // Add/remove scrolled class for styling
         if (scrollTop > 100) {
             header.classList.add('header-scrolled');
         } else {
             header.classList.remove('header-scrolled');
         }
-        
-        // Hide/show header on scroll
-        if (scrollTop > lastScrollTop && scrollTop > 200) {
-            header.classList.add('header-hidden');
+    });
+    
+    // Inicializar manejador de formulario con APIs
+    try {
+        // Wait for FormHandler to be available
+        if (typeof window.FormHandler === 'undefined') {
+            console.warn('⚠️ FormHandler no disponible aún, reintentando...');
+            // Wait a bit more and try again
+            setTimeout(async () => {
+                await initializeForm();
+            }, 500);
         } else {
-            header.classList.remove('header-hidden');
+            await initializeForm();
         }
         
-        lastScrollTop = scrollTop;
-    });
+    } catch (error) {
+        console.error('❌ Error inicializando formulario:', error);
+    }
     
     console.log('%cBienvenido a B4OS! 🚀', 'color: #f7931a; font-size: 16px; font-weight: bold;');
     console.log('%cBitcoin 4 Open Source - Programa de formación técnica', 'color: #1a1a1a; font-size: 12px;');
 });
+
+// Function to initialize form
+async function initializeForm() {
+    try {
+        if (typeof window.FormHandler !== 'undefined') {
+            const formHandler = new window.FormHandler();
+            await formHandler.init();
+            console.log('✅ Formulario inicializado con APIs');
+            
+            // Exponer función de limpieza de caché para desarrollo
+            if (window.location.hostname === 'localhost') {
+                window.clearLocationCache = () => formHandler.clearLocationCache();
+                console.log('🔧 Función de desarrollo: clearLocationCache() disponible');
+            }
+        } else {
+            throw new Error('FormHandler class not available');
+        }
+    } catch (error) {
+        console.error('❌ Error en initializeForm:', error);
+    }
+}
+
+// Función global para notificaciones
+window.showNotification = function(message, type = 'info') {
+    // Remove existing notifications
+    const existingNotifications = document.querySelectorAll('.notification');
+    existingNotifications.forEach(notification => notification.remove());
+    
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.innerHTML = `
+        <div class="notification-content">
+            <span class="notification-message">${message}</span>
+            <button class="notification-close" onclick="this.parentElement.parentElement.remove()">×</button>
+        </div>
+    `;
+    
+    // Add to page
+    document.body.appendChild(notification);
+    
+    // Auto remove after 5 seconds
+    setTimeout(() => {
+        if (notification.parentElement) {
+            notification.remove();
+        }
+    }, 5000);
+};

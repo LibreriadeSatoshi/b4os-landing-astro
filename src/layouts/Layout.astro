@@ -48,5 +48,35 @@ import '../styles/global.css';
 </head>
 <body>
     <slot />
+    
+    <!-- Scripts cargados en el orden correcto -->
+    <script type="module">
+        // Load scripts in the correct order
+        async function loadScripts() {
+            try {
+                // Load LocationAPI first
+                await import('/src/scripts/location-api.js');
+                console.log('✅ LocationAPI loaded');
+                
+                // Then load FormHandler
+                await import('/src/scripts/form-handler.js');
+                console.log('✅ FormHandler loaded');
+                
+                // Finally load main script
+                await import('/src/scripts/main.js');
+                console.log('✅ Main script loaded');
+                
+            } catch (error) {
+                console.error('❌ Error loading scripts:', error);
+            }
+        }
+        
+        // Start loading when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', loadScripts);
+        } else {
+            loadScripts();
+        }
+    </script>
 </body>
 </html>

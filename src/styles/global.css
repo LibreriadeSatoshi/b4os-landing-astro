@@ -51,7 +51,8 @@
 
 /* Reset & Base Styles */
 * {
-    margin: 0;
+    margin-left: 0;
+    margin-right: 0;
     padding: 0;
     box-sizing: border-box;
 }
@@ -209,10 +210,14 @@ body {
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
+    margin-top: var(--spacing-4xl);
 }
 
 .hero-title {
     margin-bottom: var(--spacing-xl);
+    font-size: var(--font-size-5xl); /* Explicit font-size for h1 */
+    line-height: 1.2;
+    margin: 0 0 var(--spacing-xl) 0; /* Explicit margin */
 }
 
 .hero-title-main {
@@ -244,7 +249,7 @@ body {
     display: flex;
     gap: var(--spacing-md);
     justify-content: center;
-    margin-bottom: var(--spacing-3xl);
+    margin-bottom: var(--spacing-md);
     flex-wrap: wrap;
 }
 
@@ -253,6 +258,7 @@ body {
     justify-content: center;
     gap: var(--spacing-2xl);
     flex-wrap: wrap;
+    margin-bottom: var(--spacing-md);
 }
 
 .stat {
@@ -326,12 +332,12 @@ body {
 
 /* Sections */
 section {
-    padding: var(--spacing-4xl) 0;
+    padding: var(--spacing-xl) 0;
 }
 
 .section-header {
     text-align: center;
-    margin-bottom: var(--spacing-3xl);
+    margin-bottom: var(--spacing-2xl);
 }
 
 .section-title {
@@ -599,6 +605,17 @@ section {
     min-height: 100px;
 }
 
+.field-error {
+    border-color: var(--error-color) !important;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
+}
+
+.error-message {
+    color: var(--error-color);
+    font-size: var(--font-size-sm);
+    margin-top: 4px;
+}
+
 .checkbox-group {
     display: flex;
     align-items: flex-start;
@@ -737,15 +754,27 @@ section {
 .footer-social {
     display: flex;
     gap: var(--spacing-md);
+    align-items: center;
 }
 
 .footer-social a {
     color: rgba(255, 255, 255, 0.8);
     transition: var(--transition);
+    display: flex;
+    align-items: center;
+}
+
+.footer-social img {
+    opacity: 0.8;
+    transition: var(--transition);
 }
 
 .footer-social a:hover {
     color: var(--primary-color);
+}
+
+.footer-social a:hover img {
+    opacity: 1;
 }
 
 .footer-bottom {
@@ -764,6 +793,17 @@ section {
 .footer-bottom p {
     color: rgba(255, 255, 255, 0.6);
     margin: 0;
+}
+
+.heart {
+    color: #f7931a; /* Color Bitcoin para el corazón */
+    font-size: 1.1em;
+    animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
 }
 
 .footer-legal {
@@ -957,4 +997,124 @@ section {
 
 .nav-toggle.nav-toggle-active span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Estilos específicos para las cards del hero */
+.hero .program-grid {
+    margin-top: var(--spacing-3xl);
+    display: grid;
+    gap: var(--spacing-lg);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Grid responsivo inteligente */
+@media (min-width: 1024px) {
+    .hero .program-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales en pantallas grandes */
+        gap: var(--spacing-xl);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .hero .program-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
+        gap: var(--spacing-lg);
+    }
+}
+
+@media (max-width: 767px) {
+    .hero .program-grid {
+        grid-template-columns: 1fr; /* 1 columna en móviles */
+        gap: var(--spacing-md);
+        margin-top: var(--spacing-2xl);
+    }
+}
+
+/* Ajustar el tamaño de las cards para que se vean mejor en fila */
+.hero .program-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: var(--spacing-lg) var(--spacing-md); /* Padding más compacto */
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+    transition: var(--transition);
+    color: var(--text-white);
+    min-height: 280px; /* Altura mínima consistente */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hero .program-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-4px);
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 25px rgba(247, 147, 26, 0.3);
+}
+
+.hero .program-icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto var(--spacing-md);
+    color: var(--primary-color);
+    background: rgba(247, 147, 26, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* No se encoge */
+}
+
+.hero .program-card h3 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-white);
+    flex-shrink: 0; /* No se encoge */
+}
+
+.hero .program-card p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
+    font-size: var(--font-size-sm);
+    flex-grow: 1; /* Ocupa el espacio restante */
+    display: flex;
+    align-items: center;
+}
+
+/* Ajustes adicionales para pantallas muy grandes */
+@media (min-width: 1200px) {
+    .hero .program-grid {
+        max-width: 1100px;
+        gap: var(--spacing-2xl);
+    }
+    
+    .hero .program-card {
+        padding: var(--spacing-xl);
+        min-height: 300px;
+    }
+    
+    .hero .program-card h3 {
+        font-size: var(--font-size-xl);
+    }
+    
+    .hero .program-card p {
+        font-size: var(--font-size-base);
+    }
+}
+
+/* Para móviles, hacer las cards más compactas */
+@media (max-width: 480px) {
+    .hero .program-card {
+        padding: var(--spacing-md);
+        min-height: 220px;
+    }
+    
+    .hero .program-icon {
+        width: 40px;
+        height: 40px;
+    }
 }
