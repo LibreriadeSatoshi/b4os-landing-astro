@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Permitir bots importantes
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Bloquear secciones no indexables
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*.json$
+
+# Sitemap
+Sitemap: https://b4os.dev/sitemap.xml
+
+# Crawl-delay para bots pesados
+User-agent: *
+Crawl-delay: 1

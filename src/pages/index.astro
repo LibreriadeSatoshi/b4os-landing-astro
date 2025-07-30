@@ -1,16 +1,26 @@
 ---
 // src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
+
+// Metadata específica para la página de inicio
+const pageTitle = "B4OS 2025 - Programa Gratuito de Formación Bitcoin para Desarrolladores Senior | Bitcoin 4 Open Source";
+const pageDescription = "Únete al programa B4OS 2025: formación gratuita e intensiva en Bitcoin Core y Lightning Network para desarrolladores senior de América Latina, Caribe y España. Registro abierto agosto 2025.";
+const pageKeywords = "B4OS 2025, programa Bitcoin desarrolladores, formación Bitcoin gratuita, Bitcoin Core desarrollo, Lightning Network, desarrolladores senior, América Latina Bitcoin, Bitcoin España, residencias Bitcoin, mentoría Bitcoin, FOSS Bitcoin";
 ---
 
-<Layout title="B4OS - Bitcoin 4 Open Source | Programa de Formación Técnica">
-    <!-- Header / Navigation -->
-    <header class="header">
-        <nav class="nav">
+<Layout 
+  title={pageTitle}
+  description={pageDescription}
+  keywords={pageKeywords}
+  ogImage="/og-image-home.jpg"
+>
+    <!-- Header / Navigation con mejoras SEO -->
+    <header class="header" role="banner">
+        <nav class="nav" role="navigation" aria-label="Navegación principal">
             <div class="nav-container">
                 <div class="nav-brand">
-                    <a href="#inicio" class="nav-link">
-                        <img src="/b4os.png" alt="B4OS Logo" class="logo">
+                    <a href="#inicio" class="nav-link" aria-label="Ir al inicio de B4OS">
+                        <img src="/b4os.png" alt="B4OS - Bitcoin 4 Open Source Logo" class="logo" width="64" height="64">
                     </a>
                 </div>
                 <div class="nav-menu" id="navMenu">
@@ -20,7 +30,7 @@ import Layout from '../layouts/Layout.astro';
                     <a href="#beneficios" class="nav-link">Beneficios</a>
                     <a href="#contacto" class="nav-link">Contacto</a>
                 </div>
-                <button class="nav-toggle" id="navToggle">
+                <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de navegación" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -29,9 +39,9 @@ import Layout from '../layouts/Layout.astro';
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section con mejoras SEO -->
     <section id="inicio" class="hero">
-        <div class="hero-background">
+        <div class="hero-background" aria-hidden="true">
             <div class="hero-particles"></div>
         </div>
         <div class="container">
@@ -41,19 +51,18 @@ import Layout from '../layouts/Layout.astro';
                     <span class="hero-title-sub">Programa gratuito de entrenamiento para desarrolladores senior</span>
                 </h1>
                 <p class="hero-description">
-                    B4OS (Bitcoin 4 Open Source) es un programa de entrenamiento intensivo y gratuito, 
-                    para desarrolladores senior interesados en el ecosistema Bitcoin de código abierto, 
-                    en América Latina, el Caribe y España. 
+                    <strong>B4OS (Bitcoin 4 Open Source)</strong> es un programa de entrenamiento intensivo y <em>completamente gratuito</em>, 
+                    diseñado para desarrolladores senior interesados en el ecosistema Bitcoin de código abierto 
+                    en <strong>América Latina, el Caribe y España</strong>. 
                     Esta edición 2025 se enfoca en atraer talento cualificado, proporcionándoles las 
                     herramientas y la mentoría necesarias para contribuir de manera efectiva a proyectos 
-                    críticos en el espacio FOSS (Free and Open Source Software) de Bitcoin.
-
+                    críticos en el espacio <abbr title="Free and Open Source Software">FOSS</abbr> de Bitcoin.
                 </p>
                 <div class="hero-actions">
-                    <a href="#registro" class="btn btn-primary">Registrarse Ahora</a>
+                    <a href="#registro" class="btn btn-primary" rel="nofollow">Registrarse Ahora</a>
                     <a href="#residencias" class="btn btn-secondary">Conocer las Residencias</a>
                 </div>
-                <div class="hero-stats">
+                <div class="hero-stats" role="complementary" aria-label="Estadísticas del programa">
                     <div class="stat">
                         <span class="stat-number">100%</span>
                         <span class="stat-label">Gratuito</span>
@@ -70,7 +79,7 @@ import Layout from '../layouts/Layout.astro';
                 </div>
                 <div class="program-grid">
                     <div class="program-card">
-                        <div class="program-icon">
+                        <div class="program-icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="12" cy="12" r="10"></circle>
                                 <path d="M8 12l2 2 4-4"></path>
@@ -80,7 +89,7 @@ import Layout from '../layouts/Layout.astro';
                         <p>Dirigido a profesionales con experiencia en desarrollo de software que buscan especializarse en Bitcoin y tecnologías relacionadas.</p>
                     </div>
                     <div class="program-card">
-                        <div class="program-icon">
+                        <div class="program-icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
                             </svg>
@@ -89,7 +98,7 @@ import Layout from '../layouts/Layout.astro';
                         <p>Formación especializada en el desarrollo de Bitcoin Core y la implementación de soluciones en Lightning Network.</p>
                     </div>
                     <div class="program-card">
-                        <div class="program-icon">
+                        <div class="program-icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                                 <circle cx="9" cy="7" r="4"></circle>
@@ -104,58 +113,59 @@ import Layout from '../layouts/Layout.astro';
             </div>
         </div>
     </section>
-    <!-- Residencies section -->
+
+    <!-- Residencies section con mejoras SEO -->
     <section id="residencias" class="program-overview">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Residencias 2025 & 2026</h2>
+            <header class="section-header">
+                <h2 class="section-title">Residencias B4OS 2025 & 2026</h2>
                 <p class="section-subtitle">
-                    B4OS ofrece diferentes modalidades de residencias para desarrolladores de América Latina, 
+                    B4OS ofrece diferentes modalidades de <strong>residencias especializadas</strong> para desarrolladores de América Latina, 
                     el Caribe y España, adaptándose a las necesidades de cada región
                 </p>
-            </div>
+            </header>
             <div class="program-grid">
-                <div class="program-card">
-                    <div class="program-icon">
+                <article class="program-card">
+                    <div class="program-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M12 2L2 7V10C2 16 6 20.5 12 22C18 20.5 22 16 22 10V7L12 2Z"></path>
                         </svg>
                     </div>
-                    <h3>Sudamérica</h3>
+                    <h3>Residencia Sudamérica</h3>
                     <p><strong>Duración:</strong> 1 año completo<br>
                     <strong>Inicio:</strong> Febrero 2025<br>
-                    Programa intensivo para desarrolladores senior de países sudamericanos con formación especializada en Bitcoin Core y Lightning Network.</p>
-                </div>
+                    Programa intensivo para desarrolladores senior de países sudamericanos con formación especializada en <strong>Bitcoin Core y Lightning Network</strong>.</p>
+                </article>
                 
-                <div class="program-card">
-                    <div class="program-icon">
+                <article class="program-card">
+                    <div class="program-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M21 10C21 17 12 23 12 23S3 17 3 10A8 8 0 0 1 21 10Z"></path>
                             <circle cx="12" cy="10" r="3"></circle>
                         </svg>
                     </div>
-                    <h3>España - Valencia</h3>
+                    <h3>Residencia España - Valencia</h3>
                     <p><strong>Duración:</strong> 2 semanas intensivas<br>
                     <strong>Ubicación:</strong> Valencia, España<br>
-                    Residencia corta pero intensiva en Europa, enfocada en networking y colaboración con el ecosistema Bitcoin español.</p>
-                </div>
+                    Residencia corta pero intensiva en Europa, enfocada en <strong>networking y colaboración</strong> con el ecosistema Bitcoin español.</p>
+                </article>
                 
-                <div class="program-card">
-                    <div class="program-icon">
+                <article class="program-card">
+                    <div class="program-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M16 21V5A2 2 0 0 0 14 3H10A2 2 0 0 0 8 5V21L12 19L16 21Z"></path>
                             <path d="M12 7V13"></path>
                             <path d="M9 10L15 10"></path>
                         </svg>
                     </div>
-                    <h3>Centroamérica & Caribe*</h3>
-                    <p><strong>Duración:</strong> 1 año con trabajo remunerado<br>
+                    <h3>Residencia Centroamérica & Caribe*</h3>
+                    <p><strong>Duración:</strong> 1 año con <em>trabajo remunerado</em><br>
                     <strong>Inicio:</strong> Fecha por definir<br>
-                    Programa especial que incluye trabajo full-time pagado, diseñado específicamente para desarrolladores de Centroamérica y el Caribe.</p>
-                </div>
+                    Programa especial que incluye <strong>trabajo full-time pagado</strong>, diseñado específicamente para desarrolladores de Centroamérica y el Caribe.</p>
+                </article>
                 
-                <div class="program-card">
-                    <div class="program-icon">
+                <article class="program-card">
+                    <div class="program-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z"></path>
                         </svg>
@@ -164,132 +174,134 @@ import Layout from '../layouts/Layout.astro';
                     <p><strong>Duración:</strong> 6 semanas<br>
                     <strong>Fechas:</strong> 15 Octubre - Noviembre 2026<br>
                     <strong>Ubicación:</strong> México o Bolivia<br>
-                    Exclusiva para grantees del programa, enfocada en proyectos avanzados y mentoría especializada.</p>
-                </div>
+                    Exclusiva para <em>grantees del programa</em>, enfocada en proyectos avanzados y mentoría especializada.</p>
+                </article>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 2rem; color: var(--text-light); font-size: var(--font-size-sm);">
+        <aside style="text-align: center; margin-top: 2rem; color: var(--text-light); font-size: var(--font-size-sm);">
             <p>* Las fechas pueden estar sujetas a cambios. Se notificará con antelación a los participantes seleccionados.</p>
-        </div>
+        </aside>
     </section>
-    <!-- Timeline & Calendar -->
+
+    <!-- Timeline & Calendar con mejoras SEO -->
     <section id="cronograma" class="timeline">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Cronograma 2025</h2>
+            <header class="section-header">
+                <h2 class="section-title">Cronograma B4OS 2025</h2>
                 <p class="section-subtitle">
-                    Conoce las fechas importantes del programa B4OS 2025
+                    Conoce las <strong>fechas importantes</strong> del programa B4OS 2025
                 </p>
-            </div>
+            </header>
             <div class="timeline-container">
-                <div class="timeline-item">
+                <article class="timeline-item">
                     <div class="timeline-date">
                         <span class="month">AGO</span>
                         <span class="day">1-31</span>
                     </div>
                     <div class="timeline-content">
                         <h3>Período de Registro</h3>
-                        <p>Ventana de inscripción abierta. Los desarrolladores pueden aplicar y enviar su información para el proceso de selección.</p>
+                        <p>Ventana de <strong>inscripción abierta</strong>. Los desarrolladores pueden aplicar y enviar su información para el proceso de selección.</p>
                     </div>
-                </div>
-                <div class="timeline-item">
+                </article>
+                <article class="timeline-item">
                     <div class="timeline-date">
                         <span class="month">SEP</span>
                         <span class="day">15</span>
                     </div>
                     <div class="timeline-content">
                         <h3>Proceso de Selección</h3>
-                        <p>Evaluación de aplicaciones y entrevistas técnicas con candidatos seleccionados.</p>
+                        <p><strong>Evaluación de aplicaciones</strong> y entrevistas técnicas con candidatos seleccionados.</p>
                     </div>
-                </div>
-                <div class="timeline-item">
+                </article>
+                <article class="timeline-item">
                     <div class="timeline-date">
                         <span class="month">OCT</span>
                         <span class="day">1</span>
                     </div>
                     <div class="timeline-content">
                         <h3>Inicio del Programa</h3>
-                        <p>Comienzo oficial de las actividades formativas y desafíos técnicos.</p>
+                        <p><strong>Comienzo oficial</strong> de las actividades formativas y desafíos técnicos.</p>
                     </div>
-                </div>
-                <div class="timeline-item">
+                </article>
+                <article class="timeline-item">
                     <div class="timeline-date">
                         <span class="month">NOV</span>
                         <span class="day">TBD</span>
                     </div>
                     <div class="timeline-content">
                         <h3>LABITconf</h3>
-                        <p>Participación en la conferencia más importante de Bitcoin en América Latina.</p>
+                        <p>Participación en la <strong>conferencia más importante de Bitcoin</strong> en América Latina.</p>
                     </div>
-                </div>
-                <div class="timeline-item">
+                </article>
+                <article class="timeline-item">
                     <div class="timeline-date">
                         <span class="month">DIC</span>
                         <span class="day">TBD</span>
                     </div>
                     <div class="timeline-content">
                         <h3>B4OS Dev Day Chile</h3>
-                        <p>Evento exclusivo para participantes del programa en Chile.</p>
+                        <p><strong>Evento exclusivo</strong> para participantes del programa en Chile.</p>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Registration Section -->
+    <!-- Registration Section con mejoras SEO -->
     <section id="registro" class="registration">
         <div class="container">
             <div class="registration-content">
                 <div class="registration-info">
-                    <h2>¿Listo para unirte a B4OS?</h2>
-                    <p>El programa B4OS 2025 está abierto para desarrolladores senior de América Latina, el Caribe y España. El proceso de registro es completamente gratuito.</p>
+                    <h2>¿Listo para unirte a B4OS 2025?</h2>
+                    <p>El programa <strong>B4OS 2025</strong> está abierto para desarrolladores senior de América Latina, el Caribe y España. El proceso de <em>registro es completamente gratuito</em>.</p>
                     
                     <div class="requirements">
-                        <h3>Requisitos:</h3>
+                        <h3>Requisitos para Aplicar:</h3>
                         <ul>
-                            <li>Experiencia en desarrollo de software (2+ años)</li>
-                            <li>Conocimientos sólidos en lenguajes como C++, Rust, Python o JavaScript</li>
-                            <li>Interés genuino en contribuir al ecosistema open source de Bitcoin</li>
-                            <li>Disponibilidad para participar en el programa completo</li>
+                            <li><strong>Experiencia en desarrollo</strong> de software (2+ años)</li>
+                            <li>Conocimientos sólidos en lenguajes como <strong>C++, Rust, Python o JavaScript</strong></li>
+                            <li>Interés genuino en contribuir al <strong>ecosistema open source de Bitcoin</strong></li>
+                            <li><strong>Disponibilidad</strong> para participar en el programa completo</li>
                         </ul>
                     </div>
 
                     <div class="registration-period">
                         <div class="period-badge">
-                            <span>Registro abierto: 1 - 31 de Agosto 2025</span>
+                            <span><strong>Registro abierto:</strong> 1 - 31 de Agosto 2025</span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="registration-form-container">
-                    <form class="registration-form" id="registrationForm">
-                        <h3>Formulario de Registro</h3>
+                    <form class="registration-form" id="registrationForm" role="form" aria-label="Formulario de registro B4OS 2025">
+                        <h3>Formulario de Registro B4OS 2025</h3>
                         
                         <div class="form-group">
                             <label for="name">Nombre o pseudónimo *</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="name" required aria-describedby="name-help">
+                            <small id="name-help">Puedes usar tu nombre real o un pseudónimo</small>
                         </div>
                         
                         <div class="form-group">
                             <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" required aria-describedby="email-help">
+                            <small id="email-help">Usaremos este email para comunicarnos contigo</small>
                         </div>
 
-                                                <!-- Campo de país actualizado -->
                         <div class="form-group">
                             <label for="country">País *</label>
-                            <select id="country" name="country" required>
+                            <select id="country" name="country" required aria-describedby="country-help">
                                 <option value="">Selecciona tu país</option>
-                                <!-- Se poblará dinámicamente con JavaScript -->
                             </select>
+                            <small id="country-help">Selecciona el país donde resides actualmente</small>
                         </div>
                         
-                        <!-- NUEVO: Campo de ciudad -->
                         <div class="form-group">
                             <label for="city">Ciudad *</label>
-                            <select id="city" name="city" required disabled>
+                            <select id="city" name="city" required disabled aria-describedby="city-help">
                                 <option value="">Primero selecciona un país</option>
                             </select>
+                            <small id="city-help">Tu ciudad de residencia actual</small>
                         </div>
                         
                         <div class="form-group">
@@ -304,28 +316,32 @@ import Layout from '../layouts/Layout.astro';
                         
                         <div class="form-group">
                             <label for="technologies">Tecnologías principales *</label>
-                            <textarea id="technologies" name="technologies" placeholder="Ejemplo: C++, Python, JavaScript, Rust..." required></textarea>
+                            <textarea id="technologies" name="technologies" placeholder="Ejemplo: C++, Python, JavaScript, Rust..." required aria-describedby="tech-help"></textarea>
+                            <small id="tech-help">Lista los lenguajes y tecnologías que dominas</small>
                         </div>
                         
                         <div class="form-group">
                             <label for="github">GitHub / Portfolio</label>
-                            <input type="url" id="github" name="github" placeholder="https://github.com/tu-usuario">
+                            <input type="url" id="github" name="github" placeholder="https://github.com/tu-usuario" aria-describedby="github-help">
+                            <small id="github-help">Opcional: comparte tu perfil de GitHub o portfolio</small>
                         </div>
                         
                         <div class="form-group">
                             <label for="motivation">¿Por qué quieres participar en B4OS? *</label>
-                            <textarea id="motivation" name="motivation" required></textarea>
+                            <textarea id="motivation" name="motivation" required aria-describedby="motivation-help"></textarea>
+                            <small id="motivation-help">Cuéntanos tu motivación y objetivos con el programa</small>
                         </div>
                         
                         <div class="form-group checkbox-group">
                             <label class="checkbox-label">
-                                <input type="checkbox" name="terms" required>
-                                <span>Acepto los términos y condiciones del programa</span>
+                                <input type="checkbox" name="terms" required aria-describedby="terms-help">
+                                <span>Acepto los <a href="/terminos" target="_blank" rel="noopener">términos y condiciones</a> del programa</span>
                             </label>
+                            <small id="terms-help">Debes aceptar los términos para continuar</small>
                         </div>
                         
                         <button type="submit" class="btn btn-primary btn-full">
-                            Enviar Aplicación
+                            Enviar Aplicación a B4OS 2025
                         </button>
                     </form>
                 </div>
@@ -333,38 +349,38 @@ import Layout from '../layouts/Layout.astro';
         </div>
     </section>
 
-    <!-- Benefits Section -->
+    <!-- Benefits Section con mejoras SEO -->
     <section id="beneficios" class="benefits">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Beneficios del Programa</h2>
+            <header class="section-header">
+                <h2 class="section-title">Beneficios del Programa B4OS</h2>
                 <p class="section-subtitle">
-                    Descubre todo lo que obtienes al participar en B4OS
+                    Descubre todo lo que obtienes al participar en el <strong>programa más completo de formación Bitcoin</strong> en América Latina
                 </p>
-            </div>
+            </header>
             <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">
+                <article class="benefit-card">
+                    <div class="benefit-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
                             <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
                         </svg>
                     </div>
                     <h3>Formación Especializada</h3>
-                    <p>Acceso a contenido exclusivo y formación técnica avanzada en Bitcoin Core y Lightning Network impartida por expertos.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
+                    <p>Acceso a <strong>contenido exclusivo</strong> y formación técnica avanzada en Bitcoin Core y Lightning Network impartida por expertos reconocidos.</p>
+                </article>
+                <article class="benefit-card">
+                    <div class="benefit-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="12" cy="12" r="3"></circle>
                             <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
                         </svg>
                     </div>
                     <h3>Proyectos Reales</h3>
-                    <p>Contribuye a proyectos open source reales y construye un portafolio sólido mientras aprendes.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
+                    <p>Contribuye a <strong>proyectos open source reales</strong> y construye un portafolio sólido mientras aprendes de la mano de mentores expertos.</p>
+                </article>
+                <article class="benefit-card">
+                    <div class="benefit-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                             <circle cx="9" cy="7" r="4"></circle>
@@ -373,19 +389,19 @@ import Layout from '../layouts/Layout.astro';
                         </svg>
                     </div>
                     <h3>Red de Contactos</h3>
-                    <p>Conecta con desarrolladores, empresarios y expertos del ecosistema Bitcoin en toda América Latina.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
+                    <p>Conecta con desarrolladores, empresarios y expertos del <strong>ecosistema Bitcoin</strong> en toda América Latina, Caribe y España.</p>
+                </article>
+                <article class="benefit-card">
+                    <div class="benefit-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <polygon points="13,2 3,14 12,14 11,22 21,10 12,10"></polygon>
                         </svg>
                     </div>
-                    <h3>Certificación</h3>
-                    <p>Obtén certificación reconocida en el ecosistema Bitcoin al completar exitosamente el programa.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
+                    <h3>Certificación Reconocida</h3>
+                    <p>Obtén <strong>certificación reconocida</strong> en el ecosistema Bitcoin al completar exitosamente el programa B4OS.</p>
+                </article>
+                <article class="benefit-card">
+                    <div class="benefit-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                             <polyline points="7,10 12,15 17,10"></polyline>
@@ -393,73 +409,73 @@ import Layout from '../layouts/Layout.astro';
                         </svg>
                     </div>
                     <h3>Eventos Exclusivos</h3>
-                    <p>Acceso a conferencias y otros eventos exclusivos para participantes del programa.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
+                    <p>Acceso a <strong>conferencias Bitcoin</strong> y eventos exclusivos como LABITconf y el B4OS Dev Day para participantes del programa.</p>
+                </article>
+                <article class="benefit-card">
+                    <div class="benefit-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="12" cy="12" r="10"></circle>
                             <path d="M12 6v6l4 2"></path>
                         </svg>
                     </div>
-                    <h3>Mentorías</h3>
-                    <p>Sesiones de mentoría personalizada con desarrolladores senior del ecosistema Bitcoin.</p>
-                </div>
+                    <h3>Mentorías Personalizadas</h3>
+                    <p>Sesiones de <strong>mentoría personalizada</strong> con desarrolladores senior y expertos reconocidos del ecosistema Bitcoin.</p>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Contact / Footer -->
-    <footer id="contacto" class="footer">
+    <!-- Contact / Footer con mejoras SEO -->
+    <footer id="contacto" class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-brand">
-                        <img src="/b4os.png" alt="B4OS Logo" class="footer-logo">
+                        <img src="/b4os.png" alt="B4OS - Bitcoin 4 Open Source Logo" class="footer-logo" width="32" height="32">
                     </div>
-                    <p>Programa gratuito de formación técnica para desarrolladores senior interesados en el ecosistema open source de Bitcoin en América Latina, el Caribe y España.</p>
+                    <p><strong>B4OS (Bitcoin 4 Open Source)</strong> - Programa gratuito de formación técnica para desarrolladores senior interesados en el ecosistema open source de Bitcoin en América Latina, el Caribe y España.</p>
                 </div>
                 
-                <div class="footer-section">
+                <nav class="footer-section" aria-label="Enlaces rápidos">
                     <h4>Enlaces Rápidos</h4>
                     <ul class="footer-links">
-                        <li><a href="#programa">Programa</a></li>
+                        <li><a href="#residencias">Residencias</a></li>
                         <li><a href="#cronograma">Cronograma</a></li>
                         <li><a href="#registro">Registro</a></li>
                         <li><a href="#beneficios">Beneficios</a></li>
                     </ul>
-                </div>
+                </nav>
                 
-                <div class="footer-section">
+                <nav class="footer-section" aria-label="Recursos externos">
                     <h4>Recursos</h4>
                     <ul class="footer-links">
-                        <li><a href="https://www.libreriadesatoshi.com/" target="_blank">Libreria de Satoshi</a></li>
-                        <li><a href="https://www.libreriadesatoshi.com/#courses" target="_blank">Cursos</a></li>
+                        <li><a href="https://www.libreriadesatoshi.com/" target="_blank" rel="noopener">Librería de Satoshi</a></li>
+                        <li><a href="https://www.libreriadesatoshi.com/#courses" target="_blank" rel="noopener">Cursos Bitcoin</a></li>
                     </ul>
-                </div>
+                </nav>
                 
                 <div class="footer-section">
-                    <h4>Contacto</h4>
+                    <h4>Contacto B4OS</h4>
                     <div class="contact-info">
                         <p>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true">
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                                 <polyline points="22,6 12,13 2,6"></polyline>
                             </svg>
-                            info@b4os.dev
+                            <a href="mailto:info@b4os.dev">info@b4os.dev</a>
                         </p>
                         <div class="footer-social">
-                            <a href="https://x.com/libdesatoshi" aria-label="Twitter">
-                                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                            <a href="https://x.com/libdesatoshi" aria-label="Síguenos en Twitter/X" target="_blank" rel="noopener">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
                                     <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
                                 </svg>
                             </a>
-                            <a href="https://github.com/LibreriadeSatoshi" aria-label="GitHub">
-                                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                            <a href="https://github.com/LibreriadeSatoshi" aria-label="Visita nuestro GitHub" target="_blank" rel="noopener">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
                                     <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                                 </svg>
                             </a>
-                            <a href="#" aria-label="Nostr">
+                            <a href="#" aria-label="Síguenos en Nostr" rel="noopener">
                                 <img src="/nostr-logo.png" alt="Nostr" width="32" height="32" style="opacity: 0.8; vertical-align: middle; margin-top: -1px; margin-left: -8px;">
                             </a>
                         </div>
@@ -470,13 +486,13 @@ import Layout from '../layouts/Layout.astro';
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
                     <div>
-                        <p>&copy; 2025 B4OS (Bitcoin 4 Open Source). Hecho con ❤️</p>
+                        <p>&copy; 2025 <strong>B4OS (Bitcoin 4 Open Source)</strong>. Hecho con <span class="heart" aria-label="amor">❤️</span> para la comunidad Bitcoin</p>
                     </div>
-                    <div class="footer-legal">
-                        <a href="#">Términos de Uso</a>
-                        <a href="#">Política de Privacidad</a>
-                        <a href="#">Código de Conducta</a>
-                    </div>
+                    <nav class="footer-legal" aria-label="Enlaces legales">
+                        <a href="/terminos" rel="nofollow">Términos de Uso</a>
+                        <a href="/privacidad" rel="nofollow">Política de Privacidad</a>
+                        <a href="/codigo-conducta" rel="nofollow">Código de Conducta</a>
+                    </nav>
                 </div>
             </div>
         </div>

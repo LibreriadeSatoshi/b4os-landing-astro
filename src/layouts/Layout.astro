@@ -3,60 +3,177 @@
 export interface Props {
   title: string;
   description?: string;
+  keywords?: string;
+  ogImage?: string;
+  canonicalURL?: string;
+  noindex?: boolean;
 }
 
-const { title, description = "Programa gratuito de formación técnica para desarrolladores senior interesados en el ecosistema open source de Bitcoin en América Latina y el Caribe." } = Astro.props;
+const { 
+  title, 
+  description = "Programa gratuito de formación técnica para desarrolladores senior interesados en el ecosistema open source de Bitcoin en América Latina, el Caribe y España. Únete a B4OS 2025.",
+  keywords = "Bitcoin FOSS, Lightning development, Bitcoin Latin America, Bitcoin Core, desarrollo Bitcoin, programación blockchain, Bitcoin open source, formación Bitcoin, desarrolladores Bitcoin, Lightning Network, Bitcoin América Latina, Bitcoin España, Bitcoin Caribe, residencias Bitcoin, mentoría Bitcoin",
+  ogImage = "/og-image-b4os.jpg",
+  canonicalURL,
+  noindex = false
+} = Astro.props;
+
 import '../styles/global.css';
+
+// Configurar site base URL - cambiar por tu dominio en producción
+const siteUrl = Astro.site ? Astro.site.toString() : 'https://b4os.dev';
+
+// Generar URL canónica de forma segura
+const canonical = canonicalURL || `${siteUrl}${Astro.url.pathname}`;
+const siteName = "B4OS - Bitcoin 4 Open Source";
+
+// Generar URL completa para Open Graph images
+const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
 ---
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" prefix="og: https://ogp.me/ns#">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title}</title>
-    <meta name="description" content={description}>
-    <meta name="keywords" content="Bitcoin FOSS, Lightning development, Bitcoin Latin America, Bitcoin Core, desarrollo Bitcoin, programación blockchain">
+    <meta name="format-detection" content="telephone=no">
     
-    <!-- Open Graph / Facebook -->
+    <!-- Title optimizado -->
+    <title>{title}</title>
+    
+    <!-- Meta básicos SEO -->
+    <meta name="description" content={description}>
+    <meta name="keywords" content={keywords}>
+    <meta name="author" content="Librería de Satoshi">
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"}>
+    
+    <!-- URL Canónica -->
+    <link rel="canonical" href={canonical}>
+    
+    <!-- Idiomas alternativos -->
+    <link rel="alternate" hreflang="es" href={canonical}>
+    <link rel="alternate" hreflang="x-default" href={canonical}>
+    
+    <!-- Open Graph optimizado -->
+    <meta property="og:locale" content="es_ES">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://b4os.dev/">
+    <meta property="og:site_name" content={siteName}>
+    <meta property="og:url" content={canonical}>
     <meta property="og:title" content={title}>
     <meta property="og:description" content={description}>
-    <meta property="og:image" content="/og-image.jpg">
+    <meta property="og:image" content={ogImageUrl}>
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="B4OS - Programa de formación técnica en Bitcoin para desarrolladores senior">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://b4os.dev/">
-    <meta property="twitter:title" content={title}>
-    <meta property="twitter:description" content={description}>
-    <meta property="twitter:image" content="/og-image.jpg">
+    <!-- Twitter Cards optimizado -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@libdesatoshi">
+    <meta name="twitter:creator" content="@libdesatoshi">
+    <meta name="twitter:url" content={canonical}>
+    <meta name="twitter:title" content={title}>
+    <meta name="twitter:description" content={description}>
+    <meta name="twitter:image" content={ogImageUrl}>
+    <meta name="twitter:image:alt" content="B4OS - Programa de formación técnica en Bitcoin">
 
+    <!-- Favicons optimizados -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#f7931a">
+    <meta name="msapplication-TileColor" content="#f7931a">
+    
+    <!-- Preconexiones DNS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://restcountries.com">
+    
+    <!-- Fuentes optimizadas -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Google Analytics -->
+    <!-- Datos estructurados JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "B4OS - Bitcoin 4 Open Source",
+      "description": "Programa gratuito de formación técnica para desarrolladores senior interesados en el ecosistema open source de Bitcoin en América Latina, el Caribe y España",
+      "url": siteUrl,
+      "logo": `${siteUrl}/b4os.png`,
+      "foundingDate": "2025",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "América Latina, Caribe, España"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "info@b4os.dev",
+        "contactType": "admissions"
+      },
+      "offers": {
+        "@type": "Offer",
+        "category": "Education",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Programa gratuito de formación en Bitcoin y Lightning Network"
+      },
+      "educationalCredentialAwarded": "Certificación en Bitcoin FOSS Development",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Programas B4OS 2025",
+        "itemListElement": [
+          {
+            "@type": "Course",
+            "name": "Residencia Sudamérica",
+            "description": "Programa intensivo de 1 año para desarrolladores senior",
+            "provider": {
+              "@type": "Organization",
+              "name": "B4OS"
+            }
+          },
+          {
+            "@type": "Course", 
+            "name": "Residencia España - Valencia",
+            "description": "Residencia intensiva de 2 semanas en Valencia",
+            "provider": {
+              "@type": "Organization",
+              "name": "B4OS"
+            }
+          }
+        ]
+      },
+      "sameAs": [
+        "https://twitter.com/libdesatoshi",
+        "https://github.com/LibreriadeSatoshi"
+      ]
+    }
+    </script>
+    
+    <!-- Google Analytics 4 optimizado -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'GA_MEASUREMENT_ID');
+      gtag('config', 'GA_MEASUREMENT_ID', {
+        anonymize_ip: true,
+        respect_dnq: true
+      });
     </script>
 </head>
 <body>
     <slot />
     
-    <!-- Scripts optimizados para producción -->
+    <!-- Scripts optimizados -->
     <script>
-        // Función para cargar un script y esperar a que esté disponible
         async function loadScript(src, checkFunction, timeout = 5000) {
             return new Promise((resolve, reject) => {
                 const script = document.createElement('script');
                 script.src = src;
                 script.type = 'text/javascript';
+                script.defer = true; // Mejor para performance
                 
                 let timeoutId = setTimeout(() => {
                     reject(new Error(`Timeout loading ${src}`));
@@ -71,7 +188,7 @@ import '../styles/global.css';
                 }, 50);
                 
                 script.onload = () => {
-                    // Script file loaded, but we still wait for the check function
+                    // File loaded
                 };
                 
                 script.onerror = () => {
@@ -84,23 +201,18 @@ import '../styles/global.css';
             });
         }
 
-        // Inicialización principal
         async function initializeB4OS() {
             try {
-                // Cargar scripts en orden
                 await loadScript('/js/location-api.js', () => typeof window.LocationAPI !== 'undefined');
                 await loadScript('/js/form-handler.js', () => typeof window.FormHandler !== 'undefined');
                 await loadScript('/js/main.js', () => true);
                 
-                // Verificar si hay formulario en la página
                 const form = document.getElementById('registrationForm');
                 if (!form) return;
                 
-                // Inicializar FormHandler
                 const formHandler = new window.FormHandler();
                 await formHandler.init();
                 
-                // Exponer para desarrollo (solo en localhost)
                 if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
                     window.debugFormHandler = formHandler;
                     window.clearLocationCache = () => formHandler.clearLocationCache();
@@ -109,16 +221,15 @@ import '../styles/global.css';
             } catch (error) {
                 console.error('Error initializing B4OS:', error);
                 
-                // Fallback: cargar scripts de manera tradicional
+                // Fallback silencioso
                 const scripts = ['/js/location-api.js', '/js/form-handler.js', '/js/main.js'];
-                
-                for (const src of scripts) {
+                scripts.forEach(src => {
                     const script = document.createElement('script');
                     script.src = src;
+                    script.defer = true;
                     document.head.appendChild(script);
-                }
+                });
                 
-                // Intentar inicialización después de un delay
                 setTimeout(async () => {
                     if (typeof window.FormHandler !== 'undefined') {
                         const form = document.getElementById('registrationForm');
@@ -130,7 +241,7 @@ import '../styles/global.css';
                                     window.debugFormHandler = formHandler;
                                 }
                             } catch (fallbackError) {
-                                console.error('Fallback initialization failed:', fallbackError);
+                                // Silencioso en producción
                             }
                         }
                     }
@@ -138,7 +249,6 @@ import '../styles/global.css';
             }
         }
         
-        // Iniciar cuando el DOM esté listo
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', initializeB4OS);
         } else {
