@@ -49,33 +49,100 @@ import '../styles/global.css';
 <body>
     <slot />
     
-    <!-- Scripts cargados en el orden correcto -->
-    <script type="module">
-        // Load scripts in the correct order
-        async function loadScripts() {
+    <!-- Scripts optimizados para producción -->
+    <script>
+        // Función para cargar un script y esperar a que esté disponible
+        async function loadScript(src, checkFunction, timeout = 5000) {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = src;
+                script.type = 'text/javascript';
+                
+                let timeoutId = setTimeout(() => {
+                    reject(new Error(`Timeout loading ${src}`));
+                }, timeout);
+                
+                let checkInterval = setInterval(() => {
+                    if (checkFunction()) {
+                        clearTimeout(timeoutId);
+                        clearInterval(checkInterval);
+                        resolve();
+                    }
+                }, 50);
+                
+                script.onload = () => {
+                    // Script file loaded, but we still wait for the check function
+                };
+                
+                script.onerror = () => {
+                    clearTimeout(timeoutId);
+                    clearInterval(checkInterval);
+                    reject(new Error(`Failed to load ${src}`));
+                };
+                
+                document.head.appendChild(script);
+            });
+        }
+
+        // Inicialización principal
+        async function initializeB4OS() {
             try {
-                // Load LocationAPI first
-                await import('/src/scripts/location-api.js');
-                console.log('✅ LocationAPI loaded');
+                // Cargar scripts en orden
+                await loadScript('/js/location-api.js', () => typeof window.LocationAPI !== 'undefined');
+                await loadScript('/js/form-handler.js', () => typeof window.FormHandler !== 'undefined');
+                await loadScript('/js/main.js', () => true);
                 
-                // Then load FormHandler
-                await import('/src/scripts/form-handler.js');
-                console.log('✅ FormHandler loaded');
+                // Verificar si hay formulario en la página
+                const form = document.getElementById('registrationForm');
+                if (!form) return;
                 
-                // Finally load main script
-                await import('/src/scripts/main.js');
-                console.log('✅ Main script loaded');
+                // Inicializar FormHandler
+                const formHandler = new window.FormHandler();
+                await formHandler.init();
+                
+                // Exponer para desarrollo (solo en localhost)
+                if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                    window.debugFormHandler = formHandler;
+                    window.clearLocationCache = () => formHandler.clearLocationCache();
+                }
                 
             } catch (error) {
-                console.error('❌ Error loading scripts:', error);
+                console.error('Error initializing B4OS:', error);
+                
+                // Fallback: cargar scripts de manera tradicional
+                const scripts = ['/js/location-api.js', '/js/form-handler.js', '/js/main.js'];
+                
+                for (const src of scripts) {
+                    const script = document.createElement('script');
+                    script.src = src;
+                    document.head.appendChild(script);
+                }
+                
+                // Intentar inicialización después de un delay
+                setTimeout(async () => {
+                    if (typeof window.FormHandler !== 'undefined') {
+                        const form = document.getElementById('registrationForm');
+                        if (form) {
+                            try {
+                                const formHandler = new window.FormHandler();
+                                await formHandler.init();
+                                if (window.location.hostname === 'localhost') {
+                                    window.debugFormHandler = formHandler;
+                                }
+                            } catch (fallbackError) {
+                                console.error('Fallback initialization failed:', fallbackError);
+                            }
+                        }
+                    }
+                }, 1000);
             }
         }
         
-        // Start loading when DOM is ready
+        // Iniciar cuando el DOM esté listo
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', loadScripts);
+            document.addEventListener('DOMContentLoaded', initializeB4OS);
         } else {
-            loadScripts();
+            setTimeout(initializeB4OS, 50);
         }
     </script>
 </body>

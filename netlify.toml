@@ -1,0 +1,36 @@
+# netlify.toml
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+# Configuración de headers para archivos JavaScript
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Content-Type = "text/javascript"
+
+[[headers]]
+  for = "/src/scripts/*.js"
+  [headers.values]
+    Content-Type = "text/javascript"
+
+# Configuración de redirects para SPA
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  conditions = {Role = ["admin"], Country = ["!UK"]}
+
+# Configuración específica para archivos de módulos ES6
+[[headers]]
+  for = "**/*.js"
+  [headers.values]
+    Content-Type = "text/javascript; charset=utf-8"
+
+# Headers de seguridad adicionales
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
