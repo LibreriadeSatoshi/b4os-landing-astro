@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@formbricks/js": "^4.1.0",
+    "aos": "^2.3.4",
     "astro": "^5.12.3"
   }
 }
