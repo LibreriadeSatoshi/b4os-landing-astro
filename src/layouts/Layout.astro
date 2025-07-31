@@ -31,8 +31,8 @@ const siteName = "B4OS - Bitcoin 4 Open Source";
 const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
 
 // Customer.io credentials - desde variables de entorno
-const customerIOSiteId = import.meta.env.CUSTOMERIO_SITE_ID;
-const customerIOApiKey = import.meta.env.CUSTOMERIO_TRACK_API_KEY;
+const customerIOSiteId = import.meta.env.PUBLIC_CUSTOMERIO_SITE_ID;
+const customerIOApiKey = import.meta.env.PUBLIC_CUSTOMERIO_TRACK_API_KEY;
 ---
 
 <!DOCTYPE html>
