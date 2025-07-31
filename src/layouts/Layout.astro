@@ -29,6 +29,10 @@ const siteName = "B4OS - Bitcoin 4 Open Source";
 
 // Generar URL completa para Open Graph images
 const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
+
+// Customer.io credentials - desde variables de entorno
+const customerIOSiteId = import.meta.env.CUSTOMERIO_SITE_ID;
+const customerIOApiKey = import.meta.env.CUSTOMERIO_TRACK_API_KEY;
 ---
 
 <!DOCTYPE html>
@@ -89,6 +93,8 @@ const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://restcountries.com">
+    <link rel="preconnect" href="https://assets.customer.io">
+    <link rel="preconnect" href="https://track.customer.io">
     
     <!-- Fuentes optimizadas -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -162,6 +168,16 @@ const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`
         respect_dnq: true
       });
     </script>
+
+    <!-- Customer.io Configuration -->
+    {customerIOSiteId && (
+        <script is:inline define:vars={{customerIOSiteId, customerIOApiKey}}>
+            window.CUSTOMERIO_CONFIG = {
+                siteId: customerIOSiteId,
+                apiKey: customerIOApiKey
+            };
+        </script>
+    )}
 </head>
 <body>
     <slot />
@@ -173,7 +189,7 @@ const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`
                 const script = document.createElement('script');
                 script.src = src;
                 script.type = 'text/javascript';
-                script.defer = true; // Mejor para performance
+                script.defer = true;
                 
                 let timeoutId = setTimeout(() => {
                     reject(new Error(`Timeout loading ${src}`));
@@ -203,13 +219,26 @@ const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`
 
         async function initializeB4OS() {
             try {
+                // Cargar scripts en orden
                 await loadScript('/js/location-api.js', () => typeof window.LocationAPI !== 'undefined');
+                await loadScript('/js/customer-io-integration.js', () => typeof window.CustomerIOIntegration !== 'undefined');
                 await loadScript('/js/form-handler.js', () => typeof window.FormHandler !== 'undefined');
                 await loadScript('/js/main.js', () => true);
                 
                 const form = document.getElementById('registrationForm');
                 if (!form) return;
                 
+                // Inicializar Customer.io si está configurado
+                if (window.CUSTOMERIO_CONFIG && window.CUSTOMERIO_CONFIG.siteId) {
+                    window.customerIO = new window.CustomerIOIntegration(
+                        window.CUSTOMERIO_CONFIG.siteId,
+                        window.CUSTOMERIO_CONFIG.apiKey
+                    );
+                    window.customerIO.init();
+                    console.log('✅ Customer.io inicializado');
+                }
+                
+                // Inicializar form handler
                 const formHandler = new window.FormHandler();
                 await formHandler.init();
                 
@@ -222,7 +251,7 @@ const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`
                 console.error('Error initializing B4OS:', error);
                 
                 // Fallback silencioso
-                const scripts = ['/js/location-api.js', '/js/form-handler.js', '/js/main.js'];
+                const scripts = ['/js/location-api.js', '/js/customer-io-integration.js', '/js/form-handler.js', '/js/main.js'];
                 scripts.forEach(src => {
                     const script = document.createElement('script');
                     script.src = src;

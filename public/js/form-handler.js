@@ -1,10 +1,9 @@
-// public/js/form-handler.js
-// Manejo del formulario - CORREGIDO problema de inicialización
+// src/scripts/form-handler.js
+// Manejo del formulario con Customer.io integrado
 
 window.FormHandler = class FormHandler {
     constructor() {
-        console.log('🔧 FormHandler constructor called');
-        this.locationAPI = null;
+        this.locationAPI = new window.LocationAPI();
         this.form = null;
         this.isSubmitting = false;
     }
@@ -13,115 +12,55 @@ window.FormHandler = class FormHandler {
      * Inicializar el manejo del formulario
      */
     async init() {
-        console.log('🔧 FormHandler.init() started');
-        
-        // Verificar que LocationAPI esté disponible
-        if (typeof window.LocationAPI === 'undefined') {
-            throw new Error('LocationAPI not available');
-        }
-        
-        // Crear instancia de LocationAPI
-        console.log('🔧 Creating LocationAPI instance...');
-        this.locationAPI = new window.LocationAPI();
-        
-        // Buscar formulario
         this.form = document.getElementById('registrationForm');
         
         if (!this.form) {
-            console.log('ℹ️ Formulario no encontrado en esta página');
+            console.log('Formulario no encontrado en esta página');
             return;
         }
 
-        console.log('✅ Formulario encontrado, configurando...');
+        console.log('Inicializando formulario...');
+        await this.setupLocationSelectors();
+        this.setupFormValidation();
+        this.setupFormSubmission();
         
-        // Configurar componentes paso a paso
-        try {
-            console.log('🔧 Step 1: Setting up location selectors...');
-            await this.setupLocationSelectors();
-            console.log('✅ Location selectors configured');
-            
-            console.log('🔧 Step 2: Setting up form validation...');
-            this.setupFormValidation();
-            console.log('✅ Form validation configured');
-            
-            console.log('🔧 Step 3: Setting up form submission...');
-            this.setupFormSubmission();
-            console.log('✅ Form submission configured');
-            
-            console.log('✅ FormHandler initialized successfully');
-        } catch (error) {
-            console.error('❌ Error in FormHandler.init():', error);
-            throw error;
-        }
+        console.log('Form handler initialized');
     }
 
     /**
-     * Configurar selectores de ubicación - MÉTODO CORREGIDO
+     * Configurar selectores de ubicación
      */
     async setupLocationSelectors() {
-        console.log('🔧 setupLocationSelectors() started');
-        
         const countrySelect = document.getElementById('country');
         const citySelect = document.getElementById('city');
 
-        console.log('🔍 Looking for selectors:', {
-            countrySelect: !!countrySelect,
-            citySelect: !!citySelect,
-            countrySelectId: countrySelect?.id,
-            citySelectId: citySelect?.id
-        });
-
         if (!countrySelect || !citySelect) {
-            console.error('❌ Location selectors not found:', {
-                country: !!countrySelect,
-                city: !!citySelect
-            });
-            throw new Error('Location selectors not found');
+            console.error('Location selectors not found');
+            return;
         }
 
-        console.log('✅ Location selectors found');
+        // Cargar países desde API
+        await this.locationAPI.populateCountrySelect(countrySelect);
 
-        // AQUÍ ESTABA EL PROBLEMA: Cargar países ANTES de configurar eventos
-        console.log('🌍 About to populate country select...');
-        try {
-            await this.locationAPI.populateCountrySelect(countrySelect);
-            console.log('✅ Country select populated during initialization');
-        } catch (error) {
-            console.error('❌ Error populating country select during init:', error);
-            // No lanzar error, continuar con eventos
-        }
-
-        // Configurar eventos DESPUÉS de cargar los países
-        console.log('🔧 Setting up country change event...');
+        // Evento para cambio de país
         countrySelect.addEventListener('change', async (e) => {
-            console.log('🔄 Country changed to:', e.target.value);
             const countryCode = e.target.value;
             
             if (countryCode) {
-                try {
-                    console.log('🏙️ Loading cities for:', countryCode);
-                    await this.locationAPI.populateCitySelect(citySelect, countryCode);
-                    console.log('✅ Cities loaded for:', countryCode);
-                } catch (error) {
-                    console.error('❌ Error loading cities for', countryCode, ':', error);
-                }
+                await this.locationAPI.populateCitySelect(citySelect, countryCode);
             } else {
                 citySelect.innerHTML = '<option value="">Primero selecciona un país</option>';
                 citySelect.disabled = true;
-                console.log('🔄 Country cleared, city select reset');
             }
             
             // Ocultar input de "otra ciudad" si existe
             this.hideOtherCityInput();
         });
 
-        console.log('🔧 Setting up city change event...');
+        // Evento para cambio de ciudad
         citySelect.addEventListener('change', (e) => {
-            console.log('🔄 City changed to:', e.target.value);
             this.locationAPI.handleOtherCity(citySelect);
         });
-
-        console.log('✅ Location selector events configured');
     }
 
     /**
@@ -129,7 +68,6 @@ window.FormHandler = class FormHandler {
      */
     setupFormValidation() {
         const inputs = this.form.querySelectorAll('input, select, textarea');
-        console.log(`🔧 Setting up validation for ${inputs.length} inputs`);
         
         inputs.forEach(input => {
             input.addEventListener('blur', () => {
@@ -148,12 +86,8 @@ window.FormHandler = class FormHandler {
     setupFormSubmission() {
         this.form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            console.log('📝 Form submitted');
             
-            if (this.isSubmitting) {
-                console.log('⏳ Form already submitting, ignoring');
-                return;
-            }
+            if (this.isSubmitting) return;
             
             await this.handleSubmit();
         });
@@ -356,23 +290,8 @@ window.FormHandler = class FormHandler {
             const formData = new FormData(this.form);
             const locationData = this.getLocationData(formData);
             
-            // Preparar datos para envío
-            const submissionData = {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                location: locationData,
-                experience: formData.get('experience'),
-                technologies: formData.get('technologies'),
-                github: formData.get('github'),
-                motivation: formData.get('motivation'),
-                timestamp: new Date().toISOString(),
-                source: 'b4os-website'
-            };
-
-            console.log('📤 Form data prepared:', submissionData);
-
-            // Simular envío (reemplazar con tu lógica real)
-            await this.submitToServer(submissionData);
+            // Enviar a Customer.io
+            await this.submitToCustomerIO(formData, locationData);
 
             // Éxito
             window.showNotification(
@@ -383,7 +302,7 @@ window.FormHandler = class FormHandler {
             this.resetForm();
 
         } catch (error) {
-            console.error('❌ Error submitting form:', error);
+            console.error('Error submitting form:', error);
             window.showNotification(
                 'Error al enviar la aplicación. Por favor intenta de nuevo.',
                 'error'
@@ -392,6 +311,253 @@ window.FormHandler = class FormHandler {
             this.isSubmitting = false;
             submitButton.textContent = originalText;
             submitButton.disabled = false;
+        }
+    }
+
+    /**
+     * Enviar datos a Customer.io
+     */
+    async submitToCustomerIO(formData, locationData) {
+        // Verificar si Customer.io está disponible
+        if (window.customerIO) {
+            console.log('📤 Enviando a Customer.io vía JavaScript');
+            return await window.customerIO.handleFormSubmission(formData, locationData);
+        }
+        
+        // Fallback: envío directo a Customer.io Track API
+        console.log('📤 Enviando a Customer.io vía API directa');
+        return await this.submitDirectToCustomerIO(formData, locationData);
+    }
+
+    /**
+     * Determinar residencia basada en la ubicación del usuario
+     */
+    determineResidencia(locationData) {
+        const countryCode = locationData.country.code;
+        const region = locationData.country.region;
+        const subregion = locationData.country.subregion;
+        
+        // Lógica simple por ahora - puede expandirse más adelante
+        if (countryCode === 'ES') {
+            return {
+                type: 'residencia_europa',
+                name: 'Europa'
+            };
+        } else if (region === 'Americas' && subregion === 'South America') {
+            return {
+                type: 'residencia_sudamerica', 
+                name: 'Sudamérica'
+            };
+        } else if (['CR', 'SV', 'GT', 'HN', 'NI', 'PA', 'CU', 'DO'].includes(countryCode)) {
+            return {
+                type: 'residencia_centroamerica_caribe',
+                name: 'Centroamérica & Caribe'
+            };
+        } else if (countryCode === 'MX') {
+            return {
+                type: 'residencia_mexico',
+                name: 'México'
+            };
+        } else {
+            return {
+                type: 'residencia_general',
+                name: 'General'
+            };
+        }
+    }
+
+    /**
+     * Debug: mostrar todos los datos que se van a enviar
+     */
+    debugFormData(formData, locationData, residencia) {
+        console.group('🔍 DEBUG: Datos del formulario');
+        
+        console.log('📋 FormData raw:');
+        for (let [key, value] of formData.entries()) {
+            console.log(`  ${key}: "${value}"`);
+        }
+        
+        console.log('🌍 LocationData:', locationData);
+        console.log('🏠 Residencia:', residencia);
+        
+        // Datos que se enviarán a Customer.io
+        const personData = {
+            email: formData.get('email'),
+            name: formData.get('name'),
+            country: locationData.country.name,
+            country_code: locationData.country.code,
+            city: locationData.city,
+            experience: formData.get('experience'),
+            technologies: formData.get('technologies'),
+            github: formData.get('github') || '',
+            motivation: formData.get('motivation'),
+            residencia_type: residencia.type,
+            residencia_name: residencia.name,
+            created_at: Math.floor(Date.now() / 1000),
+            source: 'b4os-website',
+            form_type: 'registration',
+            program_year: '2025'
+        };
+        
+        console.log('👤 Person data que se enviará:', personData);
+        
+        const eventData = {
+            name: 'registration_completed',
+            data: {
+                form_name: 'registrationForm',
+                source: 'landing_page',
+                
+                // Datos personales
+                user_name: formData.get('name'),
+                user_email: formData.get('email'),
+                
+                // Datos de ubicación
+                country: locationData.country.name,
+                country_code: locationData.country.code,
+                city: locationData.city,
+                
+                // Datos profesionales
+                experience_level: formData.get('experience'),
+                technologies: formData.get('technologies'),
+                github_url: formData.get('github') || '',
+                motivation: formData.get('motivation'),
+                has_github: !!(formData.get('github')),
+                
+                // Datos de residencia
+                residencia_type: residencia.type,
+                residencia_name: residencia.name,
+                assigned_program: residencia.type,
+                
+                // Metadatos
+                timestamp: new Date().toISOString(),
+                program_year: '2025'
+            }
+        };
+        
+        console.log('📧 Event data que se enviará:', eventData);
+        console.groupEnd();
+    }
+
+    /**
+     * Envío directo a Customer.io Track API (fallback)
+     */
+    async submitDirectToCustomerIO(formData, locationData) {
+        const config = window.CUSTOMERIO_CONFIG;
+        
+        if (!config || !config.siteId) {
+            throw new Error('Customer.io no configurado correctamente');
+        }
+
+        const email = formData.get('email');
+        const residencia = this.determineResidencia(locationData);
+        
+        // 🔍 DEBUG: Mostrar todos los datos
+        this.debugFormData(formData, locationData, residencia);
+        
+        // Si no hay API key, simular envío exitoso (solo para desarrollo)
+        if (!config.apiKey) {
+            console.warn('⚠️ API Key no configurada - simulando envío exitoso');
+            return { success: true };
+        }
+
+        const auth = btoa(`${config.siteId}:${config.apiKey}`);
+
+        try {
+            // 1. Crear/actualizar persona CON TODOS LOS DATOS
+            const personData = {
+                email: email,
+                name: formData.get('name'),
+                country: locationData.country.name,
+                country_code: locationData.country.code,
+                city: locationData.city,
+                experience: formData.get('experience'),
+                technologies: formData.get('technologies'),
+                github: formData.get('github') || '',
+                motivation: formData.get('motivation'),
+                residencia_type: residencia.type,
+                residencia_name: residencia.name,
+                created_at: Math.floor(Date.now() / 1000),
+                source: 'b4os-website',
+                form_type: 'registration',
+                program_year: '2025'
+            };
+
+            console.log('🚀 Enviando person data:', JSON.stringify(personData, null, 2));
+
+            const personResponse = await fetch(`https://track.customer.io/api/v1/customers/${encodeURIComponent(email)}`, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `Basic ${auth}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(personData)
+            });
+
+            if (!personResponse.ok) {
+                const errorText = await personResponse.text();
+                console.error('❌ Error response:', errorText);
+                throw new Error(`Error creando persona (${personResponse.status}): ${errorText}`);
+            }
+
+            console.log('✅ Persona creada con residencia:', residencia.type);
+
+            // 2. Enviar evento CON TODOS LOS DATOS
+            const eventData = {
+                name: 'registration_completed',
+                data: {
+                    form_name: 'registrationForm',
+                    source: 'landing_page',
+                    
+                    // Datos personales
+                    user_name: formData.get('name'),
+                    user_email: email,
+                    
+                    // Datos de ubicación
+                    country: locationData.country.name,
+                    country_code: locationData.country.code,
+                    city: locationData.city,
+                    
+                    // Datos profesionales
+                    experience_level: formData.get('experience'),
+                    technologies: formData.get('technologies'),
+                    github_url: formData.get('github') || '',
+                    motivation: formData.get('motivation'),
+                    has_github: !!(formData.get('github')),
+                    
+                    // Datos de residencia
+                    residencia_type: residencia.type,
+                    residencia_name: residencia.name,
+                    assigned_program: residencia.type,
+                    
+                    // Metadatos
+                    timestamp: new Date().toISOString(),
+                    program_year: '2025'
+                }
+            };
+
+            console.log('🚀 Enviando event data:', JSON.stringify(eventData, null, 2));
+
+            const eventResponse = await fetch(`https://track.customer.io/api/v1/customers/${encodeURIComponent(email)}/events`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Basic ${auth}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(eventData)
+            });
+
+            if (!eventResponse.ok) {
+                const errorText = await eventResponse.text();
+                console.error('❌ Error response:', errorText);
+                throw new Error(`Error enviando evento (${eventResponse.status}): ${errorText}`);
+            }
+
+            console.log('✅ Evento enviado con todos los datos');
+            return { success: true };
+
+        } catch (error) {
+            console.error('❌ Error con Customer.io API:', error);
+            throw error;
         }
     }
 
@@ -421,52 +587,10 @@ window.FormHandler = class FormHandler {
     }
 
     /**
-     * Enviar datos al servidor
-     */
-    async submitToServer(data) {
-        // Simular delay del servidor
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        
-        console.log('📤 Datos que se enviarían al servidor:', data);
-        
-        // Ejemplo de implementación real:
-        /*
-        const response = await fetch('/api/applications', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
-        });
-        
-        if (!response.ok) {
-            throw new Error(`Server error: ${response.status}`);
-        }
-        
-        return await response.json();
-        */
-    }
-
-    /**
      * Método para limpiar caché (útil para desarrollo)
      */
     clearLocationCache() {
-        if (this.locationAPI) {
-            this.locationAPI.clearCache();
-            window.showNotification('Caché de ubicaciones limpiado', 'info');
-        }
-    }
-
-    /**
-     * NUEVO: Método para reinicializar formulario (útil para debugging)
-     */
-    async reinitialize() {
-        console.log('🔄 Reinitializing form...');
-        try {
-            await this.setupLocationSelectors();
-            console.log('✅ Form reinitialized successfully');
-        } catch (error) {
-            console.error('❌ Error reinitializing form:', error);
-        }
+        this.locationAPI.clearCache();
+        window.showNotification('Caché de ubicaciones limpiado', 'info');
     }
 };
