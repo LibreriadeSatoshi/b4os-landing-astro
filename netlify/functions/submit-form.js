@@ -71,23 +71,39 @@ exports.handler = async (event, context) => {
     // Enviar a Customer.io si está configurado
     if (customerIOSiteId && customerIOApiKey) {
       try {
-        // Preparar datos para Customer.io
+        // Preparar datos para Customer.io - CAMPOS SEPARADOS
         const customerData = {
           id: formData.email, // Usar email como ID único
           email: formData.email,
           attributes: {
+            // Información personal
             name: formData.name,
+            
+            // Ubicación - campos separados
             country_code: formData.location?.country?.code,
             country_name: formData.location?.country?.name,
+            country_region: formData.location?.country?.region,
+            country_subregion: formData.location?.country?.subregion,
             city: formData.location?.city,
+            
+            // Experiencia profesional
             experience: formData.experience,
             technologies: formData.technologies,
-            github: formData.github,
+            github: formData.github || '',
             motivation: formData.motivation,
+            
+            // Metadatos del formulario
             source: 'b4os-website',
+            form_version: '2025-v1',
+            application_timestamp: new Date().toISOString(),
             created_at: Math.floor(Date.now() / 1000),
-            b4os_application_date: new Date().toISOString(),
-            form_version: '2025-v1'
+            
+            // Campos adicionales para segmentación
+            has_github: !!(formData.github && formData.github.trim()),
+            experience_level: this.getExperienceLevel(formData.experience),
+            is_spanish_speaker: formData.location?.country?.code === 'ES',
+            is_latam: this.isLatamCountry(formData.location?.country?.code),
+            primary_technology: this.extractPrimaryTechnology(formData.technologies)
           }
         };
 
@@ -105,7 +121,7 @@ exports.handler = async (event, context) => {
           customerIOSuccess = true;
           console.log('✅ Customer.io: Usuario creado/actualizado');
 
-          // Opcional: Enviar evento de aplicación
+          // Opcional: Enviar evento de aplicación con datos estructurados
           const eventResponse = await fetch(`https://track.customer.io/api/v1/customers/${encodeURIComponent(formData.email)}/events`, {
             method: 'POST',
             headers: {
@@ -115,11 +131,20 @@ exports.handler = async (event, context) => {
             body: JSON.stringify({
               name: 'b4os_application_submitted',
               data: {
-                experience: formData.experience,
-                technologies: formData.technologies,
-                country: formData.location?.country?.name,
-                city: formData.location?.city,
-                timestamp: new Date().toISOString()
+                // Datos del evento como campos separados
+                form_experience: formData.experience,
+                form_technologies: formData.technologies,
+                form_country: formData.location?.country?.name,
+                form_country_code: formData.location?.country?.code,
+                form_city: formData.location?.city,
+                form_github: formData.github || '',
+                form_motivation_length: formData.motivation?.length || 0,
+                form_has_github: !!(formData.github && formData.github.trim()),
+                
+                // Metadatos del evento
+                event_timestamp: new Date().toISOString(),
+                event_source: 'b4os-website',
+                event_version: '2025-v1'
               }
             })
           });
@@ -185,3 +210,44 @@ exports.handler = async (event, context) => {
     };
   }
 };
+
+// Helper functions para procesar datos
+function getExperienceLevel(experience) {
+  if (!experience) return 'unknown';
+  
+  if (experience.includes('2-5')) return 'junior-mid';
+  if (experience.includes('5-10')) return 'senior';
+  if (experience.includes('10+')) return 'expert';
+  
+  return experience;
+}
+
+function isLatamCountry(countryCode) {
+  const latamCountries = [
+    'AR', 'BO', 'BR', 'CL', 'CO', 'CR', 'CU', 'EC', 'SV', 
+    'GT', 'HN', 'MX', 'NI', 'PA', 'PY', 'PE', 'DO', 'UY', 'VE'
+  ];
+  return latamCountries.includes(countryCode);
+}
+
+function extractPrimaryTechnology(technologies) {
+  if (!technologies) return 'unknown';
+  
+  const tech = technologies.toLowerCase();
+  
+  // Detectar tecnología principal basada en palabras clave
+  if (tech.includes('javascript') || tech.includes('js') || tech.includes('node')) return 'javascript';
+  if (tech.includes('python')) return 'python';
+  if (tech.includes('rust')) return 'rust';
+  if (tech.includes('c++') || tech.includes('cpp')) return 'cpp';
+  if (tech.includes('go') || tech.includes('golang')) return 'go';
+  if (tech.includes('java')) return 'java';
+  if (tech.includes('typescript') || tech.includes('ts')) return 'typescript';
+  if (tech.includes('react')) return 'react';
+  if (tech.includes('vue')) return 'vue';
+  if (tech.includes('angular')) return 'angular';
+  
+  // Si no detecta nada específico, tomar la primera palabra
+  const words = technologies.split(/[,\s]+/);
+  return words[0]?.toLowerCase() || 'other';
+}
