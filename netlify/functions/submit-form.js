@@ -61,9 +61,11 @@ exports.handler = async (event, context) => {
     const customerIOSiteId = process.env.CUSTOMERIO_SITE_ID;
     const customerIOApiKey = process.env.CUSTOMERIO_TRACK_API_KEY;
 
-    console.log('Customer.io config:', {
+    console.log('🔍 Customer.io config check:', {
       siteIdExists: !!customerIOSiteId,
-      apiKeyExists: !!customerIOApiKey
+      apiKeyExists: !!customerIOApiKey,
+      siteIdLength: customerIOSiteId?.length || 0,
+      apiKeyLength: customerIOApiKey?.length || 0
     });
 
     let customerIOSuccess = false;
@@ -100,10 +102,10 @@ exports.handler = async (event, context) => {
             
             // Campos adicionales para segmentación
             has_github: !!(formData.github && formData.github.trim()),
-            experience_level: this.getExperienceLevel(formData.experience),
+            experience_level: getExperienceLevel(formData.experience),
             is_spanish_speaker: formData.location?.country?.code === 'ES',
-            is_latam: this.isLatamCountry(formData.location?.country?.code),
-            primary_technology: this.extractPrimaryTechnology(formData.technologies)
+            is_latam: isLatamCountry(formData.location?.country?.code),
+            primary_technology: extractPrimaryTechnology(formData.technologies)
           }
         };
 
@@ -155,7 +157,12 @@ exports.handler = async (event, context) => {
 
         } else {
           const errorText = await customerIOResponse.text();
-          console.error('❌ Customer.io error:', customerIOResponse.status, errorText);
+          console.error('❌ Customer.io API error:', {
+            status: customerIOResponse.status,
+            statusText: customerIOResponse.statusText,
+            body: errorText,
+            headers: Object.fromEntries(customerIOResponse.headers.entries())
+          });
         }
 
       } catch (customerIOError) {
