@@ -1,9 +1,13 @@
-// public/js/main.js
-// Script principal con debugging mejorado
+// src/scripts/main.js
+// Script principal con integración de APIs
 
 document.addEventListener('DOMContentLoaded', async function() {
-    console.log('🚀 Iniciando B4OS...');
-    console.log('DOM ready, starting initialization');
+    // Detectar entorno
+    const isLocal = window.location.hostname === 'localhost' || 
+                   window.location.hostname === '127.0.0.1' ||
+                   window.location.hostname.includes('.local');
+    
+    console.log(`🚀 Iniciando B4OS en modo: ${isLocal ? 'DESARROLLO' : 'PRODUCCIÓN'}`);
     
     // Mobile Navigation Toggle
     const navToggle = document.getElementById('navToggle');
@@ -14,7 +18,6 @@ document.addEventListener('DOMContentLoaded', async function() {
             navMenu.classList.toggle('nav-menu-active');
             navToggle.classList.toggle('nav-toggle-active');
         });
-        console.log('✅ Navigation toggle initialized');
     }
     
     // Smooth Scrolling for Navigation Links
@@ -42,7 +45,6 @@ document.addEventListener('DOMContentLoaded', async function() {
             }
         });
     });
-    console.log('✅ Smooth scrolling initialized');
     
     // Header scroll effect
     const header = document.querySelector('.header');
@@ -55,71 +57,61 @@ document.addEventListener('DOMContentLoaded', async function() {
             header.classList.remove('header-scrolled');
         }
     });
-    console.log('✅ Header scroll effect initialized');
     
-    // Verificar si estamos en la página con formulario
-    const form = document.getElementById('registrationForm');
-    if (!form) {
-        console.log('ℹ️ No hay formulario en esta página, saltando inicialización');
-        return;
-    }
-    
-    console.log('📝 Formulario encontrado, inicializando...');
-    
-    // Verificar que las clases estén disponibles
-    if (typeof window.LocationAPI === 'undefined') {
-        console.error('❌ LocationAPI no está disponible');
-        return;
-    }
-    
-    if (typeof window.FormHandler === 'undefined') {
-        console.error('❌ FormHandler no está disponible');
-        return;
-    }
-    
-    console.log('✅ Classes disponibles, inicializando formulario...');
-    
-    // Inicializar FormHandler
+    // Inicializar manejador de formulario con APIs
     try {
-        const formHandler = new window.FormHandler();
-        await formHandler.init();
-        console.log('✅ FormHandler inicializado correctamente');
-        
-        // Test directo de la API
-        console.log('🧪 Testing LocationAPI directamente...');
-        const locationAPI = new window.LocationAPI();
-        const countries = await locationAPI.loadCountries();
-        console.log('🌍 Países cargados:', countries.length, countries);
-        
-        // Exponer funciones para debugging
-        if (window.location.hostname === 'localhost') {
-            window.debugFormHandler = formHandler;
-            window.debugLocationAPI = locationAPI;
-            window.clearLocationCache = () => locationAPI.clearCache();
-            console.log('🔧 Debug functions available: debugFormHandler, debugLocationAPI, clearLocationCache()');
+        // Wait for FormHandler to be available
+        if (typeof window.FormHandler === 'undefined') {
+            console.warn('⚠️ FormHandler no disponible aún, reintentando...');
+            // Wait a bit more and try again
+            setTimeout(async () => {
+                await initializeForm();
+            }, 500);
+        } else {
+            await initializeForm();
         }
         
     } catch (error) {
         console.error('❌ Error inicializando formulario:', error);
-        console.error('Stack trace:', error.stack);
-        
-        // Intentar diagnóstico adicional
-        console.log('🔍 Diagnóstico adicional:');
-        console.log('- Window.LocationAPI exists:', typeof window.LocationAPI !== 'undefined');
-        console.log('- Window.FormHandler exists:', typeof window.FormHandler !== 'undefined');
-        console.log('- Form element exists:', !!form);
-        console.log('- Country select exists:', !!document.getElementById('country'));
-        console.log('- City select exists:', !!document.getElementById('city'));
     }
     
     console.log('%cBienvenido a B4OS! 🚀', 'color: #f7931a; font-size: 16px; font-weight: bold;');
     console.log('%cBitcoin 4 Open Source - Programa de formación técnica', 'color: #1a1a1a; font-size: 12px;');
+    
+    if (isLocal) {
+        console.log('%c🔧 MODO DESARROLLO ACTIVO', 'color: #10b981; font-size: 14px; font-weight: bold;');
+        console.log('%cEl formulario simula envíos sin usar Customer.io real', 'color: #6b7280; font-size: 12px;');
+    }
 });
 
-// Función global para notificaciones (mejorada)
+// Function to initialize form
+async function initializeForm() {
+    try {
+        if (typeof window.FormHandler !== 'undefined') {
+            const formHandler = new window.FormHandler();
+            await formHandler.init();
+            
+            const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+            console.log(`✅ Formulario inicializado en modo: ${isLocal ? 'DESARROLLO' : 'PRODUCCIÓN'}`);
+            
+            // Exponer función de limpieza de caché para desarrollo
+            if (isLocal) {
+                window.clearLocationCache = () => formHandler.clearLocationCache();
+                window.debugFormHandler = formHandler;
+                console.log('🔧 Funciones de desarrollo disponibles:');
+                console.log('   - clearLocationCache()');
+                console.log('   - debugFormHandler');
+            }
+        } else {
+            throw new Error('FormHandler class not available');
+        }
+    } catch (error) {
+        console.error('❌ Error en initializeForm:', error);
+    }
+}
+
+// Función global para notificaciones
 window.showNotification = function(message, type = 'info') {
-    console.log(`📢 Notification [${type}]:`, message);
-    
     // Remove existing notifications
     const existingNotifications = document.querySelectorAll('.notification');
     existingNotifications.forEach(notification => notification.remove());
@@ -143,24 +135,4 @@ window.showNotification = function(message, type = 'info') {
             notification.remove();
         }
     }, 5000);
-};
-
-// Función para debugging manual
-window.debugFormInit = async function() {
-    console.log('🔧 Manual form initialization...');
-    
-    if (typeof window.FormHandler === 'undefined') {
-        console.error('FormHandler not available');
-        return;
-    }
-    
-    try {
-        const formHandler = new window.FormHandler();
-        await formHandler.init();
-        console.log('✅ Manual initialization successful');
-        return formHandler;
-    } catch (error) {
-        console.error('❌ Manual initialization failed:', error);
-        throw error;
-    }
 };

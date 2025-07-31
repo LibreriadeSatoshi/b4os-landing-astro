@@ -1,5 +1,5 @@
 // src/scripts/form-handler.js
-// Manejo del formulario con Customer.io integrado
+// Manejo del formulario con envío seguro a Netlify Function
 
 window.FormHandler = class FormHandler {
     constructor() {
@@ -238,6 +238,9 @@ window.FormHandler = class FormHandler {
             isValid: errors.length === 0,
             errors
         };
+
+// Remover integración antigua de Customer.io del lado cliente
+// Ya no necesitamos customer-io-integration.js
     }
 
     /**
@@ -290,23 +293,46 @@ window.FormHandler = class FormHandler {
             const formData = new FormData(this.form);
             const locationData = this.getLocationData(formData);
             
-            // Enviar a Customer.io
-            await this.submitToCustomerIO(formData, locationData);
+            // Preparar datos para envío
+            const submissionData = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                location: locationData,
+                experience: formData.get('experience'),
+                technologies: formData.get('technologies'),
+                github: formData.get('github'),
+                motivation: formData.get('motivation'),
+                timestamp: new Date().toISOString(),
+                source: 'b4os-website',
+                userAgent: navigator.userAgent,
+                referrer: document.referrer
+            };
 
-            // Éxito
-            window.showNotification(
-                '¡Aplicación enviada exitosamente! Te contactaremos pronto.',
-                'success'
-            );
+            console.log('📤 Enviando datos a Netlify Function:', submissionData);
+
+            // Enviar a Netlify Function (o simular en desarrollo)
+            const result = await this.submitToNetlifyFunction(submissionData);
+
+            // Éxito - mensaje basado en el entorno
+            const successMessage = this.isLocalDevelopment() 
+                ? '✅ [DESARROLLO] Formulario validado correctamente! (Simulación)'
+                : '¡Aplicación enviada exitosamente! Te contactaremos pronto.';
+            
+            window.showNotification(successMessage, 'success');
             
             this.resetForm();
 
         } catch (error) {
-            console.error('Error submitting form:', error);
-            window.showNotification(
-                'Error al enviar la aplicación. Por favor intenta de nuevo.',
-                'error'
-            );
+            console.error('❌ Error submitting form:', error);
+            
+            let errorMessage = 'Error al enviar la aplicación. Por favor intenta de nuevo.';
+            
+            // Mostrar mensaje más específico si es posible
+            if (error.message) {
+                errorMessage = error.message;
+            }
+            
+            window.showNotification(errorMessage, 'error');
         } finally {
             this.isSubmitting = false;
             submitButton.textContent = originalText;
@@ -315,248 +341,70 @@ window.FormHandler = class FormHandler {
     }
 
     /**
-     * Enviar datos a Customer.io
+     * Detectar si estamos en desarrollo local
      */
-    async submitToCustomerIO(formData, locationData) {
-        // Verificar si Customer.io está disponible
-        if (window.customerIO) {
-            console.log('📤 Enviando a Customer.io vía JavaScript');
-            return await window.customerIO.handleFormSubmission(formData, locationData);
-        }
-        
-        // Fallback: envío directo a Customer.io Track API
-        console.log('📤 Enviando a Customer.io vía API directa');
-        return await this.submitDirectToCustomerIO(formData, locationData);
+    isLocalDevelopment() {
+        return window.location.hostname === 'localhost' || 
+               window.location.hostname === '127.0.0.1' ||
+               window.location.hostname.includes('.local');
     }
 
     /**
-     * Determinar residencia basada en la ubicación del usuario
+     * Enviar datos - modo desarrollo vs producción
      */
-    determineResidencia(locationData) {
-        const countryCode = locationData.country.code;
-        const region = locationData.country.region;
-        const subregion = locationData.country.subregion;
-        
-        // Lógica simple por ahora - puede expandirse más adelante
-        if (countryCode === 'ES') {
-            return {
-                type: 'residencia_europa',
-                name: 'Europa'
-            };
-        } else if (region === 'Americas' && subregion === 'South America') {
-            return {
-                type: 'residencia_sudamerica', 
-                name: 'Sudamérica'
-            };
-        } else if (['CR', 'SV', 'GT', 'HN', 'NI', 'PA', 'CU', 'DO'].includes(countryCode)) {
-            return {
-                type: 'residencia_centroamerica_caribe',
-                name: 'Centroamérica & Caribe'
-            };
-        } else if (countryCode === 'MX') {
-            return {
-                type: 'residencia_mexico',
-                name: 'México'
-            };
-        } else {
-            return {
-                type: 'residencia_general',
-                name: 'General'
-            };
-        }
-    }
-
-    /**
-     * Debug: mostrar todos los datos que se van a enviar
-     */
-    debugFormData(formData, locationData, residencia) {
-        console.group('🔍 DEBUG: Datos del formulario');
-        
-        console.log('📋 FormData raw:');
-        for (let [key, value] of formData.entries()) {
-            console.log(`  ${key}: "${value}"`);
-        }
-        
-        console.log('🌍 LocationData:', locationData);
-        console.log('🏠 Residencia:', residencia);
-        
-        // Datos que se enviarán a Customer.io
-        const personData = {
-            email: formData.get('email'),
-            name: formData.get('name'),
-            country: locationData.country.name,
-            country_code: locationData.country.code,
-            city: locationData.city,
-            experience: formData.get('experience'),
-            technologies: formData.get('technologies'),
-            github: formData.get('github') || '',
-            motivation: formData.get('motivation'),
-            residencia_type: residencia.type,
-            residencia_name: residencia.name,
-            created_at: Math.floor(Date.now() / 1000),
-            source: 'b4os-website',
-            form_type: 'registration',
-            program_year: '2025'
-        };
-        
-        console.log('👤 Person data que se enviará:', personData);
-        
-        const eventData = {
-            name: 'registration_completed',
-            data: {
-                form_name: 'registrationForm',
-                source: 'landing_page',
-                
-                // Datos personales
-                user_name: formData.get('name'),
-                user_email: formData.get('email'),
-                
-                // Datos de ubicación
-                country: locationData.country.name,
-                country_code: locationData.country.code,
-                city: locationData.city,
-                
-                // Datos profesionales
-                experience_level: formData.get('experience'),
-                technologies: formData.get('technologies'),
-                github_url: formData.get('github') || '',
-                motivation: formData.get('motivation'),
-                has_github: !!(formData.get('github')),
-                
-                // Datos de residencia
-                residencia_type: residencia.type,
-                residencia_name: residencia.name,
-                assigned_program: residencia.type,
-                
-                // Metadatos
-                timestamp: new Date().toISOString(),
-                program_year: '2025'
-            }
-        };
-        
-        console.log('📧 Event data que se enviará:', eventData);
-        console.groupEnd();
-    }
-
-    /**
-     * Envío directo a Customer.io Track API (fallback)
-     */
-    async submitDirectToCustomerIO(formData, locationData) {
-        const config = window.CUSTOMERIO_CONFIG;
-        
-        if (!config || !config.siteId) {
-            throw new Error('Customer.io no configurado correctamente');
-        }
-
-        const email = formData.get('email');
-        const residencia = this.determineResidencia(locationData);
-        
-        // 🔍 DEBUG: Mostrar todos los datos
-        this.debugFormData(formData, locationData, residencia);
-        
-        // Si no hay API key, simular envío exitoso (solo para desarrollo)
-        if (!config.apiKey) {
-            console.warn('⚠️ API Key no configurada - simulando envío exitoso');
-            return { success: true };
-        }
-
-        const auth = btoa(`${config.siteId}:${config.apiKey}`);
-
-        try {
-            // 1. Crear/actualizar persona CON TODOS LOS DATOS
-            const personData = {
-                email: email,
-                name: formData.get('name'),
-                country: locationData.country.name,
-                country_code: locationData.country.code,
-                city: locationData.city,
-                experience: formData.get('experience'),
-                technologies: formData.get('technologies'),
-                github: formData.get('github') || '',
-                motivation: formData.get('motivation'),
-                residencia_type: residencia.type,
-                residencia_name: residencia.name,
-                created_at: Math.floor(Date.now() / 1000),
-                source: 'b4os-website',
-                form_type: 'registration',
-                program_year: '2025'
-            };
-
-            console.log('🚀 Enviando person data:', JSON.stringify(personData, null, 2));
-
-            const personResponse = await fetch(`https://track.customer.io/api/v1/customers/${encodeURIComponent(email)}`, {
-                method: 'PUT',
-                headers: {
-                    'Authorization': `Basic ${auth}`,
-                    'Content-Type': 'application/json'
+    async submitToNetlifyFunction(data) {
+        // En desarrollo local, simular envío exitoso
+        if (this.isLocalDevelopment()) {
+            console.log('🔧 MODO DESARROLLO - Simulando envío:', data);
+            
+            // Simular delay de red
+            await new Promise(resolve => setTimeout(resolve, 1500));
+            
+            // Simular respuesta exitosa
+            const simulatedResponse = {
+                success: true,
+                message: '✅ [DESARROLLO] Aplicación simulada exitosamente',
+                services: {
+                    customerIO: true
                 },
-                body: JSON.stringify(personData)
-            });
-
-            if (!personResponse.ok) {
-                const errorText = await personResponse.text();
-                console.error('❌ Error response:', errorText);
-                throw new Error(`Error creando persona (${personResponse.status}): ${errorText}`);
-            }
-
-            console.log('✅ Persona creada con residencia:', residencia.type);
-
-            // 2. Enviar evento CON TODOS LOS DATOS
-            const eventData = {
-                name: 'registration_completed',
-                data: {
-                    form_name: 'registrationForm',
-                    source: 'landing_page',
-                    
-                    // Datos personales
-                    user_name: formData.get('name'),
-                    user_email: email,
-                    
-                    // Datos de ubicación
-                    country: locationData.country.name,
-                    country_code: locationData.country.code,
-                    city: locationData.city,
-                    
-                    // Datos profesionales
-                    experience_level: formData.get('experience'),
-                    technologies: formData.get('technologies'),
-                    github_url: formData.get('github') || '',
-                    motivation: formData.get('motivation'),
-                    has_github: !!(formData.get('github')),
-                    
-                    // Datos de residencia
-                    residencia_type: residencia.type,
-                    residencia_name: residencia.name,
-                    assigned_program: residencia.type,
-                    
-                    // Metadatos
-                    timestamp: new Date().toISOString(),
-                    program_year: '2025'
-                }
+                timestamp: new Date().toISOString(),
+                note: 'En desarrollo local - no se envían datos reales'
             };
+            
+            console.log('🔧 MODO DESARROLLO - Respuesta simulada:', simulatedResponse);
+            return simulatedResponse;
+        }
 
-            console.log('🚀 Enviando event data:', JSON.stringify(eventData, null, 2));
-
-            const eventResponse = await fetch(`https://track.customer.io/api/v1/customers/${encodeURIComponent(email)}/events`, {
+        // En producción, usar Netlify Function real
+        try {
+            const response = await fetch('/.netlify/functions/submit-form', {
                 method: 'POST',
                 headers: {
-                    'Authorization': `Basic ${auth}`,
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(eventData)
+                body: JSON.stringify(data)
             });
 
-            if (!eventResponse.ok) {
-                const errorText = await eventResponse.text();
-                console.error('❌ Error response:', errorText);
-                throw new Error(`Error enviando evento (${eventResponse.status}): ${errorText}`);
+            if (!response.ok) {
+                let errorMessage = `Server error: ${response.status}`;
+                
+                try {
+                    const errorData = await response.json();
+                    errorMessage = errorData.message || errorData.error || errorMessage;
+                } catch (jsonError) {
+                    // Si no puede parsear JSON, usar mensaje genérico
+                    console.warn('Could not parse error response as JSON');
+                }
+                
+                throw new Error(errorMessage);
             }
 
-            console.log('✅ Evento enviado con todos los datos');
-            return { success: true };
-
+            const responseData = await response.json();
+            console.log('✅ PRODUCCIÓN - Netlify Function response:', responseData);
+            return responseData;
+            
         } catch (error) {
-            console.error('❌ Error con Customer.io API:', error);
+            console.error('❌ PRODUCCIÓN - Netlify Function error:', error);
             throw error;
         }
     }

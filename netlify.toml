@@ -2,6 +2,11 @@
 [build]
   publish = "dist"
   command = "npm run build"
+  functions = "netlify/functions"  # AÑADIDO: Para las funciones serverless
+
+# Configuración específica para funciones
+[functions]
+  directory = "netlify/functions"  # AÑADIDO: Directorio de funciones
 
 # Configuración de headers para archivos JavaScript
 [[headers]]
@@ -13,13 +18,6 @@
   for = "/src/scripts/*.js"
   [headers.values]
     Content-Type = "text/javascript"
-
-# Configuración de redirects para SPA
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  conditions = {Role = ["admin"], Country = ["!UK"]}
 
 # Configuración específica para archivos de módulos ES6
 [[headers]]
@@ -34,3 +32,10 @@
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
+
+# Configuración de redirects para SPA
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  conditions = {Role = ["admin"], Country = ["!UK"]}
