@@ -345,6 +345,7 @@ section {
     font-weight: 700;
     margin-bottom: var(--spacing-md);
     color: var(--text-dark);
+    margin-top: 100px;
 }
 
 .section-subtitle {
