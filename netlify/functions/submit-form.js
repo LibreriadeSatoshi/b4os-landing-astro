@@ -77,7 +77,7 @@ exports.handler = async (event, context) => {
         const customerData = {
           id: formData.email, // Usar email como ID único
           email: formData.email,
-          attributes: {
+          //attributes: {
             // Información personal
             name: formData.name,
             
@@ -106,7 +106,7 @@ exports.handler = async (event, context) => {
             is_spanish_speaker: formData.location?.country?.code === 'ES',
             is_latam: isLatamCountry(formData.location?.country?.code),
             primary_technology: extractPrimaryTechnology(formData.technologies)
-          }
+          //}
         };
 
         // API de Customer.io para tracking
