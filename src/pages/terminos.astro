@@ -1,0 +1,255 @@
+---
+// src/pages/terminos.astro
+import Layout from '../layouts/Layout.astro';
+
+const pageTitle = "Términos y Condiciones - B4OS | Bitcoin 4 Open Source";
+const pageDescription = "Términos y condiciones del programa B4OS 2025. Información sobre selección de participantes, uso de datos, propiedad intelectual y políticas del programa.";
+---
+
+<Layout 
+  title={pageTitle}
+  description={pageDescription}
+  noindex={true}
+>
+    <!-- Header simplificado para páginas legales -->
+    <header class="header" role="banner">
+        <nav class="nav" role="navigation" aria-label="Navegación principal">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="/" class="nav-link" aria-label="Volver al inicio de B4OS">
+                        <img src="/b4os.png" alt="B4OS - Bitcoin 4 Open Source Logo" class="logo" width="64" height="64">
+                    </a>
+                </div>
+                <div class="nav-menu">
+                    <a href="/" class="nav-link">← Volver al inicio</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contenido principal de términos -->
+    <main class="terms-page">
+        <div class="container">
+            <article class="terms-content">
+                <header class="terms-header">
+                    <h1>Términos y Condiciones</h1>
+                    <p class="terms-intro">
+                        Al postularte al programa <strong>B4OS (Bitcoin for Open Source)</strong>, aceptas los siguientes términos y condiciones:
+                    </p>
+                </header>
+
+                <section class="terms-section">
+                    <h2>1. Selección de Participantes</h2>
+                    <p>
+                        Nos reservamos el derecho de aceptar únicamente a las personas que, a nuestro criterio, cumplan con el perfil, valores y objetivos del programa. La decisión del equipo organizador es final y no se encuentra sujeta a apelación.
+                    </p>
+                </section>
+
+                <section class="terms-section">
+                    <h2>2. Uso de la Información</h2>
+                    <p>
+                        La información personal que proporciones será utilizada exclusivamente para fines legítimos relacionados con el programa B4OS, como la evaluación de candidaturas, la comunicación con participantes y el seguimiento académico. No compartiremos tus datos con terceros ajenos al programa sin tu consentimiento.
+                    </p>
+                </section>
+
+                <section class="terms-section">
+                    <h2>3. Comunicación y Marketing</h2>
+                    <p>
+                        Podemos enviarte correos electrónicos relacionados con el programa, incluyendo actualizaciones, recordatorios y oportunidades futuras. Puedes darte de baja en cualquier momento.
+                    </p>
+                </section>
+
+                <section class="terms-section">
+                    <h2>4. Propiedad Intelectual</h2>
+                    <p>
+                        Todo el contenido educativo, materiales y documentación provistos en el programa son propiedad de B4OS y/o sus colaboradores. Su uso está restringido a fines educativos dentro del marco del programa.
+                    </p>
+                </section>
+
+                <section class="terms-section">
+                    <h2>5. Modificaciones</h2>
+                    <p>
+                        Nos reservamos el derecho de modificar estos términos en cualquier momento. Te notificaremos en caso de cambios relevantes.
+                    </p>
+                </section>
+
+                <section class="terms-contact">
+                    <h2>Contacto</h2>
+                    <p>
+                        Si tienes dudas, puedes contactarnos en 
+                        <a href="mailto:hola@libreriadesatoshi.com">hola@libreriadesatoshi.com</a>
+                    </p>
+                </section>
+
+                <footer class="terms-footer">
+                    <p><strong>Última actualización:</strong> Agosto 2025</p>
+                    <div class="terms-actions">
+                        <a href="/" class="btn btn-primary">Volver al inicio</a>
+                        <a href="/#registro" class="btn btn-secondary">Ir al registro</a>
+                    </div>
+                </footer>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer simplificado -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div>
+                        <p>&copy; 2025 <strong>B4OS (Bitcoin 4 Open Source)</strong>. Hecho con <span class="heart" aria-label="amor">❤️</span> para la comunidad Bitcoin</p>
+                    </div>
+                    <nav class="footer-legal" aria-label="Enlaces legales">
+                        <a href="/terminos" rel="nofollow">Términos de Uso</a>
+                        <a href="/privacidad" rel="nofollow">Política de Privacidad</a>
+                        <a href="/codigo-conducta" rel="nofollow">Código de Conducta</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </footer>
+</Layout>
+
+<style>
+/* Estilos específicos para la página de términos */
+.terms-page {
+    min-height: calc(100vh - 200px);
+    padding: var(--spacing-4xl) 0 var(--spacing-2xl);
+    background: var(--bg-light);
+}
+
+.terms-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-lg);
+    padding: var(--spacing-3xl);
+}
+
+.terms-header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+    padding-bottom: var(--spacing-xl);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.terms-header h1 {
+    font-size: var(--font-size-4xl);
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-lg);
+}
+
+.terms-intro {
+    font-size: var(--font-size-lg);
+    color: var(--text-light);
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.terms-section {
+    margin-bottom: var(--spacing-2xl);
+}
+
+.terms-section h2 {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.terms-section p {
+    color: var(--text-light);
+    line-height: 1.7;
+    font-size: var(--font-size-base);
+}
+
+.terms-contact {
+    background: var(--bg-light);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.terms-contact h2 {
+    font-size: var(--font-size-lg);
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-sm);
+    border: none;
+}
+
+.terms-contact a {
+    color: var(--primary-color);
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.terms-contact a:hover {
+    color: var(--primary-dark);
+}
+
+.terms-footer {
+    text-align: center;
+    padding-top: var(--spacing-xl);
+    border-top: 2px solid var(--border-color);
+}
+
+.terms-footer p {
+    color: var(--text-light);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+.terms-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .terms-page {
+        padding: var(--spacing-2xl) 0;
+    }
+    
+    .terms-content {
+        margin: 0 var(--spacing-md);
+        padding: var(--spacing-2xl) var(--spacing-lg);
+    }
+    
+    .terms-header h1 {
+        font-size: var(--font-size-3xl);
+    }
+    
+    .terms-intro {
+        font-size: var(--font-size-base);
+    }
+    
+    .terms-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .terms-actions .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .terms-content {
+        margin: 0 var(--spacing-sm);
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+    
+    .terms-header h1 {
+        font-size: var(--font-size-2xl);
+    }
+}
+</style>
