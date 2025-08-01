@@ -1574,7 +1574,7 @@ section {
 }
 
 .community-logo {
-    height: 60px;
+    height: 90px;
     width: auto;
     max-width: 150px;
     object-fit: contain;
@@ -1640,7 +1640,7 @@ section {
     }
 
     .community-logo {
-        height: 50px;
+        height: 90px;
         max-width: 120px;
     }
 
@@ -1661,7 +1661,7 @@ section {
     }
 
     .community-logo {
-        height: 40px;
+        height: 90px;
         max-width: 100px;
     }
 }
@@ -1804,5 +1804,242 @@ section {
     
     .sponsor-name {
         font-size: 1.5rem;
+    }
+}
+
+/* Conferencias que nos apoyan */
+.conferences-support {
+    margin-bottom: var(--spacing-4xl);
+}
+
+.conferences-support .strategic-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.conferences-support .strategic-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.conferences-support .strategic-title::before,
+.conferences-support .strategic-title::after {
+    content: '';
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+}
+
+.conferences-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-2xl);
+    padding: var(--spacing-2xl);
+    background: #f8f9fa; /* Caja gris clara */
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-md);
+    border: 1px solid #e9ecef;
+    transition: var(--transition);
+}
+
+.conferences-logos:hover {
+    box-shadow: var(--shadow-lg);
+    background: #f1f3f4;
+}
+
+.conference-logo {
+    height: 90px;
+    width: auto;
+    max-width: 150px;
+    object-fit: contain;
+    filter: grayscale(50%) opacity(0.8);
+    transition: var(--transition);
+    padding: var(--spacing-sm);
+}
+
+.conference-logo:hover {
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.1);
+}
+
+/* Conferencias que nos apoyan */
+.conferences-support {
+    margin-bottom: var(--spacing-4xl);
+}
+
+.conferences-support .strategic-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.conferences-support .strategic-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.conferences-support .strategic-title::before,
+.conferences-support .strategic-title::after {
+    content: '';
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+}
+
+.conferences-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-2xl);
+    padding: var(--spacing-2xl);
+    background: #374151; /* Caja gris oscuro */
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-md);
+    border: 1px solid #4b5563;
+    transition: var(--transition);
+}
+
+.conferences-logos:hover {
+    box-shadow: var(--shadow-lg);
+    background: #4b5563;
+}
+
+.conference-logo {
+    height: 90px;
+    width: auto;
+    max-width: 150px;
+    object-fit: contain;
+    filter: grayscale(50%) opacity(0.8);
+    transition: var(--transition);
+    padding: var(--spacing-sm);
+}
+
+.conference-logo:hover {
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.1);
+}
+
+/* Comunidades */
+.communities-support {
+    position: relative;
+}
+
+.communities-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.communities-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.communities-title::before,
+.communities-title::after {
+    content: '';
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+}
+
+.communities-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-2xl);
+    padding: var(--spacing-2xl);
+    background: #282c33; /* Caja gris oscuro */
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-md);
+    border: 1px solid #4b5563;
+    transition: var(--transition);
+}
+
+.communities-logos:hover {
+    box-shadow: var(--shadow-lg);
+    background: #374151;
+}
+
+.community-logo {
+    height: 90px;
+    width: auto;
+    max-width: 150px;
+    object-fit: contain;
+    filter: grayscale(50%) opacity(0.8);
+    transition: var(--transition);
+    padding: var(--spacing-sm);
+}
+
+.community-logo:hover {
+    filter: grayscale(10%) opacity(1);
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .conferences-support .strategic-title,
+    .communities-title {
+        font-size: var(--font-size-xl);
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+
+    .conferences-support .strategic-title::before,
+    .conferences-support .strategic-title::after,
+    .communities-title::before,
+    .communities-title::after {
+        width: 60px;
+    }
+
+    .conferences-logos,
+    .communities-logos {
+        gap: var(--spacing-lg);
+        padding: var(--spacing-xl);
+    }
+
+    .conference-logo,
+    .community-logo {
+        height: 90px;
+        max-width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .conferences-support .strategic-title,
+    .communities-title {
+        font-size: var(--font-size-lg);
+    }
+
+    .conferences-logos,
+    .communities-logos {
+        gap: var(--spacing-md);
+        padding: var(--spacing-lg);
+    }
+
+    .conference-logo,
+    .community-logo {
+        height: 90px;
+        max-width: 100px;
     }
 }
