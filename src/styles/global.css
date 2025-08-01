@@ -1391,3 +1391,277 @@ section {
         margin-left: 0;
     }
 }
+
+/* === SECCIÓN DE ALIANZAS === */
+.partnerships {
+    background: var(--bg-light);
+    position: relative;
+    overflow: hidden;
+}
+
+.partnerships::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(247, 147, 26, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(33, 212, 253, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.partnerships-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Aliados Estratégicos */
+.strategic-partners {
+    margin-bottom: var(--spacing-4xl);
+}
+
+.strategic-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.strategic-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.strategic-title::before,
+.strategic-title::after {
+    content: '';
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+}
+
+.strategic-description {
+    font-size: var(--font-size-base);
+    color: var(--text-light);
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-3xl);
+}
+
+.partner-card {
+    background: rgb(53, 52, 52);
+    padding: var(--spacing-2xl);
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.partner-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+}
+
+.partner-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-color);
+}
+
+.partner-card:hover::before {
+    transform: translateX(0);
+}
+
+.partner-logo {
+    height: 80px;
+    width: auto;
+    max-width: 200px;
+    object-fit: contain;
+    margin-bottom: var(--spacing-lg);
+    filter: grayscale(100%);
+    transition: var(--transition);
+}
+
+.partner-card:hover .partner-logo {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+.partner-name {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+.partner-description {
+    font-size: var(--font-size-sm);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* Sección de Apoyo Comunitario */
+.community-support {
+    position: relative;
+}
+
+.community-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.community-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.community-title::before,
+.community-title::after {
+    content: '';
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+}
+
+.community-description {
+    font-size: var(--font-size-base);
+    color: var(--text-light);
+    max-width: 400px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.community-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-2xl);
+    padding: var(--spacing-xl);
+    background: rgb(53, 52, 52);
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-color);
+}
+
+.community-logo {
+    height: 60px;
+    width: auto;
+    max-width: 150px;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.7);
+    transition: var(--transition);
+}
+
+.community-logo:hover {
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.1);
+}
+
+/* Animaciones y efectos especiales */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.partner-card:nth-child(odd) {
+    animation: float 6s ease-in-out infinite;
+}
+
+.partner-card:nth-child(even) {
+    animation: float 6s ease-in-out infinite reverse;
+}
+
+/* Responsive Design para Alianzas */
+@media (max-width: 768px) {
+    .partnerships {
+        padding: var(--spacing-2xl) 0;
+    }
+
+    .strategic-title,
+    .community-title {
+        font-size: var(--font-size-xl);
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+
+    .strategic-title::before,
+    .strategic-title::after,
+    .community-title::before,
+    .community-title::after {
+        width: 60px;
+    }
+
+    .partners-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .partner-card {
+        padding: var(--spacing-xl);
+    }
+
+    .community-logos {
+        gap: var(--spacing-lg);
+        padding: var(--spacing-lg);
+    }
+
+    .community-logo {
+        height: 50px;
+        max-width: 120px;
+    }
+
+    .partner-logo {
+        height: 70px;
+        max-width: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .strategic-title,
+    .community-title {
+        font-size: var(--font-size-lg);
+    }
+
+    .community-logos {
+        gap: var(--spacing-md);
+    }
+
+    .community-logo {
+        height: 40px;
+        max-width: 100px;
+    }
+}
