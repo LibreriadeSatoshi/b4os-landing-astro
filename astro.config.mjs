@@ -1,16 +1,14 @@
 // astro.config.mjs
 import { defineConfig } from 'astro/config';
+import icon from 'astro-icon';
 
 export default defineConfig({
-  // Configurar tu dominio aquí - cambia por tu URL de producción
   site: 'https://b4os.dev',
   
-  // Configuración para mejor SEO
   build: {
     format: 'directory'
   },
   
-  // Configuración básica de Vite
   vite: {
     build: {
       rollupOptions: {
@@ -21,5 +19,14 @@ export default defineConfig({
         }
       }
     }
-  }
+  },
+  
+  integrations: [
+    icon({
+      include: {
+        'simple-icons': ['bitcoin'], // Solo Bitcoin de Simple Icons
+        'heroicons': ['bolt'], // Para iconos de rayo/lightning
+      },
+    }),
+  ],  
 });
