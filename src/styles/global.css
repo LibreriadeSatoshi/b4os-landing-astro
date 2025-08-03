@@ -1463,7 +1463,7 @@ section {
 
 .partner-card {
     background: rgb(53, 52, 52);
-    padding: var(--spacing-2xl);
+    padding: var(--spacing-lg);
     border-radius: var(--border-radius-xl);
     box-shadow: var(--shadow-md);
     text-align: center;
@@ -1496,9 +1496,9 @@ section {
 }
 
 .partner-logo {
-    height: 80px;
-    width: auto;
-    max-width: 200px;
+    height: 130px;
+    width: 260px;
+    /* max-width: 150px;*/
     object-fit: contain;
     margin-bottom: var(--spacing-lg);
     filter: grayscale(100%);
@@ -1631,7 +1631,7 @@ section {
     }
 
     .partner-card {
-        padding: var(--spacing-xl);
+        padding: var(--spacing-md);
     }
 
     .community-logos {
@@ -1646,7 +1646,7 @@ section {
 
     .partner-logo {
         height: 70px;
-        max-width: 180px;
+        max-width: 140px;
     }
 }
 

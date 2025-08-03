@@ -25,7 +25,10 @@ export default defineConfig({
     icon({
       include: {
         'simple-icons': ['bitcoin'], // Solo Bitcoin de Simple Icons
-        'heroicons': ['bolt'], // Para iconos de rayo/lightning
+        'heroicons': ['chat-bubble-left-right','book-open','bolt', 
+          'code-bracket-square', 'computer-desktop', 'wrench-screwdriver',
+          'globe-americas', 'globe-europe-africa',
+        ],
       },
     }),
   ],  
