@@ -27,7 +27,7 @@ export default defineConfig({
         'simple-icons': ['bitcoin'], // Solo Bitcoin de Simple Icons
         'heroicons': ['chat-bubble-left-right','book-open','bolt', 
           'code-bracket-square', 'computer-desktop', 'wrench-screwdriver',
-          'globe-americas', 'globe-europe-africa',
+          'globe-americas', 'globe-europe-africa', 'envelope-solid'
         ],
       },
     }),
