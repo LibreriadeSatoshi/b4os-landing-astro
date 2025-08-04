@@ -596,6 +596,7 @@ section {
 /* Registration Section */
 .registration {
     background: linear-gradient(135deg, var(--bg-light) 0%, white 100%);
+    padding-top: var(--spacing-4xl);
 }
 
 .registration-content {
