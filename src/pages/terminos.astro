@@ -1,6 +1,7 @@
 ---
 // src/pages/terminos.astro
 import Layout from '../layouts/Layout.astro';
+import '../styles/terms.css';
 
 const pageTitle = "Términos y Condiciones - B4OS | Bitcoin 4 Open Source";
 const pageDescription = "Términos y condiciones del programa B4OS 2025. Información sobre selección de participantes, uso de datos, propiedad intelectual y políticas del programa.";
@@ -29,67 +30,124 @@ const pageDescription = "Términos y condiciones del programa B4OS 2025. Informa
 
     <!-- Contenido principal de términos -->
     <main class="terms-page">
-        <div class="container">
-            <article class="terms-content">
-                <header class="terms-header">
-                    <h1>Términos y Condiciones</h1>
-                    <p class="terms-intro">
-                        Al postularte al programa <strong>B4OS (Bitcoin for Open Source)</strong>, aceptas los siguientes términos y condiciones:
-                    </p>
-                </header>
+    <div class="container">
+        <article class="terms-content">
+        <header class="terms-header">
+            <h1>Términos y Condiciones</h1>
+        </header>
 
-                <section class="terms-section">
-                    <h2>1. Selección de Participantes</h2>
-                    <p>
-                        Nos reservamos el derecho de aceptar únicamente a las personas que, a nuestro criterio, cumplan con el perfil, valores y objetivos del programa. La decisión del equipo organizador es final y no se encuentra sujeta a apelación.
-                    </p>
-                </section>
+        <section class="terms-section">
+            <h2>1. Objeto y Aceptación de los Términos</h2>
+            <p>
+            El presente documento establece los términos y condiciones que rigen la participación en el programa "B4OS 2025/26" organizado por B4OS. La inscripción y/o participación en el Programa implica la aceptación total y sin reservas de todos los términos aquí descritos. La falta de aceptación de estos términos resultará en la exclusión del Programa.
+            </p>
+        </section>
 
-                <section class="terms-section">
-                    <h2>2. Uso de la Información</h2>
-                    <p>
-                        La información personal que proporciones será utilizada exclusivamente para fines legítimos relacionados con el programa B4OS, como la evaluación de candidaturas, la comunicación con participantes y el seguimiento académico. No compartiremos tus datos con terceros ajenos al programa sin tu consentimiento.
-                    </p>
-                </section>
+        <section class="terms-section">
+            <h2>2. Participación y Requisitos</h2>
+            
+            <h3>2.1. Proceso de Admisión</h3>
+            <p>
+            El proceso de admisión al Programa se llevará a cabo en el período especificado por la organización. La selección de los participantes se realizará en base a la evaluación de la información proporcionada en el formulario de registro y, en su caso, en los resultados de los desafíos de código, así como otros criterios de selección internos.
+            </p>
 
-                <section class="terms-section">
-                    <h2>3. Comunicación y Marketing</h2>
-                    <p>
-                        Podemos enviarte correos electrónicos relacionados con el programa, incluyendo actualizaciones, recordatorios y oportunidades futuras. Puedes darte de baja en cualquier momento.
-                    </p>
-                </section>
+            <h3>2.2. Elegibilidad</h3>
+            <p>
+            El Programa está dirigido a desarrolladores con un perfil senior y/o un nivel de experiencia técnica que les permita contribuir eficazmente a proyectos de software de código abierto. B4OS se reserva el derecho de admisión de los participantes.
+            </p>
+        </section>
 
-                <section class="terms-section">
-                    <h2>4. Propiedad Intelectual</h2>
-                    <p>
-                        Todo el contenido educativo, materiales y documentación provistos en el programa son propiedad de B4OS y/o sus colaboradores. Su uso está restringido a fines educativos dentro del marco del programa.
-                    </p>
-                </section>
+        <section class="terms-section">
+            <h2>3. Estructura y Obligaciones del Programa</h2>
+            
+            <h3>3.1. Fase de Challenges</h3>
+            <p>
+            La fase de Challenges se desarrollará en el período especificado por la organización. Los participantes seleccionados en esta fase deberán demostrar su conocimiento técnico y habilidades de programación a través de la resolución de ejercicios de código. Esta fase es asíncrona en la plataforma GitHub Classroom y la comunicación se gestionará principalmente a través de la plataforma Discord.
+            </p>
 
-                <section class="terms-section">
-                    <h2>5. Modificaciones</h2>
-                    <p>
-                        Nos reservamos el derecho de modificar estos términos en cualquier momento. Te notificaremos en caso de cambios relevantes.
-                    </p>
-                </section>
+            <h3>3.2. Fase de Construcción de Portafolio y Contribución FOSS</h3>
+            <p>
+            Los participantes que superen la fase de Challenges ingresarán a la fase de Construcción de Portafolio y Contribución FOSS, que se llevará a cabo en el período especificado por la organización. Durante este período, los participantes deberán:
+            </p>
+            <ul>
+            <li>Contribuir activamente a un proyecto de código abierto dentro de su path especializado (Bitcoin Core, Lightning Network, Nostr).</li>
+            <li>Participar en sesiones grupales y charlas con invitados especiales.</li>
+            <li>Mantener una comunicación regular con sus mentores y el equipo del Programa.</li>
+            </ul>
 
-                <section class="terms-contact">
-                    <h2>Contacto</h2>
-                    <p>
-                        Si tienes dudas, puedes contactarnos en 
-                        <a href="mailto:courses@libreriadesatoshi.com">courses@libreriadesatoshi.com</a>
-                    </p>
-                </section>
+            <h3>3.3. Plataformas Tecnológicas</h3>
+            <p>
+            Para la correcta ejecución del Programa, los participantes se comprometen a utilizar las siguientes plataformas:
+            </p>
+            <ul>
+            <li><strong>Discord:</strong> Para la comunicación general, el soporte técnico y la interacción con la comunidad.</li>
+            <li><strong>GitHub Classroom:</strong> Para la entrega y evaluación de los ejercicios de código.</li>
+            <li><strong>Plataforma de Aprendizaje Online (LMS):</strong> Para el acceso a materiales didácticos y recursos del Programa.</li>
+            </ul>
+        </section>
 
-                <footer class="terms-footer">
-                    <p><strong>Última actualización:</strong> Agosto 2025</p>
-                    <div class="terms-actions">
-                        <button onclick="window.close()" class="btn btn-primary">Cerrar</button>
-                        <a href="/#registro" class="btn btn-secondary">Ir al registro</a>
-                    </div>
-                </footer>
-            </article>
-        </div>
+        <section class="terms-section">
+            <h2>4. Propiedad Intelectual y Licenciamiento</h2>
+            <p>
+            Todas las contribuciones de código realizadas por los participantes a proyectos de software de código abierto (FOSS) deberán cumplir con las licencias de código abierto aplicables a dichos proyectos. B4OS no reclamará derechos de autor sobre las contribuciones de los participantes a los proyectos FOSS externos.
+            </p>
+            <p>
+            Todo el contenido educativo, materiales y documentación provistos en el programa que no sea específicamente señalado como de licencia o código libre, es propiedad de B4OS y/o sus colaboradores y/o sus respectivos dueños. Su uso queda restringido a fines educativos dentro del marco del programa.
+            </p>
+        </section>
+
+        <section class="terms-section">
+            <h2>5. Conducta y Código de Convivencia</h2>
+            <p>
+            Los participantes se comprometen a mantener una conducta respetuosa y profesional en todas las interacciones dentro y fuera de las plataformas del Programa (incluyendo Discord, sesiones online y eventos presenciales). Queda estrictamente prohibido el acoso, la discriminación, la incitación al odio o cualquier otro comportamiento considerado inaceptable dentro del Código de Conducta. El incumplimiento de este código podrá ser motivo de expulsión inmediata del Programa.
+            </p>
+        </section>
+
+        <section class="terms-section">
+            <h2>6. Descargo de Responsabilidad</h2>
+            <p>
+            <strong>Becas y Residencia:</strong> El Programa no garantiza la obtención de becas ni la invitación a la Residencia Presencial. La selección para estos procesos es independiente y se basa en el desempeño demostrado por cada participante durante el Programa, según los criterios de evaluación establecidos y comunicados por B4OS.
+            </p>
+        </section>
+
+        <section class="terms-section">
+            <h2>7. Protección de Datos Personales</h2>
+            <p>
+            Los participantes autorizan a B4OS a recopilar, procesar y almacenar sus datos personales con el fin de gestionar la inscripción, participación y seguimiento del Programa. Los datos serán tratados de acuerdo con las políticas de privacidad de B4OS y la legislación aplicable en materia de protección de datos. Nunca compartiremos tus datos con terceros ajenos al programa sin tu consentimiento.
+            </p>
+        </section>
+
+        <section class="terms-section">
+            <h2>8. Comunicaciones y Marketing</h2>
+            <p>
+            Al participar en el Programa, los participantes aceptan recibir comunicaciones relacionadas con el mismo y con el ecosistema de B4OS, incluyendo invitaciones a futuros eventos, programas y noticias relevantes. El participante puede revocar este consentimiento en cualquier momento.
+            </p>
+        </section>
+
+        <section class="terms-section">
+            <h2>9. Disposiciones Generales</h2>
+            <p>
+            B4OS se reserva el derecho de modificar estos Términos y Condiciones en cualquier momento. Las modificaciones entrarán en vigor a partir de su publicación en la página web del Programa. Es responsabilidad del participante revisar periódicamente los términos actualizados.
+            </p>
+        </section>
+
+        <section class="terms-contact">
+            <h2>Contacto</h2>
+            <p>
+            Si tienes dudas, puedes contactarnos en
+            <a href="mailto:courses@libreriadesatoshi.com">courses@libreriadesatoshi.com</a>
+            </p>
+        </section>
+
+        <footer class="terms-footer">
+            <p><strong>Última actualización:</strong> Agosto 2025</p>
+            <div class="terms-actions">
+            <button onclick="window.close()" class="btn btn-primary">Cerrar</button>
+            <a href="/#registro" class="btn btn-primary">Ir al registro</a>
+            </div>
+        </footer>
+        </article>
+    </div>
     </main>
 
     <!-- Footer simplificado -->
@@ -102,168 +160,11 @@ const pageDescription = "Términos y condiciones del programa B4OS 2025. Informa
                     </div>
                     <nav class="footer-legal" aria-label="Enlaces legales">
                         <a href="/terminos" rel="nofollow">Términos de Uso</a>
-                        <a href="/privacidad" rel="nofollow">Política de Privacidad</a>
-                        <a href="/codigo-conducta" rel="nofollow">Código de Conducta</a>
+                   <!-- <a href="/privacidad" rel="nofollow">Política de Privacidad</a>
+                        <a href="/codigo-conducta" rel="nofollow">Código de Conducta</a>-->
                     </nav>
                 </div>
             </div>
         </div>
     </footer>
 </Layout>
-
-<style>
-/* Estilos específicos para la página de términos */
-.terms-page {
-    min-height: calc(100vh - 200px);
-    padding: var(--spacing-4xl) 0 var(--spacing-2xl);
-    background: var(--bg-light);
-}
-
-.nav-close-btn {
-    background: none;
-    border: none;
-    font-family: inherit;
-    font-size: inherit;
-    cursor: pointer;
-    padding: var(--spacing-sm) 0;
-    transition: var(--transition);
-}
-
-.nav-close-btn:hover {
-    color: var(--primary-color);
-}
-
-.terms-content {
-    max-width: 800px;
-    margin: 0 auto;
-    background: white;
-    border-radius: var(--border-radius-xl);
-    box-shadow: var(--shadow-lg);
-    padding: var(--spacing-3xl);
-}
-
-.terms-header {
-    text-align: center;
-    margin-bottom: var(--spacing-3xl);
-    padding-bottom: var(--spacing-xl);
-    border-bottom: 2px solid var(--border-color);
-}
-
-.terms-header h1 {
-    font-size: var(--font-size-4xl);
-    font-weight: 700;
-    color: var(--text-dark);
-    margin-bottom: var(--spacing-lg);
-}
-
-.terms-intro {
-    font-size: var(--font-size-lg);
-    color: var(--text-light);
-    line-height: 1.7;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.terms-section {
-    margin-bottom: var(--spacing-2xl);
-}
-
-.terms-section h2 {
-    font-size: var(--font-size-xl);
-    font-weight: 600;
-    color: var(--primary-color);
-    margin-bottom: var(--spacing-md);
-    padding-bottom: var(--spacing-xs);
-    border-bottom: 1px solid var(--border-color);
-}
-
-.terms-section p {
-    color: var(--text-light);
-    line-height: 1.7;
-    font-size: var(--font-size-base);
-}
-
-.terms-contact {
-    background: var(--bg-light);
-    padding: var(--spacing-xl);
-    border-radius: var(--border-radius-lg);
-    margin-bottom: var(--spacing-2xl);
-}
-
-.terms-contact h2 {
-    font-size: var(--font-size-lg);
-    color: var(--text-dark);
-    margin-bottom: var(--spacing-sm);
-    border: none;
-}
-
-.terms-contact a {
-    color: var(--primary-color);
-    text-decoration: underline;
-    font-weight: 500;
-}
-
-.terms-contact a:hover {
-    color: var(--primary-dark);
-}
-
-.terms-footer {
-    text-align: center;
-    padding-top: var(--spacing-xl);
-    border-top: 2px solid var(--border-color);
-}
-
-.terms-footer p {
-    color: var(--text-light);
-    font-size: var(--font-size-sm);
-    margin-bottom: var(--spacing-lg);
-}
-
-.terms-actions {
-    display: flex;
-    gap: var(--spacing-md);
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .terms-page {
-        padding: var(--spacing-2xl) 0;
-    }
-    
-    .terms-content {
-        margin: 0 var(--spacing-md);
-        padding: var(--spacing-2xl) var(--spacing-lg);
-    }
-    
-    .terms-header h1 {
-        font-size: var(--font-size-3xl);
-    }
-    
-    .terms-intro {
-        font-size: var(--font-size-base);
-    }
-    
-    .terms-actions {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .terms-actions .btn {
-        width: 100%;
-        max-width: 300px;
-    }
-}
-
-@media (max-width: 480px) {
-    .terms-content {
-        margin: 0 var(--spacing-sm);
-        padding: var(--spacing-xl) var(--spacing-md);
-    }
-    
-    .terms-header h1 {
-        font-size: var(--font-size-2xl);
-    }
-}
-</style>
