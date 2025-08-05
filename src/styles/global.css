@@ -1392,6 +1392,226 @@ section {
     animation: floatCard 6s ease-in-out infinite reverse;
 }
 
+/* Alumni Section */
+.alumni {
+    background: linear-gradient(135deg, var(--bg-light) 0%, white 100%);
+    padding: var(--spacing-4xl) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.alumni::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 15% 25%, rgba(247, 147, 26, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 85% 75%, rgba(33, 212, 253, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.alumni .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Year Badge */
+.alumni-year-badge {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+}
+
+.year-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: var(--text-white);
+    padding: var(--spacing-sm) var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    font-weight: 700;
+    font-size: var(--font-size-lg);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.year-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.8s ease;
+}
+
+.year-badge:hover::before {
+    left: 100%;
+}
+
+/* Alumni Grid */
+.alumni-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-2xl);
+    margin-bottom: var(--spacing-3xl);
+}
+
+/* Alumni Card */
+.alumni-card {
+    background: white;
+    border-radius: var(--border-radius-xl);
+    padding: var(--spacing-2xl);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.alumni-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.alumni-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-color);
+}
+
+.alumni-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Alumni Avatar */
+.alumni-avatar {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto var(--spacing-lg);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.alumni-card:hover .alumni-avatar {
+    border-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.alumni-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.alumni-card:hover .alumni-avatar img {
+    transform: scale(1.1);
+}
+
+/* Alumni Icons */
+/* Reemplaza las reglas de .alumni-avatar y .alumni-icons en tu CSS */
+
+/* Alumni Avatar */
+.alumni-avatar {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto var(--spacing-lg);
+    border-radius: 50%;
+    overflow: visible; /* Cambiado de hidden a visible */
+    border: 4px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.alumni-card:hover .alumni-avatar {
+    border-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.alumni-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+    border-radius: 50%; /* Añadido para que la imagen sea circular */
+}
+
+.alumni-card:hover .alumni-avatar img {
+    transform: scale(1.1);
+}
+
+/* Alumni Icons */
+.alumni-icons {
+    position: absolute;
+    bottom: -8px;
+    right: -8px;
+    display: flex;
+    gap: var(--spacing-xs);
+    background: white;
+    padding: var(--spacing-xs);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: var(--transition);
+    z-index: 10; /* Añadido z-index alto */
+}
+
+.alumni-card:hover .alumni-icons {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.alumni-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--bg-light);
+    color: var(--text-light);
+    transition: var(--transition);
+    text-decoration: none;
+    padding: 6px;
+    z-index: 11; /* Z-index aún más alto para los enlaces */
+}
+
+.alumni-icons a svg {
+    width: 16px;
+    height: 16px;
+    color: inherit;
+    transition: var(--transition);
+}
+
+.alumni-icons a:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: scale(1.1);
+}
+
+.alumni-icons a:hover svg {
+    color: white;
+}
+
 /* Responsive Design */
 @media (min-width: 1024px) {
     .hero .program-grid {

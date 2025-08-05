@@ -30,6 +30,7 @@ const pageKeywords = "B4OS 2025, programa Bitcoin desarrolladores, formación Bi
                     <a href="#registro" class="nav-link">Registro</a>
                     <a href="#beneficios" class="nav-link">Beneficios</a>
                     <a href="#alianzas" class="nav-link">Alianzas</a>
+                    <a href="#alumni" class="nav-link">Alumnos</a>
                     <a href="#contacto" class="nav-link">Contacto</a>
                 </div>
                 <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de navegación" aria-expanded="false">
@@ -132,7 +133,163 @@ const pageKeywords = "B4OS 2025, programa Bitcoin desarrolladores, formación Bi
             </div>
         </div>
     </section>
+    <!-- Alumni Section - Añadir antes del footer en index.astro -->
+    <section id="alumni" class="alumni">
+        <div class="container">
+            <header class="section-header">
+                <h2 class="section-title">Alumni Destacados B4OS</h2>
+                <p class="section-subtitle">
+                    Conoce a algunos de nuestros <strong>graduados más exitosos</strong> que ahora contribuyen activamente 
+                    al ecosistema Bitcoin y proyectos FOSS
+                </p>
+            </header>
+            
+            <div class="alumni-year-badge">
+                <span class="year-badge">2024 B4OS ALUMNI</span>
+            </div>
 
+            <div class="alumni-grid">
+                <!-- Alumni Card 1 -->
+                <article class="alumni-card">
+                    <div class="alumni-avatar">
+                        <img src="/fledesma.png" alt="Fernando Ledesma" loading="lazy">
+                        <div class="alumni-icons">
+                            <a href="https://github.com/f3r10" aria-label="GitHub de Fernando" target="_blank" rel="noopener">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/fernando-ledesma-ec" aria-label="LinkedIn de Fernando" target="_blank" rel="noopener">
+                                <Icon name="mdi:linkedin" size={24} />
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="alumni-name">Fernando Ledesma</h3>
+                    <p class="alumni-description">
+                        Financiado por <span class="sponsor-highlight">B4OS</span> Contribuye a tiempo completo en 
+                        <span class="project-highlight">SimLN</span> y <span class="project-highlight">LNK</span>
+                    </p>
+                </article>
+                <!-- Alumni Card 2 -->
+                <article class="alumni-card">
+                    <div class="alumni-avatar">
+                        <img src="/sliv3r.jpg" alt="Pol Espinasa" loading="lazy">
+                        <div class="alumni-icons">
+                            <a href="https://github.com/polespinasa" aria-label="GitHub de Pol Espinasa" target="_blank" rel="noopener">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </a>
+                            <a href="https://x.com/sliv3r__" aria-label="Twitter de Pol Espinasa" target="_blank" rel="noopener">
+                                <Icon name="mdi:twitter" size={24} />
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="alumni-name">Pol Espinasa</h3>
+                    <p class="alumni-description">
+                        <a href="https://lclhost.org/" target="_blank" rel="noopener">
+                            <span class="sponsor-highlight">LocalHost </span>
+                        </a> 
+                        Intern 2.025
+                    </p>
+                </article>                
+                
+                <!-- Alumni Card 3 -->
+                <article class="alumni-card">
+                    <div class="alumni-avatar">
+                        <img src="/maurice.jpg" alt="Maurice Poirrier" loading="lazy">
+                        <div class="alumni-icons">
+                            <a href="http://github.com/a-mpch" aria-label="GitHub de Maurice Poirrier" target="_blank" rel="noopener">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/maurice-poirrier/" aria-label="LinkedIn de Maurice Poirrier" target="_blank" rel="noopener">
+                                <Icon name="mdi:linkedin" size={24} />
+                            </a>
+                            <a href="https://x.com/mauricepoirrier" aria-label="Twitter de Maurice Poirrier" target="_blank" rel="noopener">
+                                <Icon name="mdi:twitter" size={24} />
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="alumni-name">Maurice Poirrier</h3>
+                    <p class="alumni-description">
+                        Financiado por <a href="https://spiral.xyz" target="_blank" rel="noopener"><span class="sponsor-highlight">Spiral</span></a> Contribuye al proyecto
+                        <span class="project-highlight">LNDK BOLT12</span> como mantenedor principal.
+                    </p>
+                </article>
+                <!-- Alumni Card 4 -->
+                <article class="alumni-card">
+                    <div class="alumni-avatar">
+                        <img src="/nymius.jpeg" alt="Nymius" loading="lazy">
+                        <div class="alumni-icons">
+                            <a href="https://github.com/nymius" aria-label="GitHub de Nymius" target="_blank" rel="noopener">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="alumni-name">Nymius</h3>
+                    <p class="alumni-description">
+                        Financiado por <a href="https://bitcoindevkit.org/" target="_blank" rel="noopener"><span class="sponsor-highlight">BDK</span></a> Contribuye al proyecto
+                        para implementar el soporte a <span class="project-highlight">Silent Payments (BIP 352)</span> en BDK
+                    </p>
+                </article>
+                <!-- Alumni Card 5 -->
+                <article class="alumni-card">
+                    <div class="alumni-avatar">
+                        <img src="/josefinalliende.jpeg" alt="Josefina Alliende" loading="lazy">
+                        <div class="alumni-icons">
+                            <a href="https://github.com/josefinalliende" aria-label="GitHub de Josefina Alliende" target="_blank" rel="noopener">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/mar%C3%ADa-josefina-alliende/" aria-label="LinkedIn de Josefina Alliende" target="_blank" rel="noopener">
+                                <Icon name="mdi:linkedin" size={24} />
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="alumni-name">Josefina Alliende</h3>
+                    <p class="alumni-description">
+                        Financiada por <a href="https://github.com/parres-hq/whitenoise" target="_blank" rel="noopener"><span class="sponsor-highlight">White Noise y B4OS</span></a> Contribuye al proyecto
+                        <span class="project-highlight">White Noise</span>
+                    </p>
+                </article>                                   
+                <!-- Alumni Card 6 -->
+                <article class="alumni-card">
+                    <div class="alumni-avatar">
+                        <img src="/jmontoya.jpg" alt="Javier Montoya" loading="lazy">
+                        <div class="alumni-icons">
+                            <a href="https://github.com/jgmontoya" aria-label="GitHub de Javier Montoya" target="_blank" rel="noopener">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/jgmontoya/" aria-label="LinkedIn de Javier Montoya" target="_blank" rel="noopener">
+                                <Icon name="mdi:linkedin" size={24} />
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="alumni-name">Javier Montoya</h3>
+                    <p class="alumni-description">
+                        Financiado por <a href="https://github.com/parres-hq/whitenoise" target="_blank" rel="noopener"><span class="sponsor-highlight">White Noise</span></a> Contribuye al proyecto
+                        <span class="project-highlight">White Noise</span>
+                    </p>
+                </article>                                   
+
+            </div>
+
+            <!-- Call to Action -->
+            <div class="alumni-cta">
+                <p class="alumni-cta-text">
+                    ¿Quieres ser el próximo en esta lista? 
+                    <a href="#registro" class="alumni-cta-link">¡Únete a B4OS 2025!</a>
+                </p>
+            </div>
+        </div>
+    </section>
     <!-- Residencies section con mejoras SEO -->
     <section id="residencias" class="program-overview">
         <div class="container">
