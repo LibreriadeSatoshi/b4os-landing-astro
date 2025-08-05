@@ -252,6 +252,11 @@ body {
     flex-wrap: wrap;
 }
 
+.hero-title-stats {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-lg);
+}
+
 .hero-stats {
     display: flex;
     justify-content: center;
@@ -1449,7 +1454,7 @@ section {
     .hero-stats {
         gap: var(--spacing-lg);
     }
-    
+
     .hero .program-grid {
         grid-template-columns: 1fr;
         gap: var(--spacing-md);
