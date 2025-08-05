@@ -19,6 +19,7 @@ const {
 } = Astro.props;
 
 import '../styles/global.css';
+import '../styles/nav.css';
 
 // Configurar site base URL - cambiar por tu dominio en producción
 const siteUrl = Astro.site ? Astro.site.toString() : 'https://b4os.dev';
@@ -208,6 +209,7 @@ const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`
                 // Cargar scripts en orden
                 await loadScript('/js/location-api.js', () => typeof window.LocationAPI !== 'undefined');
                 await loadScript('/js/form-handler.js', () => typeof window.FormHandler !== 'undefined');
+                await loadScript('/js/nav.js', () => typeof window.NavigationHandler !== 'undefined');
                 await loadScript('/js/main.js', () => true);
                 
                 const form = document.getElementById('registrationForm');
@@ -226,7 +228,7 @@ const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`
                 console.error('Error initializing B4OS:', error);
                 
                 // Fallback silencioso
-                const scripts = ['/js/location-api.js', '/js/form-handler.js', '/js/main.js'];
+                const scripts = ['/js/location-api.js', '/js/form-handler.js', '/js/nav.js', '/js/main.js'];
                 scripts.forEach(src => {
                     const script = document.createElement('script');
                     script.src = src;
@@ -235,6 +237,12 @@ const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`
                 });
                 
                 setTimeout(async () => {
+                    // Intentar inicializar navegación si está disponible
+                    if (typeof window.NavigationHandler !== 'undefined') {
+                        const nav = new window.NavigationHandler();
+                        nav.init();
+                    }
+
                     if (typeof window.FormHandler !== 'undefined') {
                         const form = document.getElementById('registrationForm');
                         if (form) {
