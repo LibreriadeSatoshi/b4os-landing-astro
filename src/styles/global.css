@@ -1238,10 +1238,21 @@ section {
     margin: 0;
 }
 
+.footer-social a svg {
+    color: rgba(255, 255, 255, 0.8);
+    transition: var(--transition);
+}
+
+.footer-social a:hover svg {
+    color: var(--primary-color);
+}
+
+
 .heart {
     color: #f7931a;
-    font-size: 1.1em;
+    font-size: 1.3em;
     animation: heartbeat 2s ease-in-out infinite;
+    display: inline-block;
 }
 
 @keyframes heartbeat {
