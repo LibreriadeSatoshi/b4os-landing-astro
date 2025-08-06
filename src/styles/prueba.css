@@ -40,7 +40,7 @@
             transparent 100%                 /* Imagen completamente visible */
         ),
         /* Usando la imagen del proyecto */
-        url('images/team-working-4.jpg') no-repeat center center;
+        url('/images/team-working-4.jpg') no-repeat center center;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
