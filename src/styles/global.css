@@ -174,9 +174,12 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: 
-        linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(26, 26, 26, 0.8) 100%),
-        url('images/laptop-code-1.jpg') no-repeat center center;
+    background:
+        linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(26, 26, 26, 0.1) 100%),
+        url('images/team-working-4.jpg') no-repeat center center;
+        /*url('images/team-working-3.jpg') no-repeat center center;*/
+        /*url('images/dev-working-6.jpg') no-repeat center center;*/
+        /*url('images/laptop-code-1.jpg') no-repeat center center;*/
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -247,7 +250,7 @@ body {
     display: block;
     font-size: var(--font-size-xl);
     font-weight: 400;
-    color: var(--text-light);
+    color: var(--text-white);
 }
 
 .hero-description {
