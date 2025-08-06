@@ -174,10 +174,22 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+    background: 
+        linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(26, 26, 26, 0.8) 100%),
+        url('images/dev-working-4.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: var(--text-white);
     overflow: hidden;
 }
+
+/* Ocultar el div hero-media */
+.hero-media {
+    display: none;
+}
+
+
 
 .hero-background {
     position: absolute;
@@ -223,7 +235,8 @@ body {
     display: block;
     font-size: var(--font-size-5xl);
     font-weight: 700;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    /*background: linear-gradient(135deg, var(--primary-color), var(--accent-color));*/
+    background-color: var(--primary-color);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -255,6 +268,19 @@ body {
 .hero-title-stats {
     font-size: var(--font-size-2xl);
     margin-bottom: var(--spacing-lg);
+}
+
+/* Responsive: Ajustar posición de fondo en móviles */
+@media (max-width: 768px) {
+    .hero {
+        background-position: center right;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        background-position: 60% center; /* Ajusta según tu imagen específica */
+    }
 }
 
 .hero-stats {
@@ -1456,12 +1482,12 @@ section {
 
 /* Alumni Grid */
 .alumni-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: var(--spacing-2xl);
     margin-bottom: var(--spacing-3xl);
+    justify-content: center; /* Centra los elementos horizontalmente */
 }
-
 /* Alumni Card */
 .alumni-card {
     background: white;
@@ -1473,6 +1499,8 @@ section {
     position: relative;
     overflow: hidden;
     border: 1px solid var(--border-color);
+    flex: 0 0 auto;
+    width: 240px;
 }
 
 .alumni-card::before {

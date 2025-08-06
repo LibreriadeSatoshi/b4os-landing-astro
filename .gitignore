@@ -163,3 +163,6 @@ Thumbs.db
 
 # Astro specific
 .astro/
+
+# Ignore specific files
+*.bk
