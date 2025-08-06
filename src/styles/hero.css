@@ -112,7 +112,7 @@
                 rgba(0, 0, 0, 0.3) 70%,
                 transparent 100%
             ),
-            url('images/team-working-4.jpg') no-repeat center center;
+            url('/images/team-working-4.jpg') no-repeat center center;
         background-size: cover;
         background-position: center left; /* CAMBIO: En móvil, imagen a la izquierda */
     }
