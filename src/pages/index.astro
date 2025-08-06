@@ -44,9 +44,101 @@ const pageKeywords = "B4OS 2025, programa Bitcoin desarrolladores, formación Bi
 
     <!-- Hero Section con mejoras SEO -->
     <section id="inicio" class="hero">
+    <!-- Carousel de imágenes de fondo -->
+    <div class="hero-carousel">
+        <div class="carousel-track">
+            <div class="carousel-slide active">
+                <!-- Usando Unsplash para placeholder confiable -->
+                <!--<img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" -->
+                <img src="images/dev-working-4.webp" 
+                     alt="Desarrolladora trabajando en Bitcoin" 
+                     loading="eager"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <!-- Fallback si falla la imagen -->
+                <div style="
+                    width: 100%; height: 100%; 
+                    background: linear-gradient(45deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+                    display: none; align-items: center; justify-content: center; color: #666;
+                ">
+                    <div style="text-align: center; opacity: 0.3;">
+                        <svg width="120" height="120" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                        </svg>
+                        <p>Bitcoin Developer</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="carousel-slide">
+                <!--<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" -->
+                <img src="images/dev-working-5.webp"  
+                     alt="Programadora desarrollando software" 
+                     loading="lazy"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div style="
+                    width: 100%; height: 100%; 
+                    background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 50%, #3d3d3d 100%);
+                    display: none; align-items: center; justify-content: center; color: #666;
+                ">
+                    <div style="text-align: center; opacity: 0.3;">
+                        <svg width="120" height="120" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <p>Lightning Development</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="carousel-slide">
+                <!-- https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80 -->
+                <img src="images/team-working-1.webp" 
+                     alt="Equipo de desarrolladores colaborando" 
+                     loading="lazy"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div style="
+                    width: 100%; height: 100%; 
+                    background: linear-gradient(225deg, #3d3d3d 0%, #1a1a1a 50%, #2d2d2d 100%);
+                    display: none; align-items: center; justify-content: center; color: #666;
+                ">
+                    <div style="text-align: center; opacity: 0.3;">
+                        <svg width="120" height="120" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                        <p>Open Source</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="carousel-slide">
+                <!--<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"-->
+                <img src="images/team-working-2.webp" 
+                     alt="Sesión de mentoría y aprendizaje" 
+                     loading="lazy"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div style="
+                    width: 100%; height: 100%; 
+                    background: linear-gradient(315deg, #1a1a1a 0%, #3d3d3d 50%, #2d2d2d 100%);
+                    display: none; align-items: center; justify-content: center; color: #666;
+                ">
+                    <div style="text-align: center; opacity: 0.3;">
+                        <svg width="120" height="120" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                        </svg>
+                        <p>Mentorship</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Overlay para legibilidad -->
+        <div class="hero-overlay"></div>
+
         <div class="hero-background" aria-hidden="true">
             <div class="hero-particles"></div>
         </div>
+
+
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">
@@ -56,20 +148,11 @@ const pageKeywords = "B4OS 2025, programa Bitcoin desarrolladores, formación Bi
                 <div class="hero-actions">
                     <a href="#registro" class="btn btn-primary" rel="nofollow">Aceptar el Reto</a>
                     <a href="#residencias" class="btn btn-secondary">Conocer las Residencias</a>
-                </div>                
-                <h2>
-                    <p class="hero-description">
-                       <strong>B4OS</strong> es un programa de entrenamiento gratuito en Bitcoin enfocado, pero no exclusivo, en devs senior que les permite 
-                        tener una carrera prestigiosa en <abbr title="Free and Open Source Software">FOSS</abbr>, código abierto. Durante  6 meses, los 
-                        devs participan a tiempo parcial para mejorar sus habilidades técnicas, construir un sólido portafolio internacional a través 
-                        de colaboraciones en proyectos reales, y recibir mentoría de algunos de los líderes más respetados del ecosistema.
-                        Solo los mejores recibirán prestigiosos grants para dedicarse full time a Bitcoin Open Source.
-                    </p>
-                </h2>
+                </div>
 
                 <div class="hero-title-stats">
                     <h3>
-                        <span class="hero-title-stats-label">¡B4OS 2.024 FUE UN ÉXITO!</span>
+                        <span class="hero-title-stats-label">¡B4OS 2024 FUE UN ÉXITO!</span>
                     </h3>   
                 </div>
                 <div class="hero-stats" role="complementary" aria-label="Estadísticas del programa">
@@ -90,6 +173,26 @@ const pageKeywords = "B4OS 2025, programa Bitcoin desarrolladores, formación Bi
                         <span class="stat-label">Part-time o Micro-grant <br> Grantees</span>
                     </div>
 
+                </div>
+                <!-- Contenido principal con carrusel -->
+                <div class="hero-content-carousel">
+                    <div class="hero-text-blocks">
+                        <div class="hero-text-left">
+                            <h3>
+                                B4OS es un programa técnico enfocado en developers senior, aunque no exclusivo, que buscan 
+                                construir una carrera reconocida en el ecosistema Open Source.
+                            </h3>
+                        </div>
+
+                        <div class="hero-text-right">
+                            <h3>Durante 6 meses, los participantes mejoran sus habilidades, colaboran en proyectos reales 
+                                y reciben mentoría de referentes del ecosistema.
+                            </h3>
+                            <p>
+                                <span class="highlight">Solo los mejores obtendrán grants para dedicarse full time a Bitcoin Open Source.</span>
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 <div>
                     <h3 class="hero-title-stats">

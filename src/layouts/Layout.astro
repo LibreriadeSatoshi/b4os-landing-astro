@@ -20,6 +20,7 @@ const {
 
 import '../styles/global.css';
 import '../styles/nav.css';
+import '../styles/carousel.css';
 
 // Configurar site base URL - cambiar por tu dominio en producción
 const siteUrl = Astro.site ? Astro.site.toString() : 'https://b4os.dev';
@@ -210,8 +211,14 @@ const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`
                 await loadScript('/js/location-api.js', () => typeof window.LocationAPI !== 'undefined');
                 await loadScript('/js/form-handler.js', () => typeof window.FormHandler !== 'undefined');
                 await loadScript('/js/nav.js', () => typeof window.NavigationHandler !== 'undefined');
+                await loadScript('/js/carousel.js', () => typeof window.HeroCarousel !== 'undefined'); // NUEVO
                 await loadScript('/js/main.js', () => true);
                 
+                // Inicializar carousel si está en la página principal
+                if (document.querySelector('.hero-carousel')) {
+                    window.initHeroCarousel();
+                }
+                                
                 const form = document.getElementById('registrationForm');
                 if (!form) return;
                 
@@ -228,7 +235,7 @@ const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`
                 console.error('Error initializing B4OS:', error);
                 
                 // Fallback silencioso
-                const scripts = ['/js/location-api.js', '/js/form-handler.js', '/js/nav.js', '/js/main.js'];
+                const scripts = ['/js/location-api.js', '/js/form-handler.js', '/js/nav.js', '/js/carousel.js', '/js/main.js'];
                 scripts.forEach(src => {
                     const script = document.createElement('script');
                     script.src = src;
@@ -241,6 +248,10 @@ const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`
                     if (typeof window.NavigationHandler !== 'undefined') {
                         const nav = new window.NavigationHandler();
                         nav.init();
+                    }
+                    // Inicializar carousel si está disponible
+                    if (typeof window.initHeroCarousel !== 'undefined') {
+                        window.initHeroCarousel();
                     }
 
                     if (typeof window.FormHandler !== 'undefined') {
