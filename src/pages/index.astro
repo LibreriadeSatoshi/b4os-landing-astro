@@ -25,6 +25,7 @@ const pageKeywords = "B4OS 2025, programa Bitcoin desarrolladores, formación Bi
                     </a>
                 </div>
                 <div class="nav-menu" id="navMenu">
+                    <a href="#objectives" class="nav-link">Objetivos</a>
                     <a href="#alumni" class="nav-link">Alumnos</a>
                     <a href="#residencias" class="nav-link">Residencias</a>
                     <a href="#cronograma" class="nav-link">Cronograma</a>
@@ -42,26 +43,42 @@ const pageKeywords = "B4OS 2025, programa Bitcoin desarrolladores, formación Bi
         </nav>
     </header>
 
-    <!-- Hero Section con mejoras SEO -->
-    <section id="inicio" class="hero">
-        <div class="container">
+    <!-- Sección Prueba -->
+    <section id="inicio" class="hero-section">
+        <div class="hero-container">
+            <!-- Contenido del lado izquierdo -->
             <div class="hero-content">
-                <div class="hero-media">
+                <h1 class="hero-title-main">Bitcoin 4 Open Source</h1>
+                <h2 class="hero-title">
+                        <span class="hero-title-sub">Programa gratuito de entrenamiento técnico en Bitcoin para desarrolladores</span>
+                </h2>
+                <p class="hero-description">
+                    Únete a nuestra comunidad de desarrolladores Bitcoin y comienza tu journey en el ecosistema de código abierto.
+                </p>
+                <div class="hero-actions">
+                    <a href="#registro" class="btn btn-primary" rel="nofollow">Aceptar el Reto</a>
+                    <a href="#residencias" class="btn btn-secondary">Conocer las Residencias</a>
+                </div>
+            </div>
+            
+            <!-- Imagen de fondo (se maneja con CSS) -->
+            <div class="hero-background" aria-hidden="true"></div>
+        </div>
+    </section>
+
+    <!-- Hero Section con mejoras SEO -->
+    <section id="objectives" class="objectives">
+        <div class="container">
+            <div class="objectives-content">
+                <div class="objectives-media">
                     <img src="images/laptop-code-1.jpg" 
                         alt="Desarrolladora trabajando en Bitcoin"
                         loading="eager"
                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                 </div>
-                <h1 class="hero-title">
-                    <span class="hero-title-main">Bitcoin 4 Open Source</span>
-                    <span class="hero-title-sub">Programa gratuito de entrenamiento técnico en Bitcoin para desarrolladores</span>
-                </h1>
-                <div class="hero-actions">
-                    <a href="#registro" class="btn btn-primary" rel="nofollow">Aceptar el Reto</a>
-                    <a href="#residencias" class="btn btn-secondary">Conocer las Residencias</a>
-                </div>
+
                 <div>
-                    <h3 class="hero-title-stats">
+                    <h3 class="objectives-title-stats">
                         B4OS ofrece rutas de aprendizaje especializadas, 
                         permitiendo a los devs enfocarse en las áreas de mayor demanda
                     </h3>
@@ -104,33 +121,12 @@ const pageKeywords = "B4OS 2025, programa Bitcoin desarrolladores, formación Bi
             </div>
         </div>
     </section>
-
-
-    <!-- Sección Prueba -->
-<section id="prueba" class="prueba-section">
-    <div class="prueba-container">
-        <!-- Contenido del lado izquierdo -->
-        <div class="prueba-content">
-            <h2 class="prueba-title">Bitcoin 4 Open Source</h2>
-            <p class="prueba-description">
-                Únete a nuestra comunidad de desarrolladores Bitcoin y comienza tu journey en el ecosistema de código abierto.
-            </p>
-            <div class="prueba-actions">
-                <a href="#registro" class="btn btn-primary" rel="nofollow">Aceptar el Reto</a>
-                <a href="#residencias" class="btn btn-secondary">Conocer las Residencias</a>
-            </div>
-        </div>
-        
-        <!-- Imagen de fondo (se maneja con CSS) -->
-        <div class="prueba-background" aria-hidden="true"></div>
-    </div>
-</section>
     <!-- Alumni Section - Añadir antes del footer en index.astro -->
     <section id="alumni" class="alumni">
         <div class="container">
             <header class="section-header">
                 <h2 class="section-title">¡B4OS 2024 FUE UN ÉXITO!</h2>
-                <div class="hero-stats" role="complementary" aria-label="Estadísticas del programa">
+                <div class="objectives-stats" role="complementary" aria-label="Estadísticas del programa">
                     <div class="stat">
                         <span class="stat-number">350</span>
                         <span class="stat-label">Devs registrados</span>

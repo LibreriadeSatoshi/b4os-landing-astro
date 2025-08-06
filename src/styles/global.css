@@ -168,18 +168,18 @@ body {
     transition: var(--transition);
 }
 
-/* Hero Section */
-.hero {
+/* objectives Section */
+.objectives {
     position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
     background:
         linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(26, 26, 26, 0.1) 100%),
-        url('/images/team-working-4.jpg') no-repeat center center;
+        /*url('/images/team-working-4.jpg') no-repeat center center;*/  
         /*url('images/team-working-3.jpg') no-repeat center center;*/
         /*url('images/dev-working-6.jpg') no-repeat center center;*/
-        /*url('images/laptop-code-1.jpg') no-repeat center center;*/
+        url('images/laptop-code-1.jpg') no-repeat center center;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -187,14 +187,14 @@ body {
     overflow: hidden;
 }
 
-/* Ocultar el div hero-media */
-.hero-media {
+/* Ocultar el div objectives-media */
+.objectives-media {
     display: none;
 }
 
 
 
-.hero-background {
+.objectives-background {
     position: absolute;
     top: 0;
     left: 0;
@@ -203,7 +203,7 @@ body {
     opacity: 0.1;
 }
 
-.hero-particles {
+.objectives-particles {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -219,7 +219,7 @@ body {
     100% { transform: translateY(-100px) rotate(360deg); }
 }
 
-.hero-content {
+.objectives-content {
     position: relative;
     z-index: 2;
     text-align: center;
@@ -227,14 +227,14 @@ body {
     margin-top: var(--spacing-4xl);
 }
 
-.hero-title {
+.objectives-title {
     margin-bottom: var(--spacing-xl);
     font-size: var(--font-size-5xl);
     line-height: 1.2;
     margin: 0 0 var(--spacing-xl) 0;
 }
 
-.hero-title-main {
+.objectives-title-main {
     display: block;
     font-size: var(--font-size-5xl);
     font-weight: 700;
@@ -246,21 +246,21 @@ body {
     margin-bottom: var(--spacing-sm);
 }
 
-.hero-title-sub {
+.objectives-title-sub {
     display: block;
     font-size: var(--font-size-xl);
     font-weight: 400;
     color: var(--text-white);
 }
 
-.hero-description {
+.objectives-description {
     font-size: var(--font-size-lg);
     line-height: 1.8;
     margin-bottom: var(--spacing-2xl);
     color: rgba(255, 255, 255, 0.8);
 }
 
-.hero-actions {
+.objectives-actions {
     display: flex;
     gap: var(--spacing-md);
     justify-content: center;
@@ -268,25 +268,25 @@ body {
     flex-wrap: wrap;
 }
 
-.hero-title-stats {
+.objectives-title-stats {
     font-size: var(--font-size-2xl);
     margin-bottom: var(--spacing-lg);
 }
 
 /* Responsive: Ajustar posición de fondo en móviles */
 @media (max-width: 768px) {
-    .hero {
+    .objectives {
         background-position: center right;
     }
 }
 
 @media (max-width: 480px) {
-    .hero {
+    .objectives {
         background-position: 60% center; /* Ajusta según tu imagen específica */
     }
 }
 
-.hero-stats {
+.objectives-stats {
     display: flex;
     justify-content: center;
     gap: var(--spacing-2xl);
@@ -310,8 +310,8 @@ body {
     color: var(--text-light);
 }
 
-/* Hero Program Cards */
-.hero .program-grid {
+/* objectives Program Cards */
+.objectives .program-grid {
     margin-top: var(--spacing-3xl);
     display: grid;
     gap: var(--spacing-lg);
@@ -320,7 +320,7 @@ body {
     margin-right: auto;
 }
 
-.hero .program-card {
+.objectives .program-card {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -336,14 +336,14 @@ body {
     justify-content: flex-start;
 }
 
-.hero .program-card:hover {
+.objectives .program-card:hover {
     background: rgba(255, 255, 255, 0.15);
     transform: translateY(-4px);
     border-color: var(--primary-color);
     box-shadow: 0 8px 25px rgba(247, 147, 26, 0.3);
 }
 
-.hero .program-icon {
+.objectives .program-icon {
     width: 60px;
     height: 60px;
     margin: 0 auto var(--spacing-lg);
@@ -356,7 +356,7 @@ body {
     flex-shrink: 0;
 }
 
-.hero .program-card h3 {
+.objectives .program-card h3 {
     font-size: var(--font-size-xl);
     font-weight: 600;
     margin-bottom: var(--spacing-lg);
@@ -366,7 +366,7 @@ body {
     width: 100%;
 }
 
-.hero .program-card p {
+.objectives .program-card p {
     color: rgba(255, 255, 255, 0.9);
     line-height: 1.6;
     font-size: var(--font-size-base);
@@ -1645,14 +1645,14 @@ section {
 
 /* Responsive Design */
 @media (min-width: 1024px) {
-    .hero .program-grid {
+    .objectives .program-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: var(--spacing-xl);
     }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-    .hero .program-grid {
+    .objectives .program-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--spacing-lg);
     }
@@ -1693,20 +1693,20 @@ section {
         display: flex;
     }
     
-    .hero-title-main {
+    .objectives-title-main {
         font-size: var(--font-size-4xl);
     }
     
-    .hero-actions {
+    .objectives-actions {
         flex-direction: column;
         align-items: center;
     }
     
-    .hero-stats {
+    .objectives-stats {
         gap: var(--spacing-lg);
     }
 
-    .hero .program-grid {
+    .objectives .program-grid {
         grid-template-columns: 1fr;
         gap: var(--spacing-md);
         margin-top: var(--spacing-2xl);
@@ -1817,7 +1817,7 @@ section {
         padding: var(--spacing-2xl) 0;
     }
     
-    .hero-title-main {
+    .objectives-title-main {
         font-size: var(--font-size-3xl);
     }
     
@@ -1830,21 +1830,21 @@ section {
         grid-template-columns: 1fr;
     }
     
-    .hero .program-card {
+    .objectives .program-card {
         padding: var(--spacing-lg);
         min-height: 280px;
     }
     
-    .hero .program-card h3 {
+    .objectives .program-card h3 {
         font-size: var(--font-size-lg);
         margin-bottom: var(--spacing-md);
     }
     
-    .hero .program-card p {
+    .objectives .program-card p {
         font-size: var(--font-size-sm);
     }
     
-    .hero .program-icon {
+    .objectives .program-icon {
         width: 50px;
         height: 50px;
         margin-bottom: var(--spacing-md);
@@ -1885,26 +1885,26 @@ section {
 }
 
 @media (min-width: 1200px) {
-    .hero .program-grid {
+    .objectives .program-grid {
         max-width: 1100px;
         gap: var(--spacing-2xl);
     }
     
-    .hero .program-card {
+    .objectives .program-card {
         padding: var(--spacing-2xl);
         min-height: 350px;
     }
     
-    .hero .program-card h3 {
+    .objectives .program-card h3 {
         font-size: var(--font-size-2xl);
         margin-bottom: var(--spacing-xl);
     }
     
-    .hero .program-card p {
+    .objectives .program-card p {
         font-size: var(--font-size-lg);
     }
     
-    .hero .program-icon {
+    .objectives .program-icon {
         width: 70px;
         height: 70px;
         margin-bottom: var(--spacing-xl);

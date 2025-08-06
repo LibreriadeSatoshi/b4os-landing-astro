@@ -1,0 +1,167 @@
+/* Modificaciones para hero.css - Mover contenido a la derecha */
+
+/* Sección principal */
+.hero-section {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-color: var(--bg-light, #f9fafb);
+    padding-top: var(--spacing-6xl, 9rem);
+    padding-bottom: var(--spacing-6xl, 2rem);
+}
+
+/* Contenedor principal */
+.hero-container {
+    position: relative;
+    width: 100%;
+    max-width: var(--max-width, 1200px);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* CAMBIO: Alinear contenido a la derecha */
+    min-height: 60vh;
+    padding: 0 var(--spacing-xl, 2rem);
+}
+
+/* Imagen de fondo con máscara gradual - INVERTIDA */
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        /* Máscara gradual INVERTIDA: transparente a la izquierda, oscuro a la derecha */
+        linear-gradient(to right, 
+            transparent 0%,                  /* Sin máscara desde aquí */
+            transparent 40%,                 /* Imagen completamente visible */
+            rgba(0, 0, 0, 0.3) 55%,         /* Transición gradual */
+            rgba(0, 0, 0, 0.6) 70%,         /* Oscuro medio */
+            rgba(0, 0, 0, 0.8) 100%         /* Oscuro total derecha */
+        ),
+        url('/images/team-working-4.jpg') no-repeat center center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+/* Contenido del lado derecho - MODIFICADO */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    color: var(--text-white, white);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    margin-left: auto; /* CAMBIO: Empujar contenido hacia la derecha */
+    text-align: right; /* CAMBIO: Alinear texto a la derecha */
+}
+
+/* Resto de estilos mantienen las mismas propiedades... */
+.hero-title {
+    font-size: var(--font-size-3xl, 2.25rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-xl, 2rem);
+    color: var(--text-white, white);
+    font-family: var(--font-family, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
+}
+
+.hero-title-main {
+    display: block;
+    font-size: var(--font-size-5xl);
+    font-weight: 600;
+    background-color: var(--primary-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: var(--primary-color);
+    background-clip: text;
+    margin-bottom: var(--spacing-sm);
+}
+
+.hero-description {
+    font-size: var(--font-size-lg, 1.125rem);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-2xl, 3rem);
+    color: rgba(255, 255, 255, 0.9);
+    font-family: var(--font-family, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
+}
+
+/* Contenedor de botones - MODIFICADO */
+.hero-actions {
+    display: flex;
+    gap: var(--spacing-md, 1rem);
+    flex-wrap: wrap;
+    justify-content: flex-end; /* CAMBIO: Alinear botones a la derecha */
+}
+
+/* Responsive Design - MODIFICACIONES */
+@media (max-width: 768px) {
+    .hero-container {
+        padding: var(--spacing-xl, 2rem) var(--spacing-md, 1rem);
+        min-height: 50vh;
+        justify-content: center; /* En móvil volver al centro */
+    }
+
+    .hero-background {
+        background: 
+            linear-gradient(to bottom, 
+                rgba(0, 0, 0, 0.8) 0%,
+                rgba(0, 0, 0, 0.6) 50%,
+                rgba(0, 0, 0, 0.3) 70%,
+                transparent 100%
+            ),
+            url('images/team-working-4.jpg') no-repeat center center;
+        background-size: cover;
+        background-position: center left; /* CAMBIO: En móvil, imagen a la izquierda */
+    }
+
+    .hero-content {
+        max-width: 100%;
+        text-align: center; /* En móvil centrar el texto */
+        margin-left: 0; /* Resetear margen en móvil */
+    }
+
+    .hero-title {
+        font-size: var(--font-size-3xl, 1.875rem);
+        margin-bottom: var(--spacing-md, 1rem);
+    }
+
+    .hero-description {
+        font-size: var(--font-size-base, 1rem);
+        margin-bottom: var(--spacing-xl, 2rem);
+    }
+
+    .hero-actions {
+        justify-content: center; /* En móvil centrar botones */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: var(--spacing-3xl, 4rem) 0;
+    }
+
+    .hero-background {
+        background-position: 40% center; /* Ajustar posición en móvil pequeño */
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-hero {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .hero-title {
+        font-size: var(--font-size-2xl, 1.5rem);
+    }
+
+    .container {
+        padding: 0 var(--spacing-sm, 0.5rem);
+    }
+}
