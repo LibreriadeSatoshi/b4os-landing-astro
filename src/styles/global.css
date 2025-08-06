@@ -176,7 +176,7 @@ body {
     align-items: center;
     background: 
         linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(26, 26, 26, 0.8) 100%),
-        url('images/dev-working-4.webp');
+        url('images/laptop-code-1.jpg') no-repeat center center;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
