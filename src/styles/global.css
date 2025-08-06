@@ -176,7 +176,7 @@ body {
     align-items: center;
     background:
         linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(26, 26, 26, 0.1) 100%),
-        url('images/team-working-4.jpg') no-repeat center center;
+        url('/images/team-working-4.jpg') no-repeat center center;
         /*url('images/team-working-3.jpg') no-repeat center center;*/
         /*url('images/dev-working-6.jpg') no-repeat center center;*/
         /*url('images/laptop-code-1.jpg') no-repeat center center;*/
