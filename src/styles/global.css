@@ -781,50 +781,6 @@ section {
     margin: 0;
 }
 
-/* Benefits Section */
-.benefits {
-    background: var(--bg-light);
-}
-
-.benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-xl);
-}
-
-.benefit-card {
-    background: white;
-    padding: var(--spacing-2xl);
-    border-radius: var(--border-radius-xl);
-    box-shadow: var(--shadow-md);
-    text-align: center;
-    transition: var(--transition);
-}
-
-.benefit-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-xl);
-}
-
-.benefit-icon {
-    width: 60px;
-    height: 60px;
-    margin: 0 auto var(--spacing-lg);
-    color: var(--primary-color);
-}
-
-.benefit-card h3 {
-    font-size: var(--font-size-xl);
-    font-weight: 600;
-    margin-bottom: var(--spacing-md);
-    color: var(--text-dark);
-}
-
-.benefit-card p {
-    color: var(--text-light);
-    line-height: 1.7;
-}
-
 /* Partnerships Section */
 .partnerships {
     background: var(--bg-light);
