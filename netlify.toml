@@ -4,10 +4,6 @@
   command = "npm run build"
   functions = "netlify/functions"
 
-# Configuración específica para funciones
-[functions]
-  directory = "netlify/functions"
-
 # Auditoría MÓVIL (Google mobile-first)
 [[plugins]]
   package = "@netlify/plugin-lighthouse"
