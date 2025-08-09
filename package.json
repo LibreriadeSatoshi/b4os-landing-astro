@@ -1,12 +1,19 @@
 {
   "name": "b4os-landing-2025",
-  "type": "module",
   "version": "0.0.1",
+  "type": "module",
   "scripts": {
     "dev": "astro dev",
+    "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lighthouse:mobile": "lighthouse http://localhost:4321 --output=html --output-path=./reports/lighthouse-mobile.html --view --chrome-flags=\"--headless=new --no-sandbox --disable-gpu\" --throttling-method=provided",
+    "lighthouse:desktop": "lighthouse http://localhost:4321 --preset=desktop --output=html --output-path=./reports/lighthouse-desktop.html --view --chrome-flags=\"--headless=new --no-sandbox --disable-gpu\" --throttling-method=provided",
+    "lighthouse:both": "npm run lighthouse:mobile && npm run lighthouse:desktop",
+    "lighthouse:ci": "npm run build && npm run preview & echo 'Esperando servidor...' && sleep 8 && npm run lighthouse:both && pkill -f 'astro preview'",
+    "lighthouse:quiet": "lighthouse http://localhost:4321 --preset=desktop --output=html --output-path=./reports/lighthouse-desktop.html --view --quiet",
+    "check:server": "curl -f http://localhost:4321 || echo 'Servidor no disponible en localhost:4321'"
   },
   "dependencies": {
     "@formbricks/js": "^4.1.0",
@@ -18,6 +25,24 @@
     "astro": "^5.12.3"
   },
   "devDependencies": {
+    "@netlify/plugin-lighthouse": "^3.0.0",
     "astro-icon": "^1.1.5"
+  },
+  "overrides": {
+    "cookie": ">=0.7.0",
+    "tar-fs": ">=3.0.0",
+    "ws": ">=8.17.1",
+    "@netlify/plugin-lighthouse": {
+      "lighthouse": ">=10.0.0",
+      "puppeteer": ">=19.0.0",
+      "puppeteer-core": ">=19.0.0"
+    },
+    "lighthouse": {
+      "puppeteer-core": ">=19.0.0"
+    }
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
   }
 }

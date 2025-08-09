@@ -8,6 +8,52 @@
 [functions]
   directory = "netlify/functions"  # AÑADIDO: Directorio de funciones
 
+# Auditoría MÓVIL (Google mobile-first)
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+  
+  [plugins.inputs]
+    output_path = "reports/lighthouse-mobile"
+    urls = ["/"]
+    
+    # Configuración móvil
+    settings = { 
+      preset = "mobile",
+      formFactor = "mobile",
+      onlyCategories = ["performance", "accessibility", "best-practices", "seo"]
+    }
+    
+    # Umbrales más permisivos para móvil (conexiones más lentas)
+    thresholds = { 
+      performance = 75, 
+      accessibility = 90, 
+      "best-practices" = 80, 
+      seo = 85 
+    }
+
+# Auditoría DESKTOP
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+  
+  [plugins.inputs]
+    output_path = "reports/lighthouse-desktop"
+    urls = ["/"]
+    
+    # Configuración desktop
+    settings = { 
+      preset = "desktop",
+      formFactor = "desktop",
+      onlyCategories = ["performance", "accessibility", "best-practices", "seo"]
+    }
+    
+    # Umbrales más estrictos para desktop (mejores conexiones)
+    thresholds = { 
+      performance = 85, 
+      accessibility = 90, 
+      "best-practices" = 85, 
+      seo = 90 
+    }
+
 # Configuración de headers para archivos JavaScript
 [[headers]]
   for = "*.js"
