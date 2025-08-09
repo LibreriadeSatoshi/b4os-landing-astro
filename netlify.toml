@@ -9,21 +9,21 @@
   package = "@netlify/plugin-lighthouse"
   
   [plugins.inputs]
-    output_path = "reports/lighthouse-mobile"
-    urls = ["/"]
+    # URL a auditar (reemplaza "urls")
+    audit_url = "/"
     
-    # Configuración móvil - sintaxis TOML correcta
-    [plugins.inputs.settings]
-      preset = "mobile"
-      formFactor = "mobile"
-      onlyCategories = ["performance", "accessibility", "best-practices", "seo"]
+    # Directorio donde guardar reportes
+    output_path = "reports/lighthouse"
     
-    # Umbrales más permisivos para móvil (conexiones más lentas)
+    # Auditorías específicas a ejecutar
+    audits = ["performance", "accessibility", "best-practices", "seo"]
+    
+    # Umbrales de puntuación (mantiene la misma estructura)
     [plugins.inputs.thresholds]
-      performance = 75
+      performance = 80
       accessibility = 90
-      best-practices = 80
-      seo = 85
+      best-practices = 85
+      seo = 90
 
 # Configuración de headers para archivos JavaScript
 [[headers]]
