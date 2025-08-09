@@ -27,7 +27,6 @@
 
 # Auditoría DESKTOP
 [[plugins]]
-  package = "@netlify/plugin-lighthouse"
   
   [plugins.inputs]
     output_path = "reports/lighthouse-desktop"
