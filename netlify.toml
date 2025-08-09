@@ -25,26 +25,6 @@
       best-practices = 80
       seo = 85
 
-# Auditoría DESKTOP
-[[plugins]]
-  
-  [plugins.inputs]
-    output_path = "reports/lighthouse-desktop"
-    urls = ["/"]
-    
-    # Configuración desktop - sintaxis TOML correcta
-    [plugins.inputs.settings]
-      preset = "desktop"
-      formFactor = "desktop"
-      onlyCategories = ["performance", "accessibility", "best-practices", "seo"]
-    
-    # Umbrales más estrictos para desktop (mejores conexiones)
-    [plugins.inputs.thresholds]
-      performance = 85
-      accessibility = 90
-      best-practices = 85
-      seo = 90
-
 # Configuración de headers para archivos JavaScript
 [[headers]]
   for = "*.js"
