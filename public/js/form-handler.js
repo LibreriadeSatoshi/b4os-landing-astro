@@ -203,7 +203,10 @@ window.FormHandler = class FormHandler {
             { name: 'country', label: 'País' },
             { name: 'city', label: 'Ciudad' },
             { name: 'experience', label: 'Años de experiencia' },
+            { name: 'dev-language', label: 'Lenguaje de programación principal' },
+            { name: 'how-heard', label: 'Cómo te enteraste de B4OS' },
             { name: 'technologies', label: 'Tecnologías principales' },
+            { name: 'github', label: 'Perfil de GitHub' },
             { name: 'motivation', label: 'Motivación' }
         ];
 
@@ -234,13 +237,28 @@ window.FormHandler = class FormHandler {
             errors.push('Debes aceptar los términos y condiciones');
         }
 
+        // Validar URL de GitHub
+        const github = formData.get('github');
+        if (github && !this.isValidURL(github)) {
+            errors.push('Por favor ingresa una URL de GitHub válida');
+        }
+
+        // Validar motivación
+        const motivation = formData.get('motivation');
+        if (motivation && motivation.length < 20) {
+            errors.push('La motivación debe tener al menos 20 caracteres');
+        }
+
+        // Validar how-heard
+        const howHeard = formData.get('how-heard');
+        if (howHeard && howHeard.length < 1) {
+            errors.push('Indica cómo te enteraste de B4OS');
+        }
+
         return {
             isValid: errors.length === 0,
             errors
         };
-
-// Remover integración antigua de Customer.io del lado cliente
-// Ya no necesitamos customer-io-integration.js
     }
 
     /**
@@ -299,6 +317,8 @@ window.FormHandler = class FormHandler {
                 email: formData.get('email'),
                 location: locationData,
                 experience: formData.get('experience'),
+                devLanguage: formData.get('dev-language'),
+                howHeard: formData.get('how-heard'),
                 technologies: formData.get('technologies'),
                 github: formData.get('github'),
                 motivation: formData.get('motivation'),

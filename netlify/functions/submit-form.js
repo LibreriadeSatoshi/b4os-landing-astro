@@ -90,6 +90,8 @@ exports.handler = async (event, context) => {
             
             // Experiencia profesional
             experience: formData.experience,
+            dev_language: formData.devLanguage || '',
+            how_heard: formData.howHeard || '',
             technologies: formData.technologies,
             github: formData.github || '',
             motivation: formData.motivation,
@@ -142,6 +144,8 @@ exports.handler = async (event, context) => {
                 form_github: formData.github || '',
                 form_motivation_length: formData.motivation?.length || 0,
                 form_has_github: !!(formData.github && formData.github.trim()),
+                form_dev_language: formData.devLanguage || '',
+                form_how_heard: formData.howHeard || '',
                 
                 // Metadatos del evento
                 event_timestamp: new Date().toISOString(),
@@ -185,6 +189,9 @@ exports.handler = async (event, context) => {
       country: formData.location?.country?.name,
       city: formData.location?.city,
       experience: formData.experience,
+      devLanguage: formData.devLanguage,
+      howHeard: formData.howHeard,
+      technologies: formData.technologies,
       customerIOStatus: customerIOSuccess ? 'success' : 'failed',
       timestamp: new Date().toISOString()
     });

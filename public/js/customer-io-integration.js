@@ -138,6 +138,8 @@ window.CustomerIOIntegration = class CustomerIOIntegration {
                 country_code: locationData.country.code,
                 city: locationData.city,
                 experience: formData.get('experience'),
+                dev_language: formData.get('dev-language') || '',
+                how_heard: formData.get('how-heard') || '',
                 technologies: formData.get('technologies'),
                 github: formData.get('github') || '',
                 motivation: formData.get('motivation'),
@@ -172,6 +174,8 @@ window.CustomerIOIntegration = class CustomerIOIntegration {
                 
                 // Datos profesionales EN EL EVENTO
                 experience_level: formData.get('experience'),
+                dev_language: formData.get('dev-language') || '',
+                how_heard: formData.get('how-heard') || '', 
                 technologies: formData.get('technologies'),
                 github_url: formData.get('github') || '',
                 motivation: formData.get('motivation'),
@@ -263,6 +267,8 @@ window.CustomerIOIntegration = class CustomerIOIntegration {
                 country_code: locationData.country.code,
                 city: locationData.city,
                 experience: formData.get('experience'),
+                dev_language: formData.get('dev-language') || '',
+                how_heard: formData.get('how-heard') || '', 
                 technologies: formData.get('technologies'),
                 github: formData.get('github') || '',
                 motivation: formData.get('motivation'),
@@ -293,6 +299,11 @@ window.CustomerIOIntegration = class CustomerIOIntegration {
                     country: locationData.country.name,
                     city: locationData.city,
                     experience_level: formData.get('experience'),
+                    dev_language: formData.get('dev-language') || '',
+                    how_heard: formData.get('how-heard') || '',
+                    technologies: formData.get('technologies'),
+                    github_url: formData.get('github') || '',
+                    motivation: formData.get('motivation'),
                     has_github: !!(formData.get('github')),
                     residencia_type: residencia.type
                 }
