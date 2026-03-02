@@ -661,8 +661,8 @@
   "donors": {
     "title": "Els Nostres Donants",
     "subtitle": "Organitzacions que donen suport a l'educació, els grants i el desenvolupament de l'ecosistema Bitcoin de codi obert.",
-    "platinumTitle": "Donants Platí",
-    "platinumDescription": "Aquests donants donen suport a tots els fons",
+    "platinumTitle": "Donant Platí",
+    "platinumDescription": "Aquest donant dóna suport a tots els fons",
     "donorsLabel": "Donants:",
     "emptyStateCta": "La teva donació pot ser la primera",
     "funds": {

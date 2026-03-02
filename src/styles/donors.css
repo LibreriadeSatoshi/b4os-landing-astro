@@ -131,6 +131,12 @@ body:has(.donors) .donors .section-header:first-of-type {
     margin: 0 auto;
 }
 
+/* Centrar el logo cuando solo hay un donante platino (ej. Btrust) */
+.platinum-donors-grid .platinum-donor-card:only-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+}
+
 .platinum-donor-card {
     background: white;
     border-radius: var(--border-radius-lg);
@@ -171,8 +177,8 @@ body:has(.donors) .donors .section-header:first-of-type {
 }
 
 .platinum-donor-logo {
-    max-width: 190px;
-    max-height: 200px;
+    max-width: 260px;
+    max-height: 280px;
     height: auto;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
     transition: transform 0.3s ease;
@@ -575,7 +581,7 @@ body:has(.donors) .donors .section-header:first-of-type {
     }
 
     .platinum-donor-logo {
-        max-width: 180px;
+        max-width: 220px;
     }
 
     .fund-header {
@@ -600,7 +606,7 @@ body:has(.donors) .donors .section-header:first-of-type {
     }
 
     .platinum-donor-logo {
-        max-width: 150px;
+        max-width: 180px;
     }
 
     .fund-section {

@@ -661,8 +661,8 @@
   "donors": {
     "title": "Nuestros Donantes",
     "subtitle": "Organizaciones que apoyan la educación, los grants y el desarrollo del ecosistema Bitcoin de código abierto.",
-    "platinumTitle": "Donantes Platino",
-    "platinumDescription": "Estos donantes apoyan a todos los fondos",
+    "platinumTitle": "Donante Platino",
+    "platinumDescription": "Este donante apoya a todos los fondos",
     "donorsLabel": "Donantes:",
     "emptyStateCta": "Tu donación puede ser la primera",
     "funds": {
