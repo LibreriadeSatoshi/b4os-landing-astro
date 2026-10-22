@@ -153,7 +153,7 @@ function logApplication(formData, customerIOSuccess) {
   });
 }
 
-exports.handler = async (event) => {
+export const handler = async (event) => {
   // Manejar preflight OPTIONS request
   if (event.httpMethod === 'OPTIONS') {
     return buildResponse(200, '');
