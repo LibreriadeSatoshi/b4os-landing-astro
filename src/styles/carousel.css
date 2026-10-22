@@ -74,7 +74,7 @@
     object-fit: cover;
     filter: brightness(0.3) contrast(1.2);
     transform: scale(1.05);
-    transition: transform 8s ease-in-out;
+    transition: var(--transition);
 }
 
 .carousel-slide.active img {
@@ -85,7 +85,7 @@
 .carousel-slide > div {
     width: 100%;
     height: 100%;
-    transition: transform 8s ease-in-out;
+    transition: var(--transition);
     transform: scale(1.02);
 }
 

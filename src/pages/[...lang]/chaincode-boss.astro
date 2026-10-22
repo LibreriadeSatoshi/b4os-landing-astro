@@ -42,7 +42,7 @@ const backHomeUrl = locale === 'es' ? '/' : `/${locale}`;
             <div class="nav-container">
                 <div class="nav-brand">
                     <a href={backHomeUrl} class="nav-link" aria-label={t.nav.brand_link_aria}>
-                        <IsmosMark variant="ink" />
+                        <IsmosMark />
                         <img src="/b4os.png" alt={t.nav.logo_alt} class="logo" width="64" height="64">
                     </a>
                     <img src="/boss-challenge.png" alt="BOSS Challenge" class="boss-challenge-logo" width="131" height="56">
@@ -178,7 +178,7 @@ const backHomeUrl = locale === 'es' ? '/' : `/${locale}`;
                     <div class="form-overlay">
                         <div class="waitlist-box">
                             <div class="waitlist-icon">
-                                <Icon name="heroicons:clock" size={56} />
+                                <Icon name="iconoir:clock" size={48} />
                             </div>
                             <h3 class="waitlist-title">{t.registration.closed?.title || 'Registro temporalmente cerrado'}</h3>
                             <p class="waitlist-subtitle">{t.registration.closed?.subtitle || 'Pronto abriremos nuevas inscripciones. Sé de los primeros en saberlo:'}</p>
@@ -192,7 +192,7 @@ const backHomeUrl = locale === 'es' ? '/' : `/${locale}`;
                                     aria-label={t.registration.closed?.email_aria_label || 'Email para lista de espera'}
                                 />
                                 <button type="submit" class="btn btn-primary">
-                                    <Icon name="heroicons:bell-alert" size={20} />
+                                    <Icon name="iconoir:bell" size={20} />
                                     {t.registration.closed?.cta || 'Notificarme'}
                                 </button>
                             </form>
@@ -248,7 +248,7 @@ const backHomeUrl = locale === 'es' ? '/' : `/${locale}`;
                                     </label>
                                 ))}
                             </div>
-                            <div id="gender-self-describe-container" style="display: none; margin-top: 15px;">
+                            <div id="gender-self-describe-container" style="display: none; margin-top: var(--space-16);">
                                 <input 
                                     type="text" 
                                     id="gender-self-describe-text" 
@@ -380,18 +380,18 @@ const backHomeUrl = locale === 'es' ? '/' : `/${locale}`;
                     <h4>{t.footer.contact.title}</h4>
                     <div class="contact-info">
                         <p>
-                            <Icon name="heroicons:envelope-solid" size={24} />
+                            <Icon name="iconoir:mail" size={24} />
                             <a href="mailto:hola@b4os.dev">hola@b4os.dev</a>
                         </p>
                         <div class="footer-social">
                             <a href="https://www.facebook.com/libsatoshi" aria-label={t.footer.social_aria.facebook} target="_blank" rel="noopener">
-                                <Icon name="mdi:facebook" size={24} />
+                                <Icon name="iconoir:facebook" size={24} />
                             </a>
                             <a href="https://www.linkedin.com/company/libdesatoshi/" aria-label={t.footer.social_aria.linkedin} target="_blank" rel="noopener">
-                                <Icon name="mdi:linkedin" size={24} />
+                                <Icon name="iconoir:linkedin" size={24} />
                             </a>
                             <a href="https://x.com/libdesatoshi" aria-label={t.footer.social_aria.twitter} target="_blank" rel="noopener">
-                                <Icon name="mdi:twitter" size={24} />
+                                <Icon name="iconoir:x" size={24} />
                             </a>
                             <a href="https://github.com/LibreriadeSatoshi" aria-label={t.footer.social_aria.github} target="_blank" rel="noopener">
                                 <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
@@ -399,7 +399,7 @@ const backHomeUrl = locale === 'es' ? '/' : `/${locale}`;
                                 </svg>
                             </a>
                             <a href="https://discord.gg/MSrtGYf4Jh" aria-label={t.footer.social_aria.discord} target="_blank" rel="noopener">
-                                <Icon name="mdi:discord" size={24} />
+                                <Icon name="iconoir:discord" size={24} />
                             </a>                           
                             <a href="https://primal.net/p/nprofile1qqsgkt24wdkaksa8exnxgy6tmzs42tra8g30mvplcmk3eqar0z30rxggvqeay" aria-label={t.footer.social_aria.nostr} target="_blank" rel="noopener">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" width="32" height="32" aria-hidden="true"><path d="M210.8 199.4c0 3.1-2.5 5.7-5.7 5.7h-68c-3.1 0-5.7-2.5-5.7-5.7v-15.5c.3-19 2.3-37.2 6.5-45.5 2.5-5 6.7-7.7 11.5-9.1 9.1-2.7 24.9-.9 31.7-1.2 0 0 20.4.8 20.4-10.7s-9.1-8.6-9.1-8.6c-10 .3-17.7-.4-22.6-2.4-8.3-3.3-8.6-9.2-8.6-11.2-.4-23.1-34.5-25.9-64.5-20.1-32.8 6.2.4 53.3.4 116.1v8.4c0 3.1-2.6 5.6-5.7 5.6H57.7c-3.1 0-5.7-2.5-5.7-5.7v-144c0-3.1 2.5-5.7 5.7-5.7h31.7c3.1 0 5.7 2.5 5.7 5.7 0 4.7 5.2 7.2 9 4.5 11.4-8.2 26-12.5 42.4-12.5 36.6 0 64.4 21.4 64.4 68.7v83.2ZM150 99.3c0-6.7-5.4-12.1-12.1-12.1s-12.1 5.4-12.1 12.1 5.4 12.1 12.1 12.1S150 106 150 99.3Z"/></svg>
@@ -444,7 +444,7 @@ const backHomeUrl = locale === 'es' ? '/' : `/${locale}`;
     }
 
     .chaincode-background {
-        background: url('/boss_latam.png') no-repeat left center !important;
+        background: url('/boss_latam.png') no-repeat center center !important;
         background-size: cover !important;
     }
 
@@ -480,15 +480,15 @@ const backHomeUrl = locale === 'es' ? '/' : `/${locale}`;
     }
 
     .chaincode-btn {
-        background: #eb5234 !important;
-        border-color: #eb5234 !important;
-        color: #fff !important;
+        background: var(--action) !important;
+        border-color: var(--action) !important;
+        color: var(--on-action) !important;
     }
 
     .chaincode-btn:hover {
-        background: #d4472b !important;
-        border-color: #d4472b !important;
-        color: #fff !important;
+        background: var(--logwood-800) !important;
+        border-color: var(--logwood-800) !important;
+        color: var(--on-action) !important;
     }
 
     .partner-header .hero-content {
@@ -502,22 +502,12 @@ const backHomeUrl = locale === 'es' ? '/' : `/${locale}`;
     @media (max-width: 768px) {
         .chaincode-background {
             background: 
-                linear-gradient(to bottom, 
-                    rgba(0, 0, 0, 0.7) 0%,
-                    rgba(0, 0, 0, 0.5) 50%,
-                    transparent 100%
-                ),
                 url('/boss_latam.png') no-repeat center center !important;
             background-size: cover !important;
         }
 
         .b4os-south {
             background: 
-                linear-gradient(to bottom, 
-                    rgba(0, 0, 0, 0.6) 0%,
-                    rgba(0, 0, 0, 0.4) 50%,
-                    transparent 100%
-                ),
                 url('/b4os-south.jpeg') no-repeat center center;
             background-size: cover;
         }
@@ -537,7 +527,7 @@ const backHomeUrl = locale === 'es' ? '/' : `/${locale}`;
 
     .registration-info-section h2 {
         font-size: var(--font-size-3xl);
-        font-weight: 700;
+        font-weight: 400;
         color: var(--text-dark);
         margin-bottom: var(--spacing-lg);
         text-align: center;
@@ -567,14 +557,14 @@ const backHomeUrl = locale === 'es' ? '/' : `/${locale}`;
 
     .boss-block {
         padding: var(--spacing-lg);
-        background: var(--bg-light);
-        border-radius: var(--border-radius-lg);
-        border-left: 4px solid var(--primary-color);
+        background: var(--surface);
+        border-radius: var(--radius-4);
+        border: var(--rule-1) solid var(--hairline);
     }
 
     .boss-block h3 {
         font-size: var(--font-size-xl);
-        font-weight: 600;
+        font-weight: 500;
         margin-bottom: var(--spacing-md);
         color: var(--text-dark);
     }
@@ -607,7 +597,7 @@ const backHomeUrl = locale === 'es' ? '/' : `/${locale}`;
         color: var(--text-dark);
         margin: var(--spacing-xl) 0;
         padding: var(--spacing-md);
-        background: linear-gradient(135deg, rgba(247, 147, 26, 0.1), rgba(247, 147, 26, 0.05));
+        background: var(--surface-raised);
         border-radius: var(--border-radius-md);
         text-align: center;
     }
@@ -620,7 +610,7 @@ const backHomeUrl = locale === 'es' ? '/' : `/${locale}`;
 
     .how-it-works-section h2 {
         font-size: var(--font-size-3xl);
-        font-weight: 700;
+        font-weight: 400;
         color: var(--text-dark);
         margin-bottom: var(--spacing-md);
         text-align: center;
@@ -656,7 +646,6 @@ const backHomeUrl = locale === 'es' ? '/' : `/${locale}`;
     .timeline-content {
         padding: 0;
         background: transparent;
-        box-shadow: none;
     }
 
     .timeline-image {
@@ -685,17 +674,16 @@ const backHomeUrl = locale === 'es' ? '/' : `/${locale}`;
         padding: 0 var(--spacing-xs);
         background: var(--primary-color);
         color: var(--text-dark);
-        border-radius: 12px;
+        border-radius: var(--radius-4);
         font-size: var(--font-size-sm);
-        font-weight: 700;
+        font-weight: 600;
         margin-bottom: var(--spacing-md);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         line-height: 1;
     }
 
     .timeline-month h4 {
         font-size: var(--font-size-2xl);
-        font-weight: 700;
+        font-weight: 400;
         color: var(--text-dark);
         margin-bottom: var(--spacing-md);
         line-height: 1.3;
@@ -706,7 +694,7 @@ const backHomeUrl = locale === 'es' ? '/' : `/${locale}`;
         align-items: center;
         gap: var(--spacing-xs);
         padding: var(--spacing-xs) var(--spacing-sm);
-        background: rgba(247, 147, 26, 0.1);
+        background: transparent;
         border-radius: var(--border-radius-sm);
         margin-bottom: var(--spacing-md);
         font-size: var(--font-size-sm);

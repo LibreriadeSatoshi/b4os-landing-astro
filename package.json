@@ -30,9 +30,10 @@
     "customerio-node": "^0.1.0"
   },
   "devDependencies": {
+    "@iconify-json/iconoir": "^1.2.12",
     "@netlify/plugin-lighthouse": "^3.0.0",
-    "netlify-cli": "^22.0.0",
     "astro-icon": "^1.1.5",
+    "netlify-cli": "^22.0.0",
     "terser": "^5.43.1"
   },
   "overrides": {

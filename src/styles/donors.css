@@ -12,7 +12,7 @@
 
 .nav-brand-sep {
   color: var(--text-light);
-  font-weight: 300;
+  font-weight: 400;
   user-select: none;
   font-size: 1.25rem;
 }
@@ -68,7 +68,7 @@
 
 /* Donors Section */
 .donors {
-    background: linear-gradient(135deg, var(--bg-light) 0%, white 100%);
+    background: var(--surface);
     padding: var(--spacing-4xl) 0;
     position: relative;
     overflow: hidden;
@@ -81,9 +81,6 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background:
-        radial-gradient(circle at 15% 25%, rgba(247, 147, 26, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 85% 75%, rgba(33, 212, 253, 0.03) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -113,7 +110,7 @@ body:has(.donors) .donors .section-header:first-of-type {
 
 .platinum-title {
     font-size: var(--font-size-2xl);
-    font-weight: 700;
+    font-weight: 400;
     color: var(--text-dark);
     margin-bottom: var(--spacing-sm);
 }
@@ -137,17 +134,16 @@ body:has(.donors) .donors .section-header:first-of-type {
     justify-self: center;
 }
 
+/* Third-party logos are artwork for light grounds: their plate stays Paper in both themes */
 .platinum-donor-card {
-    background: white;
+    background: var(--paper);
     border-radius: var(--border-radius-lg);
     padding: var(--spacing-xl) var(--spacing-lg);
-    box-shadow: var(--shadow-md);
-    border: 2px solid rgba(184, 184, 184, 0.3);
+    border: 2px solid var(--hairline);
     position: relative;
     overflow: hidden;
     text-align: center;
     transition: var(--transition);
-    min-height: 110px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -161,31 +157,14 @@ body:has(.donors) .donors .section-header:first-of-type {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #b8b8b8, #e5e5e5, #b8b8b8);
-    background-size: 200% 100%;
-    animation: gradientShift 3s ease-in-out infinite;
-}
-
-@keyframes gradientShift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-}
-
-.platinum-donor-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-xl);
+    background: var(--bar);
 }
 
 .platinum-donor-logo {
     max-width: 260px;
     max-height: 280px;
     height: auto;
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
-    transition: transform 0.3s ease;
-}
-
-.platinum-donor-card:hover .platinum-donor-logo {
-    transform: scale(1.05);
+    transition: var(--transition);
 }
 
 /* Funds by Category */
@@ -196,10 +175,9 @@ body:has(.donors) .donors .section-header:first-of-type {
 }
 
 .fund-section {
-    background: white;
+    background: var(--surface);
     border-radius: var(--border-radius-xl);
     padding: var(--spacing-2xl);
-    box-shadow: var(--shadow-md);
     border: 2px solid var(--border-color);
     position: relative;
     overflow: hidden;
@@ -213,19 +191,14 @@ body:has(.donors) .donors .section-header:first-of-type {
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    background: var(--bar);
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform 0.3s ease;
+    transition: var(--transition);
 }
 
 .fund-section:hover {
-    box-shadow: var(--shadow-xl);
     border-color: var(--primary-color);
-}
-
-.fund-section:hover::before {
-    transform: scaleX(1);
 }
 
 .fund-header {
@@ -239,19 +212,13 @@ body:has(.donors) .donors .section-header:first-of-type {
     width: 60px;
     height: 60px;
     flex-shrink: 0;
-    background: rgba(247, 147, 26, 0.1);
-    border-radius: 50%;
+    background: transparent;
+    border-radius: var(--radius-0);
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--primary-color);
     transition: var(--transition);
-}
-
-.fund-section:hover .fund-icon {
-    background: var(--primary-color);
-    color: white;
-    transform: scale(1.1);
 }
 
 .fund-title-group {
@@ -260,7 +227,7 @@ body:has(.donors) .donors .section-header:first-of-type {
 
 .fund-title {
     font-size: var(--font-size-xl);
-    font-weight: 600;
+    font-weight: 500;
     color: var(--text-dark);
     margin-bottom: var(--spacing-sm);
 }
@@ -274,9 +241,9 @@ body:has(.donors) .donors .section-header:first-of-type {
 .fund-donors {
     margin-bottom: var(--spacing-xl);
     padding: var(--spacing-lg);
-    background: rgba(247, 147, 26, 0.05);
+    background: transparent;
     border-radius: var(--border-radius-md);
-    border-left: 3px solid var(--primary-color);
+    border: var(--rule-1) solid var(--hairline);
 }
 
 .fund-donors-label {
@@ -296,18 +263,15 @@ body:has(.donors) .donors .section-header:first-of-type {
 .fund-donor-logo {
     max-width: 120px;
     height: auto;
-    filter: grayscale(30%);
-    transition: var(--transition);
-}
-
-.fund-donor-logo:hover {
-    filter: grayscale(0%);
-    transform: scale(1.05);
+    box-sizing: content-box;
+    padding: var(--space-8);
+    background: var(--paper);
+    border-radius: var(--radius-4);
 }
 
 .fund-donor-placeholder {
     padding: var(--spacing-md) var(--spacing-lg);
-    background: rgba(0, 0, 0, 0.05);
+    background: transparent;
     border: 2px dashed var(--border-color);
     border-radius: var(--border-radius-md);
     color: var(--text-light);
@@ -320,8 +284,8 @@ body:has(.donors) .donors .section-header:first-of-type {
     align-items: center;
     gap: var(--spacing-md);
     padding: var(--spacing-md) var(--spacing-lg);
-    background: rgba(247, 147, 26, 0.06);
-    border: 2px dashed rgba(247, 147, 26, 0.3);
+    background: transparent;
+    border: 2px dashed var(--hairline);
     border-radius: var(--border-radius-md);
     color: var(--primary-color);
     font-size: var(--font-size-sm);
@@ -338,7 +302,7 @@ body:has(.donors) .donors .section-header:first-of-type {
     font-family: var(--font-family);
     font-size: var(--font-size-base);
     font-weight: 600;
-    color: white;
+    color: var(--paper);
 }
 
 /* Donate Modal */
@@ -346,7 +310,7 @@ body:has(.donors) .donors .section-header:first-of-type {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: var(--scrim);
     z-index: 1000;
     align-items: center;
     justify-content: center;
@@ -358,7 +322,7 @@ body:has(.donors) .donors .section-header:first-of-type {
 }
 
 .modal-content {
-    background: white;
+    background: var(--surface);
     border-radius: var(--border-radius-xl);
     padding: var(--spacing-2xl);
     width: 100%;
@@ -366,7 +330,6 @@ body:has(.donors) .donors .section-header:first-of-type {
     max-height: 90vh;
     overflow-y: auto;
     position: relative;
-    box-shadow: var(--shadow-xl);
 }
 
 .modal-close {
@@ -395,7 +358,7 @@ body:has(.donors) .donors .section-header:first-of-type {
 
 .modal-title {
     font-size: var(--font-size-xl);
-    font-weight: 600;
+    font-weight: 500;
     color: var(--text-dark);
     margin-bottom: var(--spacing-xl);
 }
@@ -420,7 +383,7 @@ body:has(.donors) .donors .section-header:first-of-type {
     font-size: var(--font-size-base);
     font-family: var(--font-family);
     color: var(--text-dark);
-    background: white;
+    background: var(--surface);
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -431,7 +394,6 @@ body:has(.donors) .donors .section-header:first-of-type {
 .modal-input:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(247, 147, 26, 0.15);
 }
 
 /* Radio Group */
@@ -450,7 +412,7 @@ body:has(.donors) .donors .section-header:first-of-type {
 }
 
 .radio-option input[type="radio"] {
-    accent-color: #3b82f6;
+    accent-color: var(--text);
     width: 18px;
     height: 18px;
     cursor: pointer;
@@ -468,7 +430,7 @@ body:has(.donors) .donors .section-header:first-of-type {
     padding: var(--spacing-sm) var(--spacing-md);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-md);
-    background: white;
+    background: var(--surface);
     color: var(--text-dark);
     font-size: var(--font-size-sm);
     font-weight: 500;
@@ -501,7 +463,6 @@ body:has(.donors) .donors .section-header:first-of-type {
 
 .amount-custom-wrapper:focus-within {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(247, 147, 26, 0.15);
 }
 
 .amount-currency {
@@ -554,7 +515,7 @@ body:has(.donors) .donors .section-header:first-of-type {
 }
 
 .btn-donate-bitcoin:hover:not(:disabled) {
-    background: rgba(247, 147, 26, 0.08);
+    background: transparent;
 }
 
 .btn-donate-bitcoin:disabled {
@@ -577,7 +538,6 @@ body:has(.donors) .donors .section-header:first-of-type {
 
     .platinum-donor-card {
         padding: var(--spacing-2xl) var(--spacing-lg);
-        min-height: 150px;
     }
 
     .platinum-donor-logo {

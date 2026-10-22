@@ -94,12 +94,12 @@ const defaultYear = years.find(year => (alumniData as any)[year].members.length 
                                             )}
                                             {member.linkedin && (
                                                 <a href={member.linkedin} aria-label={t.alumni.linkedin_aria?.replace('{name}', member.name.split(' ')[0])} target="_blank" rel="noopener">
-                                                    <Icon name="mdi:linkedin" size={24} />
+                                                    <Icon name="iconoir:linkedin" size={24} />
                                                 </a>
                                             )}
                                             {member.twitter && (
                                                 <a href={member.twitter} aria-label={t.alumni.twitter_aria?.replace('{name}', member.name.split(' ')[0])} target="_blank" rel="noopener">
-                                                    <Icon name="mdi:twitter" size={24} />
+                                                    <Icon name="iconoir:x" size={24} />
                                                 </a>
                                             )}
                                         </div>
@@ -128,7 +128,7 @@ const defaultYear = years.find(year => (alumniData as any)[year].members.length 
                         </div>
                     ) : (
                         <div class="alumni-empty">
-                            <Icon name="mdi:account-group" size={64} />
+                            <Icon name="iconoir:group" size={48} />
                             <p>{t.alumni.coming_soon || 'Próximamente'}</p>
                         </div>
                     )}
@@ -143,36 +143,39 @@ const defaultYear = years.find(year => (alumniData as any)[year].members.length 
     .alumni-tabs {
         display: flex;
         justify-content: center;
-        gap: var(--spacing-sm, 0.5rem);
-        margin: var(--spacing-xl, 2rem) 0;
+        gap: var(--spacing-sm, var(--space-8));
+        margin: var(--spacing-xl, var(--space-32)) 0;
     }
 
     .alumni-tab {
-        padding: var(--spacing-sm, 0.5rem) var(--spacing-xl, 2rem);
-        border: 2px solid var(--primary-color, #f7931a);
+        min-height: var(--tap-target);
+        padding: 0 var(--space-24);
+        border: 2px solid var(--text);
         background: transparent;
-        color: var(--primary-color, #f7931a);
-        font-size: var(--font-size-base, 1rem);
-        font-weight: 600;
-        border-radius: var(--border-radius-lg, 0.75rem);
+        color: var(--text);
+        font-family: var(--font-sans);
+        font-size: 15px;
+        font-weight: 500;
+        border-radius: var(--radius-4);
         cursor: pointer;
-        transition: all 0.3s ease;
+        transition: var(--transition);
     }
 
     .alumni-tab:hover {
-        background: rgba(247, 147, 26, 0.1);
+        background: var(--surface-raised);
     }
 
     .alumni-tab.active {
-        background: var(--primary-color, #f7931a);
-        color: white;
+        background: var(--text);
+        color: var(--surface);
     }
 
     .alumni-tab.disabled,
     .alumni-tab:disabled {
-        opacity: 0.5;
         cursor: not-allowed;
         border-style: dashed;
+        border-color: var(--track);
+        color: var(--text-muted);
     }
 
     .alumni-tab.disabled:hover,
@@ -191,19 +194,19 @@ const defaultYear = years.find(year => (alumniData as any)[year].members.length 
     }
 
     @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
+        from { opacity: 0; transform: translateY(8px); }
         to { opacity: 1; transform: translateY(0); }
     }
 
     /* Empty state */
     .alumni-empty {
         text-align: center;
-        padding: var(--spacing-4xl, 6rem) var(--spacing-xl, 2rem);
-        color: var(--text-light, #6b7280);
+        padding: var(--spacing-4xl, var(--space-96)) var(--spacing-xl, var(--space-32));
+        color: var(--text-muted);
     }
 
     .alumni-empty p {
-        margin-top: var(--spacing-lg, 1.5rem);
+        margin-top: var(--spacing-lg, var(--space-24));
         font-size: var(--font-size-lg, 1.125rem);
     }
 

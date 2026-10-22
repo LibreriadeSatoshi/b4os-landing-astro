@@ -22,9 +22,8 @@
 .terms-content {
     max-width: 800px;
     margin: 0 auto;
-    background: white;
+    background: var(--surface);
     border-radius: var(--border-radius-xl);
-    box-shadow: var(--shadow-lg);
     padding: var(--spacing-3xl);
 }
 
@@ -36,7 +35,7 @@
 
 .terms-header h1 {
     font-size: var(--font-size-3xl);
-    font-weight: 800;
+    font-weight: 400;
     color: var(--text-dark);
 }
 
@@ -50,7 +49,7 @@
 
 .terms-section h2 {
     font-size: var(--font-size-xl);
-    font-weight: 600;
+    font-weight: 500;
     color: var(--primary-color);
     padding-bottom: var(--spacing-xs);
     border-bottom: 1px solid var(--border-color);
@@ -71,51 +70,47 @@
 .info-box {
     margin-bottom: var(--spacing-sm);
     padding: var(--spacing-md);
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: transparent;
     border-radius: var(--border-radius-md);
-    box-shadow: var(--shadow-sm);
 }
 
 .info-box h3 {
     color: var(--text-dark);
     margin-bottom: var(--spacing-md);
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .warning-box {
     margin-bottom: var(--spacing-sm);
     padding: var(--spacing-md);
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: transparent;
     border-radius: var(--border-radius-md);
-    box-shadow: var(--shadow-sm);
 }
 
 .warning-box h3 {
     color: var(--text-dark);
     margin-bottom: var(--spacing-md);
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .conduct-box {
     margin-bottom: var(--spacing-sm);
     padding: var(--spacing-md);
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: transparent;
     border-radius: var(--border-radius-md);
-    box-shadow: var(--shadow-sm);
 }
 
 .conduct-box h3 {
     color: var(--text-dark);
     margin-bottom: var(--spacing-md);
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .important-box {
     margin-bottom: var(--spacing-sm);
     padding: var(--spacing-md);
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: transparent;
     border-radius: var(--border-radius-md);
-    box-shadow: var(--shadow-sm);
 }
 
 .important-box p {
@@ -153,9 +148,8 @@
 .tldr-box {
     margin-bottom: var(--spacing-sm);
     padding: var(--spacing-md);
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: transparent;
     border-radius: var(--border-radius-md);
-    box-shadow: var(--shadow-sm);
     text-align: center;
 }
 

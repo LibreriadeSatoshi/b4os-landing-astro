@@ -1,16 +1,23 @@
 ---
 // Official ISMOS mark from the design kit. Ink on Paper grounds, Paper on dark ones.
+// "auto" follows the theme: Ink in light mode, Paper in Hacker mode.
 // Never redraw, recolour or crop it (design/ismos/docs/logos.md).
 import ink from '../../design/ismos/logos/ismos-mark-ink.svg';
 import paper from '../../design/ismos/logos/ismos-mark-paper.svg';
 
 interface Props {
-  variant?: 'ink' | 'paper';
+  variant?: 'ink' | 'paper' | 'auto';
   size?: number;
 }
 
-const { variant = 'ink', size = 24 } = Astro.props;
-const src = variant === 'paper' ? paper.src : ink.src;
+const { variant = 'auto', size = 24 } = Astro.props;
 ---
 
-<img src={src} alt="ISMOS" width={size} height={size} class="ismos-mark" />
+{variant === 'auto' ? (
+  <>
+    <img src={ink.src} alt="ISMOS" width={size} height={size} class="ismos-mark ismos-mark--ink" />
+    <img src={paper.src} alt="ISMOS" width={size} height={size} class="ismos-mark ismos-mark--paper" />
+  </>
+) : (
+  <img src={variant === 'paper' ? paper.src : ink.src} alt="ISMOS" width={size} height={size} class="ismos-mark" />
+)}

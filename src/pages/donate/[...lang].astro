@@ -44,7 +44,7 @@ const isChaincodeFormOpen = chaincodeRegistrationFlag !== undefined
       <div class="nav-container">
         <div class="nav-brand">
           <a href={backHomeUrl} class="nav-link" aria-label={t.nav?.brand_link_aria || 'Ir al inicio'}>
-            <IsmosMark variant="ink" />
+            <IsmosMark />
             <img src="/b4os.png" alt={t.nav?.logo_alt || 'B4OS'} class="logo" width="64" height="64">
           </a>
         </div>
@@ -112,7 +112,7 @@ const isChaincodeFormOpen = chaincodeRegistrationFlag !== undefined
           <article class="fund-section">
             <div class="fund-header">
               <div class="fund-icon" aria-hidden="true">
-                <Icon name="mdi:school" size={48} />
+                <Icon name="iconoir:learning" size={48} />
               </div>
               <div class="fund-title-group">
                 <h3 class="fund-title">{t.donors.funds.education.title}</h3>
@@ -135,7 +135,7 @@ const isChaincodeFormOpen = chaincodeRegistrationFlag !== undefined
           <article class="fund-section">
             <div class="fund-header">
               <div class="fund-icon" aria-hidden="true">
-                <Icon name="mdi:hand-coin" size={48} />
+                <Icon name="iconoir:hand-cash" size={48} />
               </div>
               <div class="fund-title-group">
                 <h3 class="fund-title">{t.donors.funds.grant.title}</h3>
@@ -157,7 +157,7 @@ const isChaincodeFormOpen = chaincodeRegistrationFlag !== undefined
           <article class="fund-section">
             <div class="fund-header">
               <div class="fund-icon" aria-hidden="true">
-                <Icon name="mdi:cog" size={48} />
+                <Icon name="iconoir:settings" size={48} />
               </div>
               <div class="fund-title-group">
                 <h3 class="fund-title">{t.donors.funds.operation.title}</h3>
@@ -179,7 +179,7 @@ const isChaincodeFormOpen = chaincodeRegistrationFlag !== undefined
           <article class="fund-section">
             <div class="fund-header">
               <div class="fund-icon" aria-hidden="true">
-                <Icon name="mdi:home-group" size={48} />
+                <Icon name="iconoir:community" size={48} />
               </div>
               <div class="fund-title-group">
                 <h3 class="fund-title">{t.donors.funds.residency.title}</h3>
@@ -190,7 +190,7 @@ const isChaincodeFormOpen = chaincodeRegistrationFlag !== undefined
               <p class="fund-donors-label">{t.donors.donorsLabel}</p>
               <div class="fund-donors-logos">
                 <div class="fund-donor-empty-state">
-                  <Icon name="mdi:heart-outline" size={32} aria-hidden="true" />
+                  <Icon name="iconoir:heart" size={32} aria-hidden="true" />
                   <span>{t.donors.emptyStateCta}</span>
                 </div>
               </div>
@@ -242,7 +242,7 @@ const isChaincodeFormOpen = chaincodeRegistrationFlag !== undefined
           </div>
 
           <button class="btn-donate-bitcoin" id="btn-donate-bitcoin">
-            <Icon name="mdi:bitcoin" size={24} />
+            <Icon name="iconoir:bitcoin-circle" size={24} />
             {t.donors.donateModal.donateWithBitcoin}
           </button>
         </div>

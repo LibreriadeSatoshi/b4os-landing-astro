@@ -65,6 +65,17 @@ const getResidencyBadgeClass = (status: ResidencyStatus): string => {
     return classes[status] || 'badge-pending';
 };
 
+// Every status is colour + icon + word (ISMOS 04 Rules)
+const getResidencyBadgeIcon = (status: ResidencyStatus): string => {
+    const icons: Record<ResidencyStatus, string> = {
+        confirmed: 'iconoir:check-circle',
+        pending: 'iconoir:clock',
+        completed: 'iconoir:check',
+        cancelled: 'iconoir:xmark-circle'
+    };
+    return icons[status] || icons.pending;
+};
+
 const getResidencyBadgeLabel = (status: ResidencyStatus, t: any): string => {
     const labels: Record<ResidencyStatus, string> = {
         confirmed: t.residencies.status_confirmed || 'Confirmada',
@@ -83,7 +94,7 @@ const getResidencyBadgeLabel = (status: ResidencyStatus, t: any): string => {
             <div class="nav-container">
                 <div class="nav-brand">
                     <a href="#inicio" class="nav-link" aria-label={t.nav.brand_link_aria}>
-                        <IsmosMark variant="ink" />
+                        <IsmosMark />
                         <img src="/b4os.png" alt={t.nav.logo_alt} class="logo" width="64" height="64">
                     </a>
                 </div>
@@ -160,21 +171,21 @@ const getResidencyBadgeLabel = (status: ResidencyStatus, t: any): string => {
                 <div class="program-grid">
                     <div class="program-card">
                         <div class="program-icon" aria-hidden="true">
-                            <Icon name="mdi:hand-peace" size={128} />
+                            <Icon name="iconoir:peace-hand" size={48} />
                         </div>
                         <h3>{t.objectives.open_source.title}</h3>
                         <p>{t.objectives.open_source.description}</p>
                     </div>
                     <div class="program-card">
                         <div class="program-icon" aria-hidden="true">
-                            <Icon name="mdi:weight-lifter" size={64} />
+                            <Icon name="iconoir:gym" size={48} />
                         </div>
                         <h3>{t.objectives.potential.title}</h3>
                         <p>{t.objectives.potential.description}</p>
                     </div>
                     <div class="program-card">
                         <div class="program-icon" aria-hidden="true">
-                            <Icon name="mdi:account-group" size={48} />
+                            <Icon name="iconoir:group" size={48} />
                         </div>
                         <h3>{t.objectives.networking.title}</h3>
                         <p>{t.objectives.networking.description}</p>
@@ -201,10 +212,11 @@ const getResidencyBadgeLabel = (status: ResidencyStatus, t: any): string => {
                     return (
                         <article class:list={["program-card", { 'pending-dates': status === 'pending' || status === 'cancelled' }]}>
                             <span class:list={["residency-badge", getResidencyBadgeClass(status)]}>
+                                <Icon name={getResidencyBadgeIcon(status)} size={20} aria-hidden="true" />
                                 {getResidencyBadgeLabel(status, t)}
                             </span>
                             <div class="program-icon" aria-hidden="true">
-                                <Icon name="heroicons:globe-americas" size={64} />
+                                <Icon name="iconoir:globe" size={48} />
                             </div>
                             <h3>{t.residencies.southamerica.title}</h3>
                             <p><strong>{t.residencies.duration_label}:</strong> {t.residencies.southamerica.duration}<br>
@@ -222,10 +234,11 @@ const getResidencyBadgeLabel = (status: ResidencyStatus, t: any): string => {
                     return (
                         <article class:list={["program-card", { 'pending-dates': status === 'pending' || status === 'cancelled' }]}>
                             <span class:list={["residency-badge", getResidencyBadgeClass(status)]}>
+                                <Icon name={getResidencyBadgeIcon(status)} size={20} aria-hidden="true" />
                                 {getResidencyBadgeLabel(status, t)}
                             </span>
                             <div class="program-icon" aria-hidden="true">
-                                <Icon name="heroicons:globe-europe-africa" size={64} />
+                                <Icon name="iconoir:globe" size={48} />
                             </div>
                             <h3>{t.residencies.europe.title}</h3>
                             <p><strong>{t.residencies.duration_label}:</strong> {t.residencies.europe.duration}<br>
@@ -243,10 +256,11 @@ const getResidencyBadgeLabel = (status: ResidencyStatus, t: any): string => {
                     return (
                         <article class:list={["program-card", { 'pending-dates': status === 'pending' || status === 'cancelled' }]}>
                             <span class:list={["residency-badge", getResidencyBadgeClass(status)]}>
+                                <Icon name={getResidencyBadgeIcon(status)} size={20} aria-hidden="true" />
                                 {getResidencyBadgeLabel(status, t)}
                             </span>
                             <div class="program-icon" aria-hidden="true">
-                                <Icon name="heroicons:globe-americas" size={64} />
+                                <Icon name="iconoir:globe" size={48} />
                             </div>
                             <h3>{t.residencies.centralamerica.title}</h3>
                             <p><strong>{t.residencies.duration_label}:</strong> {t.residencies.centralamerica.duration}<br>
@@ -264,10 +278,11 @@ const getResidencyBadgeLabel = (status: ResidencyStatus, t: any): string => {
                     return (
                         <article class:list={["program-card", { 'pending-dates': status === 'pending' || status === 'cancelled' }]}>
                             <span class:list={["residency-badge", getResidencyBadgeClass(status)]}>
+                                <Icon name={getResidencyBadgeIcon(status)} size={20} aria-hidden="true" />
                                 {getResidencyBadgeLabel(status, t)}
                             </span>
                             <div class="program-icon" aria-hidden="true">
-                                <Icon name="heroicons:globe-americas" size={64} />
+                                <Icon name="iconoir:globe" size={48} />
                             </div>
                             <h3>{t.residencies.northamerica1.title}</h3>
                             <p><strong>{t.residencies.duration_label}:</strong> {t.residencies.northamerica1.duration}<br>
@@ -285,10 +300,11 @@ const getResidencyBadgeLabel = (status: ResidencyStatus, t: any): string => {
                     return (
                         <article class:list={["program-card", { 'pending-dates': status === 'pending' || status === 'cancelled' }]}>
                             <span class:list={["residency-badge", getResidencyBadgeClass(status)]}>
+                                <Icon name={getResidencyBadgeIcon(status)} size={20} aria-hidden="true" />
                                 {getResidencyBadgeLabel(status, t)}
                             </span>
                             <div class="program-icon" aria-hidden="true">
-                                <Icon name="heroicons:globe-americas" size={64} />
+                                <Icon name="iconoir:globe" size={48} />
                             </div>
                             <h3>{t.residencies.northamerica2.title}</h3>
                             <p><strong>{t.residencies.duration_label}:</strong> {t.residencies.northamerica2.duration}<br>
@@ -300,7 +316,7 @@ const getResidencyBadgeLabel = (status: ResidencyStatus, t: any): string => {
                     );
                 })()}
             </div>
-            <article style="text-align: center; margin-top: 2rem; color: var(--text-light); font-size: var(--font-size-sm);">
+            <article style="text-align: center; margin-top: var(--space-32); color: var(--text-light); font-size: var(--font-size-sm);">
                 <p>{t.residencies.disclaimer}</p>
             </article>
         </div>
@@ -335,6 +351,7 @@ const getResidencyBadgeLabel = (status: ResidencyStatus, t: any): string => {
                             </div>
                         ) : (
                             <div class="period-badge period-badge-closed">
+                                <Icon name="iconoir:lock" size={20} aria-hidden="true" />
                                 <span><strong>{t.registration.closed?.badge_label || 'Estado'}:</strong> {t.registration.closed?.badge_text || 'Registro Cerrado'}</span>
                             </div>
                         )}
@@ -345,14 +362,14 @@ const getResidencyBadgeLabel = (status: ResidencyStatus, t: any): string => {
                     <div class="registration-closed-container">
                         <div class="waitlist-prominent">
                             <div class="waitlist-icon-large">
-                                <Icon name="heroicons:bell-alert" size={64} />
+                                <Icon name="iconoir:bell" size={48} />
                             </div>
                             <h3 class="waitlist-title-lg">{t.registration.closed?.title || 'Registro temporalmente cerrado'}</h3>
                             <p class="waitlist-subtitle-lg">{t.registration.closed?.subtitle || 'Pronto abriremos nuevas inscripciones. Sé de los primeros en saberlo:'}</p>
 
                             {/* {reopenDate && (
                                 <div class="reopen-date-badge">
-                                    <Icon name="heroicons:calendar" size={20} />
+                                    <Icon name="iconoir:calendar" size={20} />
                                     <span>{t.registration.closed?.reopen_label || 'Próxima apertura:'} {reopenDate}</span>
                                 </div>
                             )} */}
@@ -367,7 +384,7 @@ const getResidencyBadgeLabel = (status: ResidencyStatus, t: any): string => {
                                         aria-label={t.registration.closed?.email_aria_label || 'Email para lista de espera'}
                                     />
                                     <button type="submit" class="btn btn-primary btn-lg">
-                                        <Icon name="heroicons:bell-alert" size={20} />
+                                        <Icon name="iconoir:bell" size={20} />
                                         {t.registration.closed?.cta || 'Notificarme'}
                                     </button>
                                 </div>
@@ -426,7 +443,7 @@ const getResidencyBadgeLabel = (status: ResidencyStatus, t: any): string => {
                                         </label>
                                     ))}
                                 </div>
-                                <div id="gender-self-describe-container" style="display: none; margin-top: 15px;">
+                                <div id="gender-self-describe-container" style="display: none; margin-top: var(--space-16);">
                                     <input 
                                         type="text" 
                                         id="gender-self-describe-text" 
@@ -516,7 +533,7 @@ const getResidencyBadgeLabel = (status: ResidencyStatus, t: any): string => {
                                         </label>
                                     ))}
                                 </div>
-                                <div id="others-input-container" style="display: none; margin-top: 15px;">
+                                <div id="others-input-container" style="display: none; margin-top: var(--space-16);">
                                     <input 
                                         type="text" 
                                         id="how-heard-others-text" 
@@ -723,25 +740,25 @@ const getResidencyBadgeLabel = (status: ResidencyStatus, t: any): string => {
                     <h4>{t.footer.contact.title}</h4>
                     <div class="contact-info">
                         <p>
-                            <Icon name="heroicons:envelope-solid" size={24} />
+                            <Icon name="iconoir:mail" size={24} />
                             <a href="mailto:hola@b4os.dev">hola@b4os.dev</a>
                         </p>
                         <div class="footer-social">
                             <a href="https://www.facebook.com/libsatoshi" aria-label={t.footer.social_aria.facebook} target="_blank" rel="noopener">
-                                <Icon name="mdi:facebook" size={24} />
+                                <Icon name="iconoir:facebook" size={24} />
                             </a>
                             <a href="https://www.linkedin.com/company/libdesatoshi/" aria-label={t.footer.social_aria.linkedin} target="_blank" rel="noopener">
-                                <Icon name="mdi:linkedin" size={24} />
+                                <Icon name="iconoir:linkedin" size={24} />
                             </a>
                             <a href="https://x.com/libdesatoshi" aria-label={t.footer.social_aria.twitter} target="_blank" rel="noopener">
-                                <Icon name="mdi:twitter" size={24} />
+                                <Icon name="iconoir:x" size={24} />
                             </a>
                             <a href="https://github.com/LibreriadeSatoshi" aria-label={t.footer.social_aria.github} target="_blank" rel="noopener">
                                 <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
                                     <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                             </a>
                             <a href="https://discord.gg/MSrtGYf4Jh" aria-label={t.footer.social_aria.discord} target="_blank" rel="noopener">
-                                <Icon name="mdi:discord" size={24} />
+                                <Icon name="iconoir:discord" size={24} />
                             </a>                           
                             <a href="https://primal.net/p/nprofile1qqsgkt24wdkaksa8exnxgy6tmzs42tra8g30mvplcmk3eqar0z30rxggvqeay" aria-label={t.footer.social_aria.nostr} target="_blank" rel="noopener">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" width="32" height="32" aria-hidden="true"><path d="M210.8 199.4c0 3.1-2.5 5.7-5.7 5.7h-68c-3.1 0-5.7-2.5-5.7-5.7v-15.5c.3-19 2.3-37.2 6.5-45.5 2.5-5 6.7-7.7 11.5-9.1 9.1-2.7 24.9-.9 31.7-1.2 0 0 20.4.8 20.4-10.7s-9.1-8.6-9.1-8.6c-10 .3-17.7-.4-22.6-2.4-8.3-3.3-8.6-9.2-8.6-11.2-.4-23.1-34.5-25.9-64.5-20.1-32.8 6.2.4 53.3.4 116.1v8.4c0 3.1-2.6 5.6-5.7 5.6H57.7c-3.1 0-5.7-2.5-5.7-5.7v-144c0-3.1 2.5-5.7 5.7-5.7h31.7c3.1 0 5.7 2.5 5.7 5.7 0 4.7 5.2 7.2 9 4.5 11.4-8.2 26-12.5 42.4-12.5 36.6 0 64.4 21.4 64.4 68.7v83.2ZM150 99.3c0-6.7-5.4-12.1-12.1-12.1s-12.1 5.4-12.1 12.1 5.4 12.1 12.1 12.1S150 106 150 99.3Z"/></svg>
