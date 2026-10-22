@@ -1,0 +1,14 @@
+---
+// B4OS name set as text: the B is the Bitcoin sign (₿).
+// Ink on light grounds, Paper on dark ones (follows --text).
+interface Props {
+  label?: string;
+  size?: 'nav' | 'footer';
+}
+
+const { label = 'B4OS', size = 'nav' } = Astro.props;
+---
+
+<span class:list={['b4os-logo', `b4os-logo--${size}`]} role="img" aria-label={label}>
+  <span aria-hidden="true">₿4OS</span>
+</span>

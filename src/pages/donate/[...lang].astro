@@ -2,6 +2,7 @@
 // src/pages/donate/[...lang].astro - Donate page multi-language
 import Layout from '../../layouts/Layout.astro';
 import IsmosMark from '../../components/IsmosMark.astro';
+import B4osLogo from '../../components/B4osLogo.astro';
 import '../../styles/donors.css';
 import { Icon } from 'astro-icon/components';
 import { getTranslation, getLocalizedPageUrl, getIsmosLegalUrl } from '../../i18n/utils.js';
@@ -45,7 +46,7 @@ const isChaincodeFormOpen = chaincodeRegistrationFlag !== undefined
         <div class="nav-brand">
           <a href={backHomeUrl} class="nav-link" aria-label={t.nav?.brand_link_aria || 'Ir al inicio'}>
             <IsmosMark />
-            <img src="/b4os.png" alt={t.nav?.logo_alt || 'B4OS'} class="logo" width="64" height="64">
+            <B4osLogo label={t.nav?.logo_alt || 'B4OS'} />
           </a>
         </div>
         <div class="nav-menu" id="navMenu">

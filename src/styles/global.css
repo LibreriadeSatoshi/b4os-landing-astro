@@ -182,6 +182,7 @@ b {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    min-height: var(--space-64);
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 var(--spacing-md);
@@ -2523,5 +2524,31 @@ a:hover .sponsor-highlight {
 
     :root:not([data-theme="light"]) .ismos-mark--paper {
         display: inline;
+    }
+}
+
+/* B4OS name as text, the B is the Bitcoin sign */
+.b4os-logo {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    letter-spacing: 0;
+    color: var(--text);
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.b4os-logo--nav {
+    font-size: 36px;
+}
+
+.b4os-logo--footer {
+    font-size: 28px;
+}
+
+@media (max-width: 768px) {
+    .b4os-logo--nav {
+        font-size: 28px;
     }
 }

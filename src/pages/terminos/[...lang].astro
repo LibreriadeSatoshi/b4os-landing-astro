@@ -2,6 +2,7 @@
 // src/pages/terminos/[...lang].astro - Términos dinámicos multiidioma
 import Layout from '../../layouts/Layout.astro';
 import IsmosMark from '../../components/IsmosMark.astro';
+import B4osLogo from '../../components/B4osLogo.astro';
 import '../../styles/terms.css';
 import { getTranslation, getIsmosLegalUrl } from '../../i18n/utils.js';
 
@@ -38,7 +39,7 @@ const backHomeUrl = locale === 'es' ? '/' : `/${locale}`;
                 <div class="nav-brand">
                     <a href={backHomeUrl} class="nav-link" aria-label={t.terms.nav.back_home_aria}>
                         <IsmosMark />
-                        <img src="/b4os.png" alt={t.terms.nav.logo_alt} class="logo" width="64" height="64">
+                        <B4osLogo label={t.terms.nav.logo_alt} />
                     </a>
                 </div>
                 <div class="nav-menu">
