@@ -134,8 +134,9 @@ body:has(.donors) .donors .section-header:first-of-type {
     justify-self: center;
 }
 
+/* Third-party logos are artwork for light grounds: their plate stays Paper in both themes */
 .platinum-donor-card {
-    background: var(--surface);
+    background: var(--paper);
     border-radius: var(--border-radius-lg);
     padding: var(--spacing-xl) var(--spacing-lg);
     border: 2px solid var(--hairline);
@@ -220,11 +221,6 @@ body:has(.donors) .donors .section-header:first-of-type {
     transition: var(--transition);
 }
 
-.fund-section:hover .fund-icon {
-    background: var(--primary-color);
-    color: var(--paper);
-}
-
 .fund-title-group {
     flex: 1;
 }
@@ -267,17 +263,15 @@ body:has(.donors) .donors .section-header:first-of-type {
 .fund-donor-logo {
     max-width: 120px;
     height: auto;
-    filter: grayscale(30%);
-    transition: var(--transition);
-}
-
-.fund-donor-logo:hover {
-    filter: grayscale(0%);
+    box-sizing: content-box;
+    padding: var(--space-8);
+    background: var(--paper);
+    border-radius: var(--radius-4);
 }
 
 .fund-donor-placeholder {
     padding: var(--spacing-md) var(--spacing-lg);
-    background: var(--scrim);
+    background: transparent;
     border: 2px dashed var(--border-color);
     border-radius: var(--border-radius-md);
     color: var(--text-light);
