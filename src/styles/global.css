@@ -1909,74 +1909,38 @@ a:hover .sponsor-highlight {
 }
 
 /* Alumni Avatar */
+/* The circle is on the photo, so the social links can sit on its edge unclipped */
 .alumni-avatar {
     position: relative;
     width: 120px;
     height: 120px;
     margin: 0 auto var(--spacing-lg);
-    border-radius: var(--radius-circle);
-    overflow: hidden;
-    border: 4px solid var(--border-color);
-    transition: var(--transition);
-}
-
-.alumni-card:hover .alumni-avatar {
-    border-color: var(--primary-color);
 }
 
 .alumni-avatar img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: var(--transition);
-}
-
-/* Alumni Icons */
-/* Alumni Avatar */
-.alumni-avatar {
-    position: relative;
-    width: 120px;
-    height: 120px;
-    margin: 0 auto var(--spacing-lg);
     border-radius: var(--radius-circle);
-    overflow: visible;
-    /* Cambiado de hidden a visible */
-    border: 4px solid var(--border-color);
-    transition: var(--transition);
+    border: var(--rule-2) solid var(--hairline);
+    transition: border-color var(--motion-fast) var(--ease-standard);
 }
 
-.alumni-card:hover .alumni-avatar {
-    border-color: var(--primary-color);
+.alumni-card:hover .alumni-avatar img {
+    border-color: var(--text);
 }
 
-.alumni-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--transition);
-    border-radius: var(--radius-circle);
-    /* Añadido para que la imagen sea circular */
-}
-
-/* Alumni Icons */
+/* Alumni Icons: always visible (touch has no hover); hover changes colour only */
 .alumni-icons {
     position: absolute;
-    bottom: -8px;
-    right: -8px;
+    bottom: calc(-1 * var(--space-8));
+    right: calc(-1 * var(--space-8));
     display: flex;
-    gap: var(--spacing-xs);
+    gap: var(--space-2);
     background: var(--surface);
-    padding: var(--spacing-xs);
-    border-radius: var(--border-radius-lg);
-    opacity: 0;
-    transform: translateY(10px);
-    transition: var(--transition);
+    border: var(--rule-1) solid var(--hairline);
+    border-radius: var(--radius-4);
     z-index: 10;
-    /* Añadido z-index alto */
-}
-
-.alumni-card:hover .alumni-icons {
-    opacity: 1;
 }
 
 .alumni-icons a {
@@ -1985,30 +1949,19 @@ a:hover .sponsor-highlight {
     justify-content: center;
     width: 32px;
     height: 32px;
-    border-radius: var(--radius-0);
-    background: var(--bg-light);
-    color: var(--text-light);
-    transition: var(--transition);
+    color: var(--text-muted);
+    transition: color var(--motion-fast) var(--ease-standard);
     text-decoration: none;
-    padding: var(--space-4);
-    z-index: 11;
-    /* Z-index aún más alto para los enlaces */
 }
 
 .alumni-icons a svg {
-    width: 16px;
-    height: 16px;
-    color: inherit;
-    transition: var(--transition);
+    width: 20px;
+    height: 20px;
 }
 
-.alumni-icons a:hover {
-    background: var(--primary-color);
-    color: var(--paper);
-}
-
-.alumni-icons a:hover svg {
-    color: var(--paper);
+.alumni-icons a:hover,
+.alumni-icons a:focus-visible {
+    color: var(--text);
 }
 
 .powered-by .section-title {
