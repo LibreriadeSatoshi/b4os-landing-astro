@@ -1,0 +1,76 @@
+/* ISMOS components. Token-driven theming; some component metrics remain literal pending upstream normalization. Import ismos.css, not this file alone. Prefix: ism- */
+.ism-root { background: var(--surface); color: var(--text); font-family: var(--font-sans); font-size: 17px; line-height: 28px; }
+.ism-root a { color: var(--link); text-decoration: underline; text-underline-offset: 2px; }
+.ism-root a:hover { color: var(--link-hover); }
+.ism-root :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+/* Label: Plex Mono uppercase, letterspaced .14em */
+.ism-label { font-family: var(--font-mono); font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--text-muted); }
+.ism-label--ai { color: var(--text); font-weight: 500; }
+.ism-label--on-color { color: var(--paper); }
+
+/* Button: radius-4, 44px target */
+.ism-btn { display: inline-flex; align-items: center; gap: var(--space-8); min-height: var(--tap-target); padding: 0 var(--space-16); border-radius: var(--radius-4); font-family: var(--font-sans); font-size: 15px; font-weight: 500; line-height: 1; cursor: pointer; border: 2px solid var(--action); background: var(--action); color: var(--on-action); text-decoration: none; }
+.ism-btn--secondary { background: transparent; color: var(--text); border-color: var(--text); }
+.ism-btn img { width: 20px; height: 20px; }
+/* Kit fix: .ism-root a (0,1,1) beat .ism-btn (0,1,0), so link-styled buttons came out Mauveine and underlined. */
+.ism-root a.ism-btn, .ism-root a.ism-btn:hover { color: var(--on-action); text-decoration: none; }
+.ism-root a.ism-btn--secondary, .ism-root a.ism-btn--secondary:hover { color: var(--text); }
+
+/* Section head: number, title, 2px rule, right kicker */
+.ism-sectionhead { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-16); border-bottom: var(--rule-2) solid var(--rule-strong); padding-bottom: var(--space-8); }
+.ism-sectionhead__num { font-family: var(--font-mono); font-size: 13px; font-weight: 500; color: var(--text-muted); margin-right: var(--space-12); }
+.ism-sectionhead__title { font-family: var(--font-serif); font-size: 28px; line-height: 34px; font-weight: 400; color: var(--text-heading); margin: 0; display: inline; }
+
+/* Bar: the 6px device */
+.ism-bar { display: block; height: var(--rule-6); width: 32px; background: var(--bar); }
+
+/* Status tag: colour + icon + WORD, boxed */
+.ism-tag { display: inline-flex; align-items: center; gap: 6px; border: 1.5px solid currentColor; padding: 2px 8px; font-family: var(--font-mono); font-size: 11.5px; font-weight: 600; letter-spacing: .1em; white-space: nowrap; color: var(--text); }
+.ism-tag svg { width: 14px; height: 14px; flex: none; }
+.ism-tag--alert { color: var(--alert); }
+
+/* Text field */
+.ism-field label { display: block; font-weight: 600; font-size: 15px; margin-bottom: 6px; color: var(--text); }
+.ism-field__input { display: block; width: 100%; box-sizing: border-box; min-height: 48px; padding: 0 var(--space-12); border: 1.5px solid var(--border-input); border-radius: var(--radius-4); background: var(--surface); color: var(--text); font: 400 17px/1 var(--font-sans); }
+.ism-field__input:hover { border-color: var(--border-strong); }
+.ism-field__input:focus-visible { border: 2px solid var(--border-strong); outline: 2px solid var(--focus); outline-offset: 2px; }
+.ism-field--error .ism-field__input { border: 2px solid var(--alert); }
+.ism-field__msg { display: flex; gap: 6px; align-items: flex-start; color: var(--alert); font-size: 15px; line-height: 22px; margin-top: 6px; }
+.ism-field__msg svg { width: 16px; height: 16px; flex: none; margin-top: 3px; }
+
+/* Course card: five elements, fixed order */
+.ism-card { display: flex; flex-direction: column; gap: var(--space-12); padding: var(--space-24); border: var(--rule-1) solid var(--hairline); border-radius: var(--radius-4); background: var(--surface); color: var(--text); text-decoration: none; }
+/* Kit fix: CourseCard is Paper in light mode and Logwood over Ink in Hacker mode. */
+:root[data-theme="hacker"] .ism-card { background: var(--surface-raised); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .ism-card { background: var(--surface-raised); }
+}
+.ism-root .ism-card, .ism-root .ism-card:hover { color: var(--text); text-decoration: none; }
+.ism-card:hover { border-color: var(--text); }
+.ism-card__title { font-family: var(--font-serif); font-size: 21px; line-height: 28px; font-weight: 500; color: var(--text-heading); margin: 0; }
+.ism-card__text { font-size: 15px; line-height: 24px; margin: 0; }
+.ism-card__facts { display: flex; gap: var(--space-16); padding-top: var(--space-12); border-top: var(--rule-1) solid var(--hairline); font-family: var(--font-mono); font-size: 13px; font-weight: 500; color: var(--text-muted); }
+
+/* Teacher on a course card: 32px circle photo + name. The only image a card carries. */
+.ism-card__teacher { display: flex; align-items: center; gap: var(--space-8); font-size: 15px; line-height: 24px; font-weight: 500; color: var(--text); }
+.ism-avatar { width: 32px; height: 32px; border-radius: var(--radius-circle); object-fit: cover; flex: none; box-shadow: 0 0 0 1px var(--hairline); }
+.ism-avatar--lg { width: 64px; height: 64px; }
+.ism-avatar--xl { width: 96px; height: 96px; }
+.ism-avatar--initials { display: inline-grid; place-items: center; background: var(--logwood-100); color: var(--ink); font-family: var(--font-mono); font-size: 12px; font-weight: 500; box-shadow: none; }
+
+/* Progress: 6px bar on track, count as a figure */
+.ism-progress__head { display: flex; justify-content: space-between; gap: var(--space-16); font-size: 15px; line-height: 24px; }
+.ism-progress__count { font-family: var(--font-mono); font-weight: 500; font-variant-numeric: tabular-nums; }
+.ism-progress__track { height: var(--rule-6); background: var(--track); margin: var(--space-8) 0; }
+.ism-progress__fill { height: 100%; background: var(--bar); }
+.ism-progress__note { font-size: 13px; line-height: 20px; color: var(--text-muted); margin: 0; }
+
+/* Terminal: Hacker mode code surface */
+.ism-term { background: var(--ink); box-shadow: inset 0 0 0 1px var(--logwood-700); padding: 18px 20px; font: 400 15px/1.8 var(--font-mono); color: var(--paper); overflow-x: auto; }
+.ism-term > div { white-space: nowrap; }
+.ism-term .pr { color: var(--weld); }
+.ism-term .cm { color: var(--logwood-200); }
+.ism-term .al { color: var(--madder); display: flex; gap: 8px; align-items: center; }
+.ism-term a { color: var(--mauveine-200); text-decoration: underline; }
+.ism-term .cur { display: inline-block; width: .6em; background: var(--weld); }
