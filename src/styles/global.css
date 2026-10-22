@@ -114,6 +114,13 @@ body {
     gap: var(--spacing-sm);
 }
 
+/* ISMOS mark beside the B4OS logo, clear space ≥ 0.25 × mark width */
+.nav-brand .nav-link {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
 .logo {
     height: 64px;
     width: auto;

@@ -67,3 +67,11 @@ export function getLocalizedPageUrl(page, lang = defaultLocale) {
   }
   return `/${page}/${lang}`;
 }
+/**
+ * URL de las páginas legales de ISMOS (privacidad, términos, código de conducta)
+ * @param {'privacy' | 'terms' | 'code-of-conduct'} page
+ * @returns {string} URL en ismos.xyz
+ */
+export function getIsmosLegalUrl(page) {
+  return `https://ismos.xyz/en/${page}`;
+}
