@@ -1186,8 +1186,9 @@ a:hover .sponsor-highlight {
     border-radius: 0;
 }
 
+/* Sponsor logo plate stays Paper in both themes (black logo artwork) */
 .main-sponsor-card {
-    background: transparent;
+    background: var(--paper);
     border-radius: var(--radius-4);
     padding: var(--space-32) var(--space-32);
     border: 1px solid var(--hairline);
