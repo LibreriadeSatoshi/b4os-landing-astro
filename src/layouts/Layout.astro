@@ -170,30 +170,9 @@ const hrefLangUrls = {
     <meta name="msapplication-TileColor" content="#000000">
     
     <!-- DNS preconnections -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://restcountries.com">
 
-    <!-- Preload fonts for early discovery -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
-
-    <!-- Non-blocking fonts -->
-    <link rel="stylesheet" 
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" 
-          media="print" 
-          onload="this.media='all'">
-
-    <!-- Fallback for browsers without JS -->
-    <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
-    </noscript>
-
-    <!-- Prevent FOUT (flash of text without style) -->
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-    </style>
+    <!-- ISMOS fonts are self-hosted from design/ismos/fonts -->
     <!-- Structured JSON-LD data -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
@@ -281,7 +260,7 @@ const hrefLangUrls = {
     </script>
     <!-- End Twitter conversion tracking base code -->
 </head>
-<body>
+<body class="ism-root">
     <slot />
     
     <!-- Optimized scripts -->

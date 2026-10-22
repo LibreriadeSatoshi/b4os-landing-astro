@@ -220,6 +220,12 @@
       "date": "Apr. 2026",
       "title": "Assignment of new grantees",
       "description": "Allocation of funding for new program beneficiaries. In exceptional cases, grants could be awarded at any time before April 2026."
+    },
+    "status": {
+      "completed": "Completed",
+      "active": "In progress",
+      "upcoming": "Upcoming",
+      "skipped": "Did not take place"
     }
   },
   "registration": {
@@ -342,47 +348,47 @@
     "subtitle": "Discover everything you get by participating in the <strong>most comprehensive Bitcoin training program</strong>",
     "cards": {
       "1": {
-        "icon": "heroicons:book-open",
+        "icon": "iconoir:open-book",
         "title": "Open source and Bitcoin training",
         "description": "Access to <strong>exclusive content</strong> and top-tier technical training in Bitcoin Core and FOSS technologies."
       },
       "2": {
-        "icon": "heroicons:wrench-screwdriver",
+        "icon": "iconoir:tools",
         "title": "Solid international portfolio",
         "description": "Opportunity to <strong>build a portfolio and resume</strong> with real contributions to open source projects."
       },
       "3": {
-        "icon": "heroicons:chat-bubble-left-right",
+        "icon": "iconoir:chat-bubble",
         "title": "Networking",
         "description": "Connect with a global community of developers, entrepreneurs, and experts from the <strong>Bitcoin ecosystem</strong> worldwide."
       },
       "4": {
-        "icon": "mdi:human-capacity-increase",
+        "icon": "iconoir:community",
         "title": "Expert mentorship",
         "description": "Learning and guidance from <strong>respected leaders</strong> in the Bitcoin ecosystem."
       },
       "5": {
-        "icon": "heroicons:computer-desktop",
+        "icon": "iconoir:computer",
         "title": "Hacker residencies",
         "description": "In-person residencies for developers with Bitcoin ecosystem experts to develop your full potential."
       },
       "6": {
-        "icon": "mdi:bitcoin",
+        "icon": "iconoir:bitcoin-circle",
         "title": "Micro-grants",
         "description": "Possibility of obtaining financial support to dedicate part-time to FOSS development."
       },
       "7": {
-        "icon": "mdi:school",
+        "icon": "iconoir:translate",
         "title": "AI and language training",
         "description": "English classes and artificial intelligence training for grantees."
       },
       "8": {
-        "icon": "mdi:calendar-clock",
+        "icon": "iconoir:calendar",
         "title": "Full-time jobs",
         "description": "Full-time jobs through grants to work on Bitcoin Open Source."
       },
       "9": {
-        "icon": "mdi:earth",
+        "icon": "iconoir:globe",
         "title": "International conferences",
         "description": "Scholarships to attend international conferences on Bitcoin and ecosystem technologies."
       }

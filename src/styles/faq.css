@@ -1,17 +1,17 @@
   .faq-section {
       background-color: var(--bg-dark);
       color: var(--text-light);
-      padding: 4rem 0;
+      padding: var(--space-64) 0;
   }
 
   .faq-section-header {
-      margin-bottom: 3rem;
+      margin-bottom: var(--space-48);
       text-align: center;
   }
 
   .faq-section-title {
       font-size: 2.5rem;
-      font-weight: 700;
+      font-weight: 400;
       margin: 0;
       color: var(--text-light);
   }
@@ -23,7 +23,7 @@
 
   .faq-item {
       border-bottom: 1px solid var(--border-dark);
-      margin-bottom: 0.5rem;
+      margin-bottom: var(--space-8);
       color: var(--text-white)
   }
 
@@ -37,7 +37,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.5rem 1rem;
+      padding: var(--space-24) var(--space-16);
       background: none;
       border: none;
       color: var(--text-white);
@@ -46,8 +46,8 @@
       transition: none;
       text-align: left;
       position: relative;
-      border-radius: 8px;
-      margin: 0.5rem 0;
+      border-radius: var(--radius-4);
+      margin: var(--space-8) 0;
   }
 
   .faq-question:hover::before {
@@ -61,13 +61,13 @@
   .faq-question:focus {
       outline: 2px solid var(--primary-color);
       outline-offset: 2px;
-      border-radius: 4px;
+      border-radius: var(--radius-4);
   }
 
   .faq-icon {
       transition: none;
       flex-shrink: 0;
-      margin-left: 1rem;
+      margin-left: var(--space-16);
       color: var(--text-muted);
   }
 
@@ -85,19 +85,19 @@
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.3s ease, padding 0.3s ease;
-      padding: 0 1rem;
+      padding: 0 var(--space-16);
   }
 
   .faq-question[aria-expanded="true"] + .faq-answer {
       max-height: 400px;
-      padding: 0 1rem 1.5rem 1rem;
+      padding: 0 var(--space-16) var(--space-24) var(--space-16);
   }
 
   .faq-answer p {
       margin: 0;
       line-height: 1.7;
       font-size: 1rem;
-      padding-top: 0.5rem;
+      padding-top: var(--space-8);
   }
 
   .faq-answer a {
@@ -111,7 +111,7 @@
 
   @media (max-width: 768px) {
       .faq-section {
-          padding: 2rem 0;
+          padding: var(--space-32) 0;
       }
 
       .section-title {
@@ -120,7 +120,7 @@
 
       .faq-question {
           font-size: 1rem;
-          padding: 1rem 0;
+          padding: var(--space-16) 0;
       }
       
       .faq-answer {
@@ -128,6 +128,6 @@
       }
 
       .faq-question[aria-expanded="true"] + .faq-answer {
-          padding: 0 1rem 1rem 1rem;
+          padding: 0 var(--space-16) var(--space-16) var(--space-16);
       }
   }

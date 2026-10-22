@@ -220,6 +220,12 @@
       "date": "Abr. 2026",
       "title": "Atribuição de Novos Bolsistas",
       "description": "Atribuição de financiamento para novos beneficiários do programa. Em casos excepcionais, poderiam ser concedidas bolsas em qualquer momento antes de Abril 2026."
+    },
+    "status": {
+      "completed": "Concluída",
+      "active": "Em andamento",
+      "upcoming": "Em breve",
+      "skipped": "Não realizada"
     }
   },
   "registration": {
@@ -342,47 +348,47 @@
     "subtitle": "Descubra tudo o que você obtém ao participar do <strong>programa mais completo de formação Bitcoin</strong>",
     "cards": {
       "1": {
-        "icon": "heroicons:book-open",
+        "icon": "iconoir:open-book",
         "title": "Treinamento em Open Source e Bitcoin",
         "description": "Acesso a <strong>conteúdo exclusivo</strong> e acesso a capacitação técnica de primeiro nível em Bitcoin Core e tecnologias FOSS."
       },
       "2": {
-        "icon": "heroicons:wrench-screwdriver",
+        "icon": "iconoir:tools",
         "title": "Portfólio Internacional Sólido",
         "description": "Oportunidade de <strong>construir um portfólio e um currículo</strong> com contribuições reais para projetos de código aberto."
       },
       "3": {
-        "icon": "heroicons:chat-bubble-left-right",
+        "icon": "iconoir:chat-bubble",
         "title": "Rede de Contatos",
         "description": "Conecte-se com uma comunidade global de desenvolvedores, empresários e especialistas do <strong>ecossistema Bitcoin</strong> em todo o mundo."
       },
       "4": {
-        "icon": "mdi:human-capacity-increase",
+        "icon": "iconoir:community",
         "title": "Mentoria de Especialistas",
         "description": "Aprendizagem e orientação de <strong>líderes respeitados</strong> no ecossistema Bitcoin."
       },
       "5": {
-        "icon": "heroicons:computer-desktop",
+        "icon": "iconoir:computer",
         "title": "Residências Hackers",
         "description": "Residências presenciais para developers com especialistas no ecossistema Bitcoin para desenvolver todo o seu potencial."
       },
       "6": {
-        "icon": "mdi:bitcoin",
+        "icon": "iconoir:bitcoin-circle",
         "title": "Microbolsas",
         "description": "Possibilidade de obter apoio financeiro para dedicar-se part-time ao desenvolvimento FOSS."
       },
       "7": {
-        "icon": "mdi:school",
+        "icon": "iconoir:translate",
         "title": "Formação em IA e Idiomas",
         "description": "Aulas de inglês e formação em inteligência artificial para bolsistas."
       },
       "8": {
-        "icon": "mdi:calendar-clock",
+        "icon": "iconoir:calendar",
         "title": "Full-time jobs",
         "description": "Trabalhos em tempo integral, através de grants para se dedicar ao Bitcoin Open Source."
       },
       "9": {
-        "icon": "mdi:earth",
+        "icon": "iconoir:globe",
         "title": "Conferências internacionais",
         "description": "Bolsas para aceder a conferências internacionais sobre Bitcoin e tecnologias do ecossistema."
       }

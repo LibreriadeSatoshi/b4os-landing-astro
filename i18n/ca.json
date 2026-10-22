@@ -220,6 +220,12 @@
       "date": "Abr. 2026",
       "title": "Assignació de Nous Grantees",
       "description": "Assignació de finançament per a nous beneficiaris del programa. En casos excepcionals, es podrien atorgar grants en qualsevol moment abans d'Abril 2026."
+    },
+    "status": {
+      "completed": "Completada",
+      "active": "En curs",
+      "upcoming": "Properament",
+      "skipped": "No realitzada"
     }
   },
   "registration": {
@@ -342,47 +348,47 @@
     "subtitle": "Descobreix tot el que obtens en participar en el <strong>programa més complet de formació Bitcoin</strong>",
     "cards": {
       "1": {
-        "icon": "heroicons:book-open",
+        "icon": "iconoir:open-book",
         "title": "Entrenament en Open Source i Bitcoin",
         "description": "Accés a <strong>contingut exclusiu</strong> i accés a capacitació tècnica de primer nivell en Bitcoin Core i tecnologies FOSS."
       },
       "2": {
-        "icon": "heroicons:wrench-screwdriver",
+        "icon": "iconoir:tools",
         "title": "Portafoli internacional sòlid",
         "description": "Oportunitat de <strong>construir un portafoli i un currículum</strong> amb contribucions reals a projectes de codi obert."
       },
       "3": {
-        "icon": "heroicons:chat-bubble-left-right",
+        "icon": "iconoir:chat-bubble",
         "title": "Xarxa de Contactes",
         "description": "Connecta amb una comunitat global de desenvolupadors, empresaris i experts de l'<strong>ecosistema Bitcoin</strong> a tot el món."
       },
       "4": {
-        "icon": "mdi:human-capacity-increase",
+        "icon": "iconoir:community",
         "title": "Mentoria d'Experts",
         "description": "Aprenentatge i guia de <strong>líders respectats</strong> en l'ecosistema Bitcoin."
       },
       "5": {
-        "icon": "heroicons:computer-desktop",
+        "icon": "iconoir:computer",
         "title": "Residències Hackers",
         "description": "Residències en persona per a developers amb experts en l'ecosistema Bitcoin per desenvolupar tot el teu potencial."
       },
       "6": {
-        "icon": "mdi:bitcoin",
+        "icon": "iconoir:bitcoin-circle",
         "title": "Microbeques",
         "description": "Possibilitat d'obtenir suport financer per dedicar-se a temps parcial al desenvolupament FOSS."
       },
       "7": {
-        "icon": "mdi:school",
+        "icon": "iconoir:translate",
         "title": "Formació en IA i Idiomes",
         "description": "Classes d'anglès i formació en intel·ligència artificial per a grantees."
       },
       "8": {
-        "icon": "mdi:calendar-clock",
+        "icon": "iconoir:calendar",
         "title": "Full-time jobs",
         "description": "Treballs a temps complet, a través de grants per dedicar-se a Bitcoin Open Source."
       },
       "9": {
-        "icon": "mdi:earth",
+        "icon": "iconoir:globe",
         "title": "Conferències internacionals",
         "description": "Beques per accedir a conferències internacionals sobre Bitcoin i tecnologies de l'ecosistema."
       }
