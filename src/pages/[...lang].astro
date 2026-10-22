@@ -1,8 +1,9 @@
 ---
 // src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
+import IsmosMark from '../components/IsmosMark.astro';
 import { Icon } from 'astro-icon/components'
-import { getTranslation, getLocalizedPageUrl } from '../i18n/utils.js';
+import { getTranslation, getLocalizedPageUrl, getIsmosLegalUrl } from '../i18n/utils.js';
 
 // Importar componentes
 import FAQ from '../components/FAQ.astro';
@@ -82,6 +83,7 @@ const getResidencyBadgeLabel = (status: ResidencyStatus, t: any): string => {
             <div class="nav-container">
                 <div class="nav-brand">
                     <a href="#inicio" class="nav-link" aria-label={t.nav.brand_link_aria}>
+                        <IsmosMark variant="ink" />
                         <img src="/b4os.png" alt={t.nav.logo_alt} class="logo" width="64" height="64">
                     </a>
                 </div>
@@ -689,6 +691,7 @@ const getResidencyBadgeLabel = (status: ResidencyStatus, t: any): string => {
             <div class="footer-content"> 
                 <div class="footer-section">
                     <div class="footer-brand">
+                        <IsmosMark variant="paper" />
                         <img src="/b4os.png" alt={t.footer.logo_alt} class="footer-logo" width="32" height="32">
                     </div>
                     <p set:html={t.footer.description}></p>
@@ -755,11 +758,12 @@ const getResidencyBadgeLabel = (status: ResidencyStatus, t: any): string => {
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
                     <div>
-                        <p set:html={t.footer.copyright}></p>
+                        <p>{t.footer.copyright.replace('{year}', String(new Date().getFullYear()))}</p>
                     </div>
                     <nav class="footer-legal" aria-label={t.footer.legal_aria}>
-                        <a href={getLocalizedPageUrl('terminos', locale)} rel="nofollow">{t.footer.legal.terms}</a>
-                        <a href={getLocalizedPageUrl('codigo-conducta', locale)} rel="nofollow">{t.footer.legal.conduct}</a>
+                        <a href={getIsmosLegalUrl('privacy')} target="_blank" rel="noopener noreferrer">{t.footer.legal.privacy}</a>
+                        <a href={getIsmosLegalUrl('terms')} target="_blank" rel="noopener noreferrer">{t.footer.legal.terms}</a>
+                        <a href={getIsmosLegalUrl('code-of-conduct')} target="_blank" rel="noopener noreferrer">{t.footer.legal.conduct}</a>
                     </nav>
                 </div>
             </div>

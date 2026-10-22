@@ -1,9 +1,10 @@
 ---
 // src/pages/donate/[...lang].astro - Donate page multi-language
 import Layout from '../../layouts/Layout.astro';
+import IsmosMark from '../../components/IsmosMark.astro';
 import '../../styles/donors.css';
 import { Icon } from 'astro-icon/components';
-import { getTranslation, getLocalizedPageUrl } from '../../i18n/utils.js';
+import { getTranslation, getLocalizedPageUrl, getIsmosLegalUrl } from '../../i18n/utils.js';
 import LanguageSelector from '../../components/languageSelector.astro';
 
 export async function getStaticPaths() {
@@ -43,6 +44,7 @@ const isChaincodeFormOpen = chaincodeRegistrationFlag !== undefined
       <div class="nav-container">
         <div class="nav-brand">
           <a href={backHomeUrl} class="nav-link" aria-label={t.nav?.brand_link_aria || 'Ir al inicio'}>
+            <IsmosMark variant="ink" />
             <img src="/b4os.png" alt={t.nav?.logo_alt || 'B4OS'} class="logo" width="64" height="64">
           </a>
         </div>
@@ -253,11 +255,12 @@ const isChaincodeFormOpen = chaincodeRegistrationFlag !== undefined
       <div class="footer-bottom">
         <div class="footer-bottom-content">
           <div>
-            <p set:html={t.footer?.copyright || ''}></p>
+            <p>{t.footer.copyright.replace('{year}', String(new Date().getFullYear()))}</p>
           </div>
           <nav class="footer-legal" aria-label={t.footer?.legal_aria || 'Enlaces legales'}>
-            <a href={getLocalizedPageUrl('terminos', locale)} rel="nofollow">{t.footer?.legal?.terms}</a>
-            <a href={getLocalizedPageUrl('codigo-conducta', locale)} rel="nofollow">{t.footer?.legal?.conduct}</a>
+            <a href={getIsmosLegalUrl('privacy')} target="_blank" rel="noopener noreferrer">{t.footer.legal.privacy}</a>
+            <a href={getIsmosLegalUrl('terms')} target="_blank" rel="noopener noreferrer">{t.footer.legal.terms}</a>
+            <a href={getIsmosLegalUrl('code-of-conduct')} target="_blank" rel="noopener noreferrer">{t.footer.legal.conduct}</a>
           </nav>
         </div>
       </div>

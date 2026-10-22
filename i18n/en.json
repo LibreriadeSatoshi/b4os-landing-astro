@@ -588,11 +588,7 @@
       "last_updated": "Last updated:",
       "date": "January 15, 2025",
       "close_btn": "Close",
-      "register_btn": "Register",
-      "copyright": "&copy; 2025 <strong>B4OS (Bitcoin 4 Open Source)</strong>. Made with <span class=\"heart\" aria-label=\"love\">❤️</span> for the Bitcoin community",
-      "legal_links": {
-        "terms": "Terms of Use"
-      }
+      "register_btn": "Register"
     }
   },
   "conduct": {
@@ -651,11 +647,7 @@
       "last_updated": "Last updated:",
       "date": "January 15, 2025",
       "close_btn": "Close",
-      "register_btn": "Register",
-      "copyright": "&copy; 2025 <strong>B4OS (Bitcoin 4 Open Source)</strong>. Made with <span class=\"heart\" aria-label=\"love\">❤️</span> for the Bitcoin community",
-      "legal_links": {
-        "terms": "Terms of Use"
-      }
+      "register_btn": "Register"
     }
   },
   "donors": {
@@ -759,8 +751,9 @@
       "discord": "Join our community on Discord",
       "nostr": "Follow us on Nostr"
     },
-    "copyright": "&copy; 2025 <strong>B4OS (Bitcoin 4 Open Source)</strong>. Made with <span class=\"heart\" aria-label=\"love\">❤️</span> for the Bitcoin community",
+    "copyright": "Copyright {year} ISMOS. All rights reserved.",
     "legal": {
+      "privacy": "Privacy policy",
       "terms": "Terms of use",
       "conduct": "Code of conduct"
     },

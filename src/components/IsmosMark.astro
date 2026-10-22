@@ -1,0 +1,16 @@
+---
+// Official ISMOS mark from the design kit. Ink on Paper grounds, Paper on dark ones.
+// Never redraw, recolour or crop it (design/ismos/docs/logos.md).
+import ink from '../../design/ismos/logos/ismos-mark-ink.svg';
+import paper from '../../design/ismos/logos/ismos-mark-paper.svg';
+
+interface Props {
+  variant?: 'ink' | 'paper';
+  size?: number;
+}
+
+const { variant = 'ink', size = 24 } = Astro.props;
+const src = variant === 'paper' ? paper.src : ink.src;
+---
+
+<img src={src} alt="ISMOS" width={size} height={size} class="ismos-mark" />

@@ -588,11 +588,7 @@
       "last_updated": "Última actualització:",
       "date": "15 de gener, 2025",
       "close_btn": "Tancar",
-      "register_btn": "Registrar-me",
-      "copyright": "&copy; 2025 <strong>B4OS (Bitcoin 4 Open Source)</strong>. Fet amb <span class=\"heart\" aria-label=\"amor\">❤️</span> per a la comunitat Bitcoin",
-      "legal_links": {
-        "terms": "Termes d'Ús"
-      }
+      "register_btn": "Registrar-me"
     }
   },
   "conduct": {
@@ -651,11 +647,7 @@
       "last_updated": "Última actualització:",
       "date": "15 de gener, 2025",
       "close_btn": "Tancar",
-      "register_btn": "Registrar-me",
-      "copyright": "&copy; 2025 <strong>B4OS (Bitcoin 4 Open Source)</strong>. Fet amb <span class=\"heart\" aria-label=\"amor\">❤️</span> per a la comunitat Bitcoin",
-      "legal_links": {
-        "terms": "Termes d'Ús"
-      }
+      "register_btn": "Registrar-me"
     }
   },
   "donors": {
@@ -759,8 +751,9 @@
       "discord": "Uneix-te a la nostra comunitat a Discord",
       "nostr": "Segueix-nos a Nostr"
     },
-    "copyright": "&copy; 2025 <strong>B4OS (Bitcoin 4 Open Source)</strong>. Fet amb <span class=\"heart\" aria-label=\"amor\">❤️</span> per a la comunitat Bitcoin",
+    "copyright": "Copyright {year} ISMOS. Tots els drets reservats.",
     "legal": {
+      "privacy": "Política de privadesa",
       "terms": "Termes d'Ús",
       "conduct": "Codi de Conducta"
     },
