@@ -2,18 +2,38 @@
    apply, but any rule in this site wins over them regardless of specificity. */
 @import "../../design/ismos/css/ismos.css" layer(ismos);
 
-/* Literata has no Bitcoin sign (U+20BF): titles take it from IBM Plex Sans,
-   so "₿OSS" and "₿4OS" render in a real face instead of a system fallback */
+/* The ISMOS fonts are Latin subsets without the Bitcoin sign (U+20BF): on systems
+   with no font for it, "₿OSS" and the ₿4OS logo showed a missing-glyph box.
+   This family holds only ₿ (src/fonts/README.md) and goes first in both stacks. */
 @font-face {
     font-family: "B4OS Bitcoin Sign";
-    src: url("../../design/ismos/fonts/IBMPlexSans-latin.woff2") format("woff2");
-    font-weight: 100 700;
+    src: url("../fonts/b4os-bitcoin-sign-400.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+20BF;
+}
+
+@font-face {
+    font-family: "B4OS Bitcoin Sign";
+    src: url("../fonts/b4os-bitcoin-sign-500.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+20BF;
+}
+
+@font-face {
+    font-family: "B4OS Bitcoin Sign";
+    src: url("../fonts/b4os-bitcoin-sign-600.woff2") format("woff2");
+    font-weight: 600;
     font-style: normal;
     font-display: swap;
     unicode-range: U+20BF;
 }
 
 :root {
+    --font-sans: "B4OS Bitcoin Sign", "IBM Plex Sans", "IBM Plex Sans Arabic", "IBM Plex Sans Devanagari", "IBM Plex Sans SC", "IBM Plex Sans JP", "Noto Sans Bengali", system-ui, sans-serif;
     --font-serif: "B4OS Bitcoin Sign", Literata, "Noto Serif SC", "Noto Serif JP", "Noto Naskh Arabic", "Noto Serif Devanagari", "Noto Serif Bengali", Georgia, serif;
 }
 
