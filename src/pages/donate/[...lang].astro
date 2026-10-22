@@ -258,9 +258,9 @@ const isChaincodeFormOpen = chaincodeRegistrationFlag !== undefined
             <p>{t.footer.copyright.replace('{year}', String(new Date().getFullYear()))}</p>
           </div>
           <nav class="footer-legal" aria-label={t.footer?.legal_aria || 'Enlaces legales'}>
-            <a href={getIsmosLegalUrl('privacy')} target="_blank" rel="noopener noreferrer">{t.footer.legal.privacy}</a>
-            <a href={getIsmosLegalUrl('terms')} target="_blank" rel="noopener noreferrer">{t.footer.legal.terms}</a>
-            <a href={getIsmosLegalUrl('code-of-conduct')} target="_blank" rel="noopener noreferrer">{t.footer.legal.conduct}</a>
+            <a href={getIsmosLegalUrl('privacy', locale)} target="_blank" rel="noopener noreferrer">{t.footer.legal.privacy}</a>
+            <a href={getIsmosLegalUrl('terms', locale)} target="_blank" rel="noopener noreferrer">{t.footer.legal.terms}</a>
+            <a href={getIsmosLegalUrl('code-of-conduct', locale)} target="_blank" rel="noopener noreferrer">{t.footer.legal.conduct}</a>
           </nav>
         </div>
       </div>

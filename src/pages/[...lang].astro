@@ -5,7 +5,7 @@ import IsmosMark from '../components/IsmosMark.astro';
 import IsmosLockup from '../components/IsmosLockup.astro';
 import B4osLogo from '../components/B4osLogo.astro';
 import { Icon } from 'astro-icon/components'
-import { getTranslation, getLocalizedPageUrl, getIsmosLegalUrl } from '../i18n/utils.js';
+import { getTranslation, getLocalizedPageUrl, getIsmosLegalUrl, getIsmosCoursesUrl } from '../i18n/utils.js';
 
 // Importar componentes
 import FAQ from '../components/FAQ.astro';
@@ -729,8 +729,8 @@ const getResidencyBadgeLabel = (status: ResidencyStatus, t: any): string => {
                 <nav class="footer-section" aria-label={t.footer.resources_aria}>
                     <h4>{t.footer.resources.title}</h4>
                     <ul class="footer-links">
-                        <li><a href="https://www.libreriadesatoshi.com/" target="_blank" rel="noopener">{t.footer.resources.library}</a></li>
-                        <li><a href="https://www.libreriadesatoshi.com/#courses" target="_blank" rel="noopener">{t.footer.resources.courses}</a></li>
+                        <li><a href="https://ismos.xyz/" target="_blank" rel="noopener">{t.footer.resources.library}</a></li>
+                        <li><a href={getIsmosCoursesUrl(locale)} target="_blank" rel="noopener">{t.footer.resources.courses}</a></li>
                     </ul>
                 </nav>
                 
@@ -778,9 +778,9 @@ const getResidencyBadgeLabel = (status: ResidencyStatus, t: any): string => {
                         <p>{t.footer.copyright.replace('{year}', String(new Date().getFullYear()))}</p>
                     </div>
                     <nav class="footer-legal" aria-label={t.footer.legal_aria}>
-                        <a href={getIsmosLegalUrl('privacy')} target="_blank" rel="noopener noreferrer">{t.footer.legal.privacy}</a>
-                        <a href={getIsmosLegalUrl('terms')} target="_blank" rel="noopener noreferrer">{t.footer.legal.terms}</a>
-                        <a href={getIsmosLegalUrl('code-of-conduct')} target="_blank" rel="noopener noreferrer">{t.footer.legal.conduct}</a>
+                        <a href={getIsmosLegalUrl('privacy', locale)} target="_blank" rel="noopener noreferrer">{t.footer.legal.privacy}</a>
+                        <a href={getIsmosLegalUrl('terms', locale)} target="_blank" rel="noopener noreferrer">{t.footer.legal.terms}</a>
+                        <a href={getIsmosLegalUrl('code-of-conduct', locale)} target="_blank" rel="noopener noreferrer">{t.footer.legal.conduct}</a>
                     </nav>
                 </div>
             </div>
