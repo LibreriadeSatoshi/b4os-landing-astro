@@ -46,7 +46,7 @@
                     <circle cx="12" cy="12" r="10"></circle>
                     <path d="M9 12l2 2 4-4"></path>
                 </svg>
-                <h4>${translations.success_title || "¡Listo!"}</h4>
+                <h4>${translations.success_title || "Listo"}</h4>
                 <p>${translations.success_message || "Te avisaremos cuando abramos inscripciones"}</p>
             </div>
         `;
@@ -89,7 +89,7 @@
       if (response.ok && data.success) {
         // Éxito
         showNotification(
-          data.message || "¡Perfecto! Te avisaremos cuando abramos",
+          data.message || "Listo. Te avisaremos cuando abramos el registro.",
           "success",
         );
         showSuccessState(waitlistForm);
