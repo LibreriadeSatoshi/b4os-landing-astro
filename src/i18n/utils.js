@@ -67,13 +67,22 @@ export function getLocalizedPageUrl(page, lang = defaultLocale) {
   }
   return `/${page}/${lang}`;
 }
+// Rutas legales de ismos.xyz por idioma. ES y CA usan la versión en inglés
+// hasta tener sus rutas en español.
+const ismosLegalPaths = {
+  en: { privacy: 'en/privacy', terms: 'en/terms', 'code-of-conduct': 'en/code-of-conduct' },
+  pt: { privacy: 'pt/privacidade', terms: 'pt/termos', 'code-of-conduct': 'pt/codigo-de-conduta' }
+};
+
 /**
  * URL de las páginas legales de ISMOS (privacidad, términos, código de conducta)
  * @param {'privacy' | 'terms' | 'code-of-conduct'} page
+ * @param {string} lang - Código del idioma
  * @returns {string} URL en ismos.xyz
  */
-export function getIsmosLegalUrl(page) {
-  return `https://ismos.xyz/en/${page}`;
+export function getIsmosLegalUrl(page, lang = defaultLocale) {
+  const paths = ismosLegalPaths[lang] || ismosLegalPaths.en;
+  return `https://ismos.xyz/${paths[page]}`;
 }
 
 /**
