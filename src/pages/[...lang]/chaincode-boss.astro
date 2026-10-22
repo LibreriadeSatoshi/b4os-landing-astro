@@ -2,6 +2,7 @@
 // src/pages/[...lang]/chaincode-boss.astro - Página de registro específica para Chaincode
 import Layout from '../../layouts/Layout.astro';
 import IsmosMark from '../../components/IsmosMark.astro';
+import B4osLogo from '../../components/B4osLogo.astro';
 import { Icon } from 'astro-icon/components'
 import { getTranslation, getLocalizedPageUrl, getIsmosLegalUrl } from '../../i18n/utils.js';
 import LanguageSelector from '../../components/languageSelector.astro';
@@ -43,7 +44,7 @@ const backHomeUrl = locale === 'es' ? '/' : `/${locale}`;
                 <div class="nav-brand">
                     <a href={backHomeUrl} class="nav-link" aria-label={t.nav.brand_link_aria}>
                         <IsmosMark />
-                        <img src="/b4os.png" alt={t.nav.logo_alt} class="logo" width="64" height="64">
+                        <B4osLogo label={t.nav.logo_alt} />
                     </a>
                     <img src="/boss-challenge.png" alt="BOSS Challenge" class="boss-challenge-logo" width="131" height="56">
                 </div>
@@ -353,7 +354,7 @@ const backHomeUrl = locale === 'es' ? '/' : `/${locale}`;
                 <div class="footer-section">
                     <div class="footer-brand">
                         <IsmosMark variant="paper" />
-                        <img src="/b4os.png" alt={t.footer.logo_alt} class="footer-logo" width="32" height="32">
+                        <B4osLogo label={t.footer.logo_alt} size="footer" />
                     </div>
                     <p set:html={t.footer.description}></p>
                 </div>
