@@ -1,0 +1,150 @@
+/* GENERATED from design/ismos/tokens.json by scripts/build-tokens.mjs. Do not edit by hand. */
+
+/* Tailwind CSS v4 theme for ISMOS.
+   Usage (e.g. src/styles/global.css):
+     @import "tailwindcss";
+     @import "../../design/ismos/css/ismos.css";       (tokens, fonts, typography, components)
+     @import "../../design/ismos/tailwind/theme.css";
+   Defaults are wiped (`--*: initial`) so theme-driven utilities only use ISMOS values:
+   p-16 = 16px, rounded-4 = 4px, and semantic colours follow light / hacker mode at runtime.
+   Arbitrary values remain a Tailwind feature; scripts/check-ismos.mjs rejects off-scale usage. */
+
+@theme {
+  --*: initial;
+
+  /* Primitives (exact hex) */
+  --color-transparent: transparent;
+  --color-current: currentColor;
+  --color-mauveine: #4D01E0;
+  --color-indigo: #2A2550;
+  --color-paper: #FFFFFF;
+  --color-logwood: #251D3A;
+  --color-ink: #000000;
+  --color-madder: #FF7700;
+  --color-weld: #FFD23F;
+  --color-logwood-800: #544281;
+  --color-madder-800: #8B3D00;
+  --color-mauveine-300: #9293FF;
+  --color-mauveine-200: #BFC3FF;
+  --color-logwood-50: #F8F6FE;
+  --color-logwood-100: #EFECFD;
+  --color-logwood-200: #DFD8FB;
+  --color-logwood-300: #CABDF7;
+  --color-logwood-400: #AF9BEC;
+  --color-logwood-500: #9F87E1;
+  --color-logwood-600: #8369C4;
+  --color-logwood-700: #6B55A2;
+  --color-logwood-900: #453867;
+  --color-logwood-950: #251D3A;
+
+  /* Spacing: p-4 p-8 p-12 p-16 p-24 p-32 p-48 p-64 p-96 (px). p-2 = optical only. */
+  --spacing-2: 2px;
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-48: 48px;
+  --spacing-64: 64px;
+  --spacing-96: 96px;
+
+  /* Radius: rounded-0 rounded-4 rounded-8 rounded-circle */
+  --radius-0: 0px;
+  --radius-4: 4px;
+  --radius-8: 8px;
+  --radius-circle: 50%;
+
+  /* Shadows: shadow-float shadow-modal */
+  --shadow-float: 0 2px 8px rgba(0,0,0,0.10);
+  --shadow-modal: 0 8px 24px rgba(0,0,0,0.16);
+
+  /* Breakpoints: md 640, lg 1024, xl 1280 (mobile first) */
+  --breakpoint-md: 640px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+
+  /* Type scale: text-display text-h1 ... text-label text-figure */
+  --text-display: 48px;
+  --text-display--line-height: 52px;
+  --text-display--font-weight: 400;
+  --text-h1: 36px;
+  --text-h1--line-height: 42px;
+  --text-h1--font-weight: 400;
+  --text-h2: 28px;
+  --text-h2--line-height: 34px;
+  --text-h2--font-weight: 400;
+  --text-h3: 21px;
+  --text-h3--line-height: 28px;
+  --text-h3--font-weight: 500;
+  --text-lead: 19px;
+  --text-lead--line-height: 30px;
+  --text-lead--font-weight: 400;
+  --text-body: 17px;
+  --text-body--line-height: 28px;
+  --text-body--font-weight: 400;
+  --text-body-small: 15px;
+  --text-body-small--line-height: 24px;
+  --text-body-small--font-weight: 500;
+  --text-caption: 13px;
+  --text-caption--line-height: 20px;
+  --text-caption--font-weight: 500;
+  --text-label: 11px;
+  --text-label--line-height: 16px;
+  --text-label--font-weight: 500;
+  --text-label--letter-spacing: 0.14em;
+  --text-figure: 15px;
+  --text-figure--line-height: 24px;
+  --text-figure--font-weight: 500;
+
+  --font-serif: Literata, "Noto Serif SC", "Noto Serif JP", "Noto Naskh Arabic", "Noto Serif Devanagari", "Noto Serif Bengali", Georgia, serif;
+  --font-sans: "IBM Plex Sans", "IBM Plex Sans Arabic", "IBM Plex Sans Devanagari", "IBM Plex Sans SC", "IBM Plex Sans JP", "Noto Sans Bengali", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --font-wordmark: "Bricolage Grotesque", sans-serif;
+
+  --container-content: 1200px;
+  --container-reading: 680px;
+}
+
+/* Semantic roles resolve at runtime so data-theme="hacker" flips them */
+@theme inline {
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-text: var(--text);
+  --color-text-heading: var(--text-heading);
+  --color-text-muted: var(--text-muted);
+  --color-hairline: var(--hairline);
+  --color-rule-strong: var(--rule-strong);
+  --color-link: var(--link);
+  --color-link-hover: var(--link-hover);
+  --color-alert: var(--alert);
+  --color-bar: var(--bar);
+  --color-track: var(--track);
+  --color-action: var(--action);
+  --color-on-action: var(--on-action);
+  --color-highlight: var(--highlight);
+  --color-on-highlight: var(--on-highlight);
+  --color-focus: var(--focus);
+  --color-status-info: var(--status-info);
+  --color-status-info-bg: var(--status-info-bg);
+  --color-status-success: var(--status-success);
+  --color-status-warning-bg: var(--status-warning-bg);
+  --color-status-warning: var(--status-warning);
+  --color-status-error: var(--status-error);
+  --color-border-input: var(--border-input);
+  --color-border-strong: var(--border-strong);
+  --color-scrim: var(--scrim);
+}
+
+/* Rule weights: border-1 border-2, and the 6px bar */
+@utility border-1 { border-width: var(--rule-1); }
+@utility border-2 { border-width: var(--rule-2); }
+@utility h-bar { height: var(--rule-6); }
+@utility min-h-tap { min-height: var(--tap-target); }
+@utility z-base { z-index: var(--z-base); }
+@utility z-sticky { z-index: var(--z-sticky); }
+@utility z-dropdown { z-index: var(--z-dropdown); }
+@utility z-scrim { z-index: var(--z-scrim); }
+@utility z-modal { z-index: var(--z-modal); }
+@utility z-toast { z-index: var(--z-toast); }
+@utility z-tooltip { z-index: var(--z-tooltip); }

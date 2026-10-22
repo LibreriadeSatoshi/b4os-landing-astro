@@ -1,0 +1,6 @@
+---
+description: ISMOS design system for any UI, styling, layout, copy or icon work
+globs: ["src/**/*.{astro,html,css,jsx,tsx,vue,svelte,mdx}"]
+alwaysApply: false
+---
+Follow `.claude/skills/ismos-ui/SKILL.md` (summary) and `design/ismos/docs/` (full guide). Use tokens from `design/ismos/css/ismos.css` / `design/ismos/tailwind/theme.css`; never hardcode hex, spacing, radii or shadows. Run `node scripts/check-ismos.mjs src` before finishing.

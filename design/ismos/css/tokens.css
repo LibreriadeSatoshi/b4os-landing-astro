@@ -1,0 +1,191 @@
+/* GENERATED from design/ismos/tokens.json by scripts/build-tokens.mjs. Do not edit by hand. */
+
+:root {
+  color-scheme: light;
+  /* Primitives: exact brand hex values */
+  --mauveine: #4D01E0;
+  --indigo: #2A2550;
+  --paper: #FFFFFF;
+  --logwood: #251D3A;
+  --ink: #000000;
+  --madder: #FF7700;
+  --weld: #FFD23F;
+  --logwood-800: #544281;
+  --madder-800: #8B3D00;
+  --mauveine-300: #9293FF;
+  --mauveine-200: #BFC3FF;
+  --logwood-50: #F8F6FE;
+  --logwood-100: #EFECFD;
+  --logwood-200: #DFD8FB;
+  --logwood-300: #CABDF7;
+  --logwood-400: #AF9BEC;
+  --logwood-500: #9F87E1;
+  --logwood-600: #8369C4;
+  --logwood-700: #6B55A2;
+  --logwood-900: #453867;
+  --logwood-950: var(--logwood);
+
+  /* Semantic roles: light (default) */
+  --surface: var(--paper);
+  --surface-raised: var(--logwood-50);
+  --text: var(--ink);
+  --text-heading: var(--ink);
+  --text-muted: var(--logwood-800);
+  --hairline: var(--logwood-200);
+  --rule-strong: var(--ink);
+  --link: var(--mauveine);
+  --link-hover: var(--logwood-800);
+  --alert: var(--madder-800);
+  --bar: var(--mauveine);
+  --track: var(--logwood-200);
+  --action: var(--ink);
+  --on-action: var(--paper);
+  --highlight: var(--weld);
+  --on-highlight: var(--ink);
+  --focus: var(--mauveine);
+  --status-info: var(--logwood-800);
+  --status-info-bg: var(--logwood-50);
+  --status-success: var(--indigo);
+  --status-warning-bg: var(--weld);
+  --status-warning: var(--ink);
+  --status-error: var(--madder-800);
+  --border-input: var(--logwood-700);
+  --border-strong: var(--ink);
+  --scrim: rgba(0,0,0,0.48);
+
+  /* Type families */
+  --font-serif: Literata, "Noto Serif SC", "Noto Serif JP", "Noto Naskh Arabic", "Noto Serif Devanagari", "Noto Serif Bengali", Georgia, serif;
+  --font-sans: "IBM Plex Sans", "IBM Plex Sans Arabic", "IBM Plex Sans Devanagari", "IBM Plex Sans SC", "IBM Plex Sans JP", "Noto Sans Bengali", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --font-wordmark: "Bricolage Grotesque", sans-serif;
+
+  /* Spacing (nine values + optical 2px) */
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-96: 96px;
+
+  /* Radius */
+  --radius-0: 0px;
+  --radius-4: 4px;
+  --radius-8: 8px;
+  --radius-circle: 50%;
+
+  /* Rules */
+  --rule-1: 1px;
+  --rule-2: 2px;
+  --rule-6: 6px;
+
+  /* Shadows */
+  --shadow-float: 0 2px 8px rgba(0,0,0,0.10);
+  --shadow-modal: 0 8px 24px rgba(0,0,0,0.16);
+
+  /* Opacity */
+  --opacity-motif: 0.25;
+  --opacity-scrim: 0.48;
+
+  /* Z-index */
+  --z-base: 0;
+  --z-sticky: 100;
+  --z-dropdown: 200;
+  --z-scrim: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+  --z-tooltip: 600;
+
+  /* Motion */
+  --motion-fast: 120ms;
+  --motion-base: 200ms;
+  --motion-slow: 280ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+
+  /* Sizes */
+  --size-control-sm: 32px;
+  --size-control: 44px;
+  --size-input: 48px;
+  --size-tabbar: 56px;
+
+  /* Layout */
+  --content-max: 1200px;
+  --gutter: 24px;
+  --page-margin: 32px;
+  --page-margin-mobile: 16px;
+  --reading-column: 680px;
+  --tap-target: 44px;
+}
+
+/* Hacker mode: explicit */
+:root[data-theme="hacker"] {
+  color-scheme: dark;
+  --surface: var(--ink);
+  --surface-raised: var(--logwood);
+  --text: var(--paper);
+  --text-heading: var(--paper);
+  --text-muted: var(--logwood-200);
+  --hairline: var(--logwood-700);
+  --rule-strong: var(--paper);
+  --link: var(--mauveine-200);
+  --link-hover: var(--paper);
+  --alert: var(--madder);
+  --bar: var(--mauveine-300);
+  --track: var(--logwood-700);
+  --action: var(--mauveine);
+  --on-action: var(--paper);
+  --highlight: var(--weld);
+  --on-highlight: var(--ink);
+  --focus: var(--weld);
+  --status-info: var(--logwood-200);
+  --status-info-bg: var(--logwood);
+  --status-success: var(--mauveine-200);
+  --status-warning-bg: var(--weld);
+  --status-warning: var(--ink);
+  --status-error: var(--madder);
+  --border-input: var(--logwood-400);
+  --border-strong: var(--paper);
+  --scrim: rgba(0,0,0,0.48);
+}
+
+/* Hacker mode: follow the device unless the user forced light */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --surface: var(--ink);
+    --surface-raised: var(--logwood);
+    --text: var(--paper);
+    --text-heading: var(--paper);
+    --text-muted: var(--logwood-200);
+    --hairline: var(--logwood-700);
+    --rule-strong: var(--paper);
+    --link: var(--mauveine-200);
+    --link-hover: var(--paper);
+    --alert: var(--madder);
+    --bar: var(--mauveine-300);
+    --track: var(--logwood-700);
+    --action: var(--mauveine);
+    --on-action: var(--paper);
+    --highlight: var(--weld);
+    --on-highlight: var(--ink);
+    --focus: var(--weld);
+    --status-info: var(--logwood-200);
+    --status-info-bg: var(--logwood);
+    --status-success: var(--mauveine-200);
+    --status-warning-bg: var(--weld);
+    --status-warning: var(--ink);
+    --status-error: var(--madder);
+    --border-input: var(--logwood-400);
+    --border-strong: var(--paper);
+    --scrim: rgba(0,0,0,0.48);
+  }
+}
+
+/* Reduced motion: every duration to 0 */
+@media (prefers-reduced-motion: reduce) {
+  :root { --motion-fast: 0ms; --motion-base: 0ms; --motion-slow: 0ms; }
+}

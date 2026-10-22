@@ -1,0 +1,22 @@
+/* GENERATED from design/ismos/tokens.json by scripts/build-tokens.mjs. Do not edit by hand. */
+
+/* Type scale classes. Title faces: Literata (serif). UI/text: IBM Plex Sans. Labels/figures: IBM Plex Mono.
+   .ism-t-wordmark exists only to document the proportions: PLACE the lockup artwork, never typeset it. */
+.ism-t-display { font-family: var(--font-serif); font-size: 48px; line-height: 52px; font-weight: 400; text-wrap: balance; }
+@media (max-width: 639px) { .ism-t-display { font-size: 32px; line-height: 1.15; } }
+.ism-t-h1 { font-family: var(--font-serif); font-size: 36px; line-height: 42px; font-weight: 400; text-wrap: balance; }
+@media (max-width: 639px) { .ism-t-h1 { font-size: 27px; line-height: 1.15; } }
+.ism-t-h2 { font-family: var(--font-serif); font-size: 28px; line-height: 34px; font-weight: 400; text-wrap: balance; }
+.ism-t-h3 { font-family: var(--font-serif); font-size: 21px; line-height: 28px; font-weight: 500; text-wrap: balance; }
+.ism-t-lead { font-family: var(--font-sans); font-size: 19px; line-height: 30px; font-weight: 400; text-wrap: pretty; }
+.ism-t-body { font-family: var(--font-sans); font-size: 17px; line-height: 28px; font-weight: 400; text-wrap: pretty; }
+.ism-t-body-small { font-family: var(--font-sans); font-size: 15px; line-height: 24px; font-weight: 500; }
+.ism-t-caption { font-family: var(--font-sans); font-size: 13px; line-height: 20px; font-weight: 500; }
+.ism-t-label { font-family: var(--font-mono); font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; }
+.ism-t-figure { font-family: var(--font-mono); font-size: 15px; line-height: 24px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.ism-t-wordmark { font-family: var(--font-wordmark); font-size: 34px; line-height: 34px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.ism-t-address { font-family: var(--font-mono); font-size: 10.5px; line-height: 14px; font-weight: 500; letter-spacing: 0.4em; text-transform: uppercase; }
+
+/* CJK / Devanagari / Bengali: more leading, never letterspaced or uppercased */
+:is(:lang(zh), :lang(ja), :lang(hi), :lang(bn)) .ism-t-body { line-height: 30px; }
+:is(:lang(zh), :lang(ja), :lang(hi), :lang(bn)) :is(.ism-t-label, .ism-label) { letter-spacing: 0; text-transform: none; }
