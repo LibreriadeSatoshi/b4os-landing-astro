@@ -75,3 +75,16 @@ export function getLocalizedPageUrl(page, lang = defaultLocale) {
 export function getIsmosLegalUrl(page) {
   return `https://ismos.xyz/en/${page}`;
 }
+
+/**
+ * URL de los cursos de ISMOS según el idioma (ES y CA comparten la versión en español)
+ * @param {string} lang - Código del idioma
+ * @returns {string} URL en ismos.xyz
+ */
+export function getIsmosCoursesUrl(lang = defaultLocale) {
+  const urls = {
+    en: 'https://ismos.xyz/en/courses/',
+    pt: 'https://ismos.xyz/pt/cursos/'
+  };
+  return urls[lang] || 'https://ismos.xyz/cursos/';
+}

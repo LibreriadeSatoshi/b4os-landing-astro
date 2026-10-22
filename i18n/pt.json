@@ -3,7 +3,7 @@
     "site_title": "B4OS 2025 · Programa gratuito de formação Bitcoin para desenvolvedores sênior | Bitcoin 4 Open Source",
     "site_description": "Programa gratuito de formação técnica para desenvolvedores sênior interessados no ecossistema open source do Bitcoin na América Latina, Caribe e Espanha. Junte-se ao B4OS 2025.",
     "keywords": "Bitcoin FOSS, Lightning development, Bitcoin Latin America, Bitcoin Core, desenvolvimento Bitcoin, programação blockchain, Bitcoin open source, formação Bitcoin, desenvolvedores Bitcoin, Lightning Network, Bitcoin América Latina, Bitcoin Espanha, Bitcoin Caribe, residências Bitcoin, mentoria Bitcoin",
-    "author": "Librería de Satoshi",
+    "author": "ISMOS",
     "site_name": "B4OS · Bitcoin 4 Open Source",
     "og_image_alt": "B4OS · Programa de formação técnica em Bitcoin para desenvolvedores sênior",
     "twitter_site": "@libdesatoshi",
@@ -400,7 +400,7 @@
     "questions": {
       "1": {
         "question": "O B4OS é realmente gratuito? Existem custos ocultos?",
-        "answer": "<strong>Sim, o B4OS é 100% gratuito.</strong> Não há taxas de inscrição, materiais pagos nem custos ocultos de nenhum tipo. O programa é financiado pela Biblioteca de Satoshi para tornar a educação Bitcoin de qualidade profissional acessível a desenvolvedores de língua portuguesa."
+        "answer": "<strong>Sim, o B4OS é 100% gratuito.</strong> Não há taxas de inscrição, materiais pagos nem custos ocultos de nenhum tipo. O programa é financiado pelo ISMOS para tornar a educação Bitcoin de qualidade profissional acessível a desenvolvedores de língua portuguesa."
       },
       "2": {
         "question": "Todo o código desenvolvido é de código aberto?",
@@ -742,7 +742,7 @@
     "quick_links_aria": "Links rápidos",
     "resources": {
       "title": "Recursos",
-      "library": "Librería de Satoshi",
+      "library": "ISMOS",
       "courses": "Cursos Bitcoin"
     },
     "resources_aria": "Recursos externos",

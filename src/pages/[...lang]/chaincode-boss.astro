@@ -4,7 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import IsmosMark from '../../components/IsmosMark.astro';
 import B4osLogo from '../../components/B4osLogo.astro';
 import { Icon } from 'astro-icon/components'
-import { getTranslation, getLocalizedPageUrl, getIsmosLegalUrl } from '../../i18n/utils.js';
+import { getTranslation, getLocalizedPageUrl, getIsmosLegalUrl, getIsmosCoursesUrl } from '../../i18n/utils.js';
 import LanguageSelector from '../../components/languageSelector.astro';
 
 // Generar rutas estáticas para todos los idiomas
@@ -372,8 +372,8 @@ const backHomeUrl = locale === 'es' ? '/' : `/${locale}`;
                 <nav class="footer-section" aria-label={t.footer.resources_aria}>
                     <h4>{t.footer.resources.title}</h4>
                     <ul class="footer-links">
-                        <li><a href="https://www.libreriadesatoshi.com/" target="_blank" rel="noopener">{t.footer.resources.library}</a></li>
-                        <li><a href="https://www.libreriadesatoshi.com/#courses" target="_blank" rel="noopener">{t.footer.resources.courses}</a></li>
+                        <li><a href="https://ismos.xyz/" target="_blank" rel="noopener">{t.footer.resources.library}</a></li>
+                        <li><a href={getIsmosCoursesUrl(locale)} target="_blank" rel="noopener">{t.footer.resources.courses}</a></li>
                     </ul>
                 </nav>
                 
