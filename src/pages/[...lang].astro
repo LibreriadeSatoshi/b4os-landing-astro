@@ -2,6 +2,7 @@
 // src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
 import IsmosMark from '../components/IsmosMark.astro';
+import IsmosLockup from '../components/IsmosLockup.astro';
 import B4osLogo from '../components/B4osLogo.astro';
 import { Icon } from 'astro-icon/components'
 import { getTranslation, getLocalizedPageUrl, getIsmosLegalUrl } from '../i18n/utils.js';
@@ -585,9 +586,7 @@ const getResidencyBadgeLabel = (status: ResidencyStatus, t: any): string => {
                             </header>
                 
                             <div class="powered-by-logo">
-                                <a href="https://libreriadesatoshi.com" target="_blank" rel="noopener">
-                                    <img src="/libreria.png" alt="Librería de Satoshi" class="powered-by-image" loading="lazy">
-                                </a>
+                                <IsmosLockup />
                             </div>
                         </div>
                     </div>

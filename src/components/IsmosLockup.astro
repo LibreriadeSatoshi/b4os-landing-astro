@@ -1,0 +1,20 @@
+---
+// ISMOS horizontal lockup: mark + wordmark + ISMOS.XYZ address line.
+// Stand-in built from the kit's documented proportions (01.1 Anatomy) until
+// the supplied lockup artwork exists; swap the markup for that file then.
+import IsmosMark from './IsmosMark.astro';
+
+interface Props {
+  href?: string;
+}
+
+const { href = 'https://ismos.xyz' } = Astro.props;
+---
+
+<a class="ismos-lockup" href={href} target="_blank" rel="noopener" aria-label="ISMOS">
+  <IsmosMark size={64} />
+  <span class="ismos-lockup__text" aria-hidden="true">
+    <span class="ismos-lockup__wordmark">ISMOS</span>
+    <span class="ismos-lockup__address">ISMOS.XYZ</span>
+  </span>
+</a>

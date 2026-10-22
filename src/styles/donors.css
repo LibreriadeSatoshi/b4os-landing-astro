@@ -37,8 +37,8 @@
   }
 }
 
-/* Logo de Librería encima del título "Nuestros Donantes" */
-.donors-libreria-logo {
+/* ISMOS lockup above the "Nuestros donantes" title */
+.donors-ismos-logo {
   text-align: center;
   margin-bottom: var(--spacing-lg);
 }
@@ -48,22 +48,6 @@
 }
 .donors .section-header {
   margin-bottom: var(--spacing-xl);
-}
-.donors-libreria-logo a {
-  display: inline-block;
-}
-.donors-libreria-logo img {
-  height: 80px;
-  width: auto;
-  max-width: 320px;
-  object-fit: contain;
-  display: block;
-}
-@media (min-width: 769px) {
-  .donors-libreria-logo img {
-    height: 120px;
-    max-width: 420px;
-  }
 }
 
 /* Donors Section */
