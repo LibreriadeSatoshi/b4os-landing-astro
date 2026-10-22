@@ -242,13 +242,15 @@ const hrefLangUrls = {
     </script>
 
     <!-- Waitlist translations for closed registration -->
-    <script is:inline>
-      window.waitlistTranslations = {
-        success_title: '${t.registration.closed?.success_title || "¡Perfect!"}',
-        success_message: '${t.registration.closed?.success_message || "We will notify you when we open registrations"}',
-        error_message: '${t.registration.closed?.error_message || "There was a problem. Please try again"}',
-        email_required: '${t.registration.closed?.email_required || "Please enter your email"}'
-      };
+    <script is:inline define:vars={{
+      waitlistTranslations: {
+        success_title: t.registration?.closed?.success_title || "Done",
+        success_message: t.registration?.closed?.success_message || "We will let you know when registration opens.",
+        error_message: t.registration?.closed?.error_message || "Something went wrong on our side. Try again in a moment.",
+        email_required: t.registration?.closed?.email_required || "Enter your email address."
+      }
+    }}>
+      window.waitlistTranslations = waitlistTranslations;
     </script>
 
     <!-- Twitter conversion tracking base code for closed registration -->

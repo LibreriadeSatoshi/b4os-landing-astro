@@ -1,21 +1,21 @@
 {
   "meta": {
-    "site_title": "B4OS 2025 - Programa Gratuït de Formació Bitcoin per a Desenvolupadors Sènior | Bitcoin 4 Open Source",
+    "site_title": "B4OS 2025 · Programa gratuït de formació Bitcoin per a desenvolupadors sènior | Bitcoin 4 Open Source",
     "site_description": "Programa gratuït de formació tècnica per a desenvolupadors sènior interessats en l'ecosistema open source de Bitcoin a Amèrica Llatina, el Carib i Espanya. Uneix-te a B4OS 2025.",
     "keywords": "Bitcoin FOSS, Lightning development, Bitcoin Latin America, Bitcoin Core, desenvolupament Bitcoin, programació blockchain, Bitcoin open source, formació Bitcoin, desenvolupadors Bitcoin, Lightning Network, Bitcoin Amèrica Llatina, Bitcoin Espanya, Bitcoin Carib, residències Bitcoin, mentoria Bitcoin",
     "author": "Librería de Satoshi",
-    "site_name": "B4OS - Bitcoin 4 Open Source",
-    "og_image_alt": "B4OS - Programa de formació tècnica en Bitcoin per a desenvolupadors sènior",
+    "site_name": "B4OS · Bitcoin 4 Open Source",
+    "og_image_alt": "B4OS · Programa de formació tècnica en Bitcoin per a desenvolupadors sènior",
     "twitter_site": "@libdesatoshi",
     "twitter_creator": "@libdesatoshi",
-    "twitter_image_alt": "B4OS - Programa de formació tècnica en Bitcoin"
+    "twitter_image_alt": "B4OS · Programa de formació tècnica en Bitcoin"
   },
   "schema": {
-    "organization_name": "B4OS - Bitcoin 4 Open Source",
+    "organization_name": "B4OS · Bitcoin 4 Open Source",
     "organization_description": "Programa gratuït de formació tècnica per a desenvolupadors sènior interessats en l'ecosistema open source de Bitcoin a Amèrica Llatina, el Carib i Espanya",
     "address_region": "Amèrica Llatina, Carib, Espanya",
     "offer_description": "Programa gratuït de formació en Bitcoin i Lightning Network",
-    "credential_awarded": "Certificació en Bitcoin FOSS Development",
+    "credential_awarded": "Constància de finalització en desenvolupament Bitcoin FOSS",
     "catalog_name": "Programes B4OS 2025",
     "course_southamerica_name": "Residència Sud-amèrica",
     "course_southamerica_description": "Programa intensiu d'1 any per a desenvolupadors sènior",
@@ -23,7 +23,7 @@
     "course_europe_description": "Residència intensiva de 2 setmanes a València (Espanya)"
   },
   "nav": {
-    "logo_alt": "B4OS - Bitcoin 4 Open Source Logo",
+    "logo_alt": "B4OS · Bitcoin 4 Open Source logo",
     "menu_aria": "Navegació principal",
     "brand_link_aria": "Anar a l'inici de B4OS",
     "back_to_home": "Inici",
@@ -39,24 +39,24 @@
     "careers": "Carreres",
     "contact": "Contacte",
     "b4os_program": "Programa B4OS",
-    "chaincode_cta": "Registre Chaincode BOSS"
+    "chaincode_cta": "Registrar-se a Chaincode BOSS"
   },
   "hero": {
     "title_main": "Bitcoin 4 Open Source",
     "title_sub": "Programa gratuït d'entrenament tècnic en Bitcoin per a desenvolupadors",
-    "cta_primary": "Acceptar el Repte",
-    "cta_secondary": "Conèixer les Residències"
+    "cta_primary": "Acceptar el repte",
+    "cta_secondary": "Conèixer les residències"
   },
   "chaincode_boss": {
     "hero_title": "₿OSS Challenge",
-    "hero_subtitle": "Repte de programació per a devs que s'atreveixen a fer el salt a Bitcoin Open-Source.",
-    "cta_primary": "Accepto el Repte",
+    "hero_subtitle": "Repte de programació per a devs que s'atreveixen a fer el salt a Bitcoin open source.",
+    "cta_primary": "Acceptar el repte",
     "registration": {
       "title": "T'uneixes al desafiament?",
       "description": "₿OSS Challenge està obert i és gratuït. Només en registrar-te amb B4OS obtens els següents beneficis exclusius:",
       "career": {
         "title": "Beneficis B4OS:",
-        "body": "<ul><li>Uneix-te a la nostra comunitat de Discord des del primer dia</li><li>Grups d'estudis</li><li>Mentories i Networking amb els Grantees de B4OS</li></ul>"
+        "body": "<ul><li>Uneix-te a la nostra comunitat de Discord des del primer dia</li><li>Grups d'estudis</li><li>Mentories i networking amb els grantees de B4OS</li></ul>"
       },
       "path": {
         "title": "Per als millors devs:",
@@ -72,15 +72,15 @@
       "title": "Com funciona el ₿OSS Challenge?",
       "subtitle": "Un programa de 3 mesos dissenyat per portar-te de l'aprenentatge a la contribució real en Bitcoin",
       "month1": {
-        "title": "Mes 1: Desafiaments",
+        "title": "Mes 1: desafiaments",
         "description": "Diverteix-te amb els reptes de programació i aprèn Bitcoin codificant."
       },
       "month2": {
-        "title": "Mes 2: Forks i Paths",
+        "title": "Mes 2: forks i paths",
         "description": "Ens dividim en dos paths, alguns comencen a contribuir a BOSS, mentre que altres prenen cursos i grups d'estudi. Els millors devs d'ambdós paths són seleccionats per rebre grants i micro-grants. A més de l'oportunitat d'assistir a residències."
       },
       "month3": {
-        "title": "Mes 3: Grants, Mentories i Projectes",
+        "title": "Mes 3: grants, mentories i projectes",
         "description": "En base al PoW (Proof of Work), es connecta els devs amb mentors i projectes de major interès dins de l'ecosistema."
       }
     }
@@ -93,26 +93,26 @@
       "description": "Accepta el repte i domina el protocol de Bitcoin. Forma part d'un entrenament d'elit i comença a contribuir a Bitcoin i Lightning."
     },
     "open_source": {
-      "title": "Open Source i Llibertat",
+      "title": "Open source i llibertat",
       "description": "Contribueix al codi obert com els líders de Linux, Google i Silicon Valley. Uneix-te al 5 % que crea el 95 % del codi del món."
     },
     "networking": {
-      "title": "Networking i Comunitat",
+      "title": "Networking i comunitat",
       "description": "Connecta amb desenvolupadors i experts d'arreu del món. Obre la porta a oportunitats tècniques i professionals úniques en Bitcoin."
     }
   },
   "alumni": {
-    "title": "B4OS 2024 VA SER UN ÈXIT!",
+    "title": "B4OS 2024 va ser un èxit",
     "cohort": "Cohort",
     "coming_soon": "Properament",
     "stats_aria": "Estadístiques del programa",
     "stats": {
       "registered": "Devs seleccionats",
       "selected": "Convidats a la residència",
-      "fulltime": "Full-time Grantees",
-      "parttime": "Part-time o Micro-grant Grantees"
+      "fulltime": "Full-time grantees",
+      "parttime": "Part-time o micro-grant grantees"
     },
-    "subtitle": "<strong>Graduats B4OS 2024:</strong> construint Bitcoin Open Source a temps complet",
+    "subtitle": "<strong>Alumnes de B4OS 2024:</strong> construint Bitcoin Open Source a temps complet",
     "github_aria": "GitHub de {name}",
     "linkedin_aria": "LinkedIn de {name}",
     "twitter_aria": "Twitter de {name}",
@@ -120,7 +120,7 @@
     "grantee_b4os_localhost": "Grantee de B4OS",
     "grantee_spiral": "Grantee de Spiral",
     "grantee_bdk": "Grantee de BDK Foundation",
-    "grantee_whitenoise_b4os": "Grantee de White Noise - B4OS",
+    "grantee_whitenoise_b4os": "Grantee de White Noise · B4OS",
     "grantee_whitenoise": "Grantee de White Noise",
     "main_maintainer": "mantenidor principal"
   },
@@ -172,54 +172,54 @@
     "disclaimer": "* Les dates poden estar subjectes a canvis. Es notificarà amb antelació als participants seleccionats."
   },
   "timeline": {
-    "title": "B4OS Timeline",
-    "subtitle": "Coneix les <strong>dates importants</strong> del programa B4OS 2025–2026",
+    "title": "Cronograma de B4OS",
+    "subtitle": "Coneix les <strong>dates importants</strong> del programa B4OS 2025-2026",
     "registration": {
-      "date": "11 Ag. - 15 Oct. 2025",
-      "title": "Registre Obert",
-      "description": "Registre de participants per al programa B4OS 2025–2026."
+      "date": "11 ag.-15 oct. 2025",
+      "title": "Registre obert",
+      "description": "Registre de participants per al programa B4OS 2025-2026."
     },
     "challenges": {
-      "date": "15 Set. 2025",
-      "title": "Comencen Code Challenges",
+      "date": "15 set. 2025",
+      "title": "Comencen els code challenges",
       "description": "Vegem quin és el teu nivell de programació i de coneixements de Bitcoin. Aquesta etapa és una fase asíncrona a Discord sense classes ni mentories, però amb suport de la comunitat.",
-      "highlight": "🏆 <strong>Els millors desenvolupadors passen a la següent etapa.</strong><br><strong>Premi al novell:</strong> $300 USD al millor codi per a desenvolupadors nous que mai hagin participat a B4OS, BOSS o altres programes."
+      "highlight": "<strong>Els millors desenvolupadors passen a la següent etapa.</strong><br><strong>Premi al novell:</strong> $300 USD al millor codi per a desenvolupadors nous que mai hagin participat a B4OS, BOSS o altres programes."
     },
     "review": {
-      "date": "20 Oct. 2025",
-      "title": "Finalitza Primera Fase de Code Challenges",
+      "date": "20 oct. 2025",
+      "title": "Finalitza la primera fase de code challenges",
       "description": "Selecció de developers."
     },
     "guadalajara_selection": {
-      "date": "30 Oct. 2025",
+      "date": "30 oct. 2025",
       "title": "Selecció Guadalajara, Mèxic",
       "description": "Selecció de 2 developers junior per al programa a Guadalajara, Mèxic."
     },
     "division": {
-      "date": "30 Oct. 2025",
-      "title": "Divisió en Rutes",
+      "date": "30 oct. 2025",
+      "title": "Divisió en rutes",
       "description": "Del <strong>30 d'octubre 2025</strong> a <strong>febrer 2026</strong>: construcció de portafoli i contribució FOSS. Seminaris, grups de treball, bitdevs i meetups (5 mesos en línia).",
       "routes": {
-        "core": "Bitcoin Core Protocol Developer",
-        "lightning": "Lightning Network Protocol Developer",
-        "application": "Application Developer"
+        "core": "Bitcoin Core protocol developer",
+        "lightning": "Lightning Network protocol developer",
+        "application": "Application developer"
       }
     },
     "southamerica_selection": {
       "date": "Des. 2025",
-      "title": "Selecció Residència Sud-amèrica",
-      "description": "Avaluació basada en <strong>Proof of Work</strong> en projectes Open Source i participació en cursos. Ambdues rutes s'uneixen i continuen treballant en projectes.",
+      "title": "Selecció residència Sud-amèrica",
+      "description": "Avaluació basada en <strong>Proof of Work</strong> en projectes open source i participació en cursos. Ambdues rutes s'uneixen i continuen treballant en projectes.",
       "note": "En casos excepcionals, es podran triar developers també al gener."
     },
     "residency": {
-      "date": "Feb.-Març 2026",
-      "title": "Residència Presencial Sud-amèrica",
+      "date": "Feb.-març 2026",
+      "title": "Residència presencial Sud-amèrica",
       "description": "Experiència immersiva de 2 setmanes a <strong>Florianópolis, Brasil</strong>. Treball directe amb mentors i companys en projectes d'alt impacte."
     },
     "grantees": {
       "date": "Abr. 2026",
-      "title": "Assignació de Nous Grantees",
-      "description": "Assignació de finançament per a nous beneficiaris del programa. En casos excepcionals, es podrien atorgar grants en qualsevol moment abans d'Abril 2026."
+      "title": "Assignació de nous grantees",
+      "description": "Assignació de finançament per a nous beneficiaris del programa. En casos excepcionals, es podrien atorgar grants en qualsevol moment abans d'abril de 2026."
     },
     "status": {
       "completed": "Completada",
@@ -246,13 +246,13 @@
     },
     "closed": {
       "badge_label": "Estat",
-      "badge_text": "Registre Tancat",
+      "badge_text": "Registre tancat",
       "title": "Registre temporalment tancat",
       "subtitle": "Aviat obrirem noves inscripcions. Sigues dels primers a saber-ho:",
       "email_placeholder": "el@teu.email",
       "email_aria_label": "Email per a la llista d'espera",
       "cta": "Notifica'm",
-      "success_title": "Perfecte!",
+      "success_title": "Fet.",
       "success_message": "T'avisarem quan obrim inscripcions",
       "error_message": "Hi ha hagut un problema. Si us plau, torna-ho a intentar",
       "email_required": "Si us plau, introdueix el teu email"
@@ -309,7 +309,7 @@
       },
       "motivation": {
         "label": "Què t'interessa de l'ecosistema de Bitcoin i de les tecnologies \"freedom tech\"? *",
-        "help": "Ens interessa saber quins aspectes específics de l'ecosistema de Bitcoin et apassionen (Privacitat, Seguretat, Resistència a la censura, Descentralització, etc.)."
+        "help": "Ens interessa saber quins aspectes específics de l'ecosistema de Bitcoin t'interessen més (privacitat, seguretat, resistència a la censura, descentralització, etc.)."
       },
       "how_heard": {
         "label": "Per quin mitjà et vas assabentar de B4OS? *",
@@ -349,7 +349,7 @@
     "cards": {
       "1": {
         "icon": "iconoir:open-book",
-        "title": "Entrenament en Open Source i Bitcoin",
+        "title": "Entrenament en open source i Bitcoin",
         "description": "Accés a <strong>contingut exclusiu</strong> i accés a capacitació tècnica de primer nivell en Bitcoin Core i tecnologies FOSS."
       },
       "2": {
@@ -359,17 +359,17 @@
       },
       "3": {
         "icon": "iconoir:chat-bubble",
-        "title": "Xarxa de Contactes",
+        "title": "Xarxa de contactes",
         "description": "Connecta amb una comunitat global de desenvolupadors, empresaris i experts de l'<strong>ecosistema Bitcoin</strong> a tot el món."
       },
       "4": {
         "icon": "iconoir:community",
-        "title": "Mentoria d'Experts",
+        "title": "Mentoria d'experts",
         "description": "Aprenentatge i guia de <strong>líders respectats</strong> en l'ecosistema Bitcoin."
       },
       "5": {
         "icon": "iconoir:computer",
-        "title": "Residències Hackers",
+        "title": "Residències hackers",
         "description": "Residències en persona per a developers amb experts en l'ecosistema Bitcoin per desenvolupar tot el teu potencial."
       },
       "6": {
@@ -379,7 +379,7 @@
       },
       "7": {
         "icon": "iconoir:translate",
-        "title": "Formació en IA i Idiomes",
+        "title": "Formació en IA i idiomes",
         "description": "Classes d'anglès i formació en intel·ligència artificial per a grantees."
       },
       "8": {
@@ -395,7 +395,7 @@
     }
   },
   "faq": {
-    "title": "Preguntes Freqüents",
+    "title": "Preguntes freqüents",
     "subtitle": "Coneix les <strong>preguntes freqüents</strong> sobre el programa B4OS 2025",
     "questions": {
       "1": {
@@ -428,7 +428,7 @@
       },
       "8": {
         "question": "Puc triar la meva ruta d'aprenentatge?",
-        "answer": "<strong>Sí, després de les primeres 5 setmanes</strong> pots especialitzar-te triant entre: Desenvolupament de Protocol Bitcoin Core, Desenvolupament de Lightning Network, o Desenvolupament d'Aplicacions. El teu mentor t'ajudarà a triar segons els teus interessos professionals."
+        "answer": "<strong>Sí, després de les primeres 5 setmanes</strong> pots especialitzar-te triant entre: desenvolupament del protocol Bitcoin Core, desenvolupament de Lightning Network, o desenvolupament d'aplicacions. El teu mentor t'ajudarà a triar segons els teus interessos professionals."
       },
       "9": {
         "question": "Les activitats i challenges es realitzen en grup o individualment?",
@@ -444,11 +444,11 @@
       },
       "12": {
         "question": "Quins resultats puc esperar en finalitzar?",
-        "answer": "<strong>Assoliments tangibles i verificables:</strong> Mínim 3 contribucions acceptades a Bitcoin Core o Lightning Network, un projecte personal funcional, connexions directes amb desenvolupadors Bitcoin sènior, i certificat verificable amb les teves contribucions específiques."
+        "answer": "<strong>Assoliments tangibles i verificables:</strong> Mínim 3 contribucions acceptades a Bitcoin Core o Lightning Network, un projecte personal funcional, connexions directes amb desenvolupadors Bitcoin sènior, i una constància de finalització verificable amb les teves contribucions específiques."
       },
       "13": {
         "question": "Com em connecta B4OS amb oportunitats laborals?",
-        "answer": "<strong>Partnerships directes amb empreses Bitcoin:</strong> Entrevistes garantides per al top 20% de graduats, tauler d'ocupació exclusiu per a alumnes, referències personals de mentors, i esdeveniments networking amb recruiters Bitcoin."
+        "answer": "<strong>Partnerships directes amb empreses Bitcoin:</strong> Entrevistes garantides per al top 20% de participants, tauler d'ocupació exclusiu per a alumnes, referències personals de mentors, i esdeveniments networking amb recruiters Bitcoin."
       },
       "14": {
         "question": "Hi ha restriccions geogràfiques o d'edat?",
@@ -467,7 +467,7 @@
       "text": "Aquest programa és gràcies al inestimable suport de"
     },
     "strategic": {
-      "title": "Aliats Estratègics"
+      "title": "Aliats estratègics"
     },
     "physical_spaces": {
       "title": "Espais físics que ens donen suport"
@@ -486,17 +486,17 @@
     }
   },
   "terms": {
-    "page_title": "Termes i condicions - B4OS | Bitcoin 4 Open Source",
+    "page_title": "Termes i condicions · B4OS | Bitcoin 4 Open Source",
     "page_description": "Termes i condicions del programa B4OS 2025. Informació sobre selecció de participants, ús de dades, propietat intel·lectual i polítiques del programa.",
     "nav": {
-      "logo_alt": "B4OS - Bitcoin 4 Open Source Logo",
+      "logo_alt": "B4OS · Bitcoin 4 Open Source logo",
       "back_home_aria": "Tornar a l'inici de B4OS",
-      "close_btn": "✕ Tancar"
+      "close_btn": "Tancar"
     },
     "header": {
-      "title": "B4OS 2025/26 - El que necessites saber",
-      "intro_1": "<strong>Ei, desenvolupador!</strong> Abans d'unir-te a aquesta aventura, volem que sàpigues exactament què esperar del programa <strong>B4OS</strong>.",
-      "intro_2": "Res de lletra petita confusa - aquí tens tot clar i directe."
+      "title": "B4OS 2025/26: el que necessites saber",
+      "intro_1": "<strong>Ei, desenvolupador.</strong> Abans d'unir-te a aquesta aventura, volem que sàpigues exactament què esperar del programa <strong>B4OS</strong>.",
+      "intro_2": "Res de lletra petita confusa: aquí tens tot clar i directe."
     },
     "sections": {
       "about": {
@@ -519,7 +519,7 @@
       "how_it_works": {
         "title": "Com funciona el programa",
         "phase1": {
-          "title": "Fase 1: Code Challenges",
+          "title": "Fase 1: code challenges",
           "items": [
             "Període definit per nosaltres",
             "Exercicis de codi per mostrar les teves habilitats",
@@ -528,7 +528,7 @@
           ]
         },
         "phase2": {
-          "title": "Fase 2: Portfolio + Contribucions FOSS",
+          "title": "Fase 2: portfolio i contribucions FOSS",
           "intro": "<strong>Si passes els challenges, entres a la fase bona:</strong>",
           "items": [
             "<strong>Contribueixes activament</strong> a projectes de codi obert (Bitcoin Core, Lightning Network, o Nostr)",
@@ -539,7 +539,7 @@
         "tools": {
           "title": "Les eines que farem servir",
           "items": [
-            "<strong>Discord:</strong> Per a tot - suport, comunitat, dubtes",
+            "<strong>Discord:</strong> Per a tot (suport, comunitat, dubtes)",
             "<strong>GitHub Classroom:</strong> Per a lliurar i revisar codi",
             "<strong>Plataforma LMS:</strong> Per a materials i recursos"
           ]
@@ -598,15 +598,15 @@
     }
   },
   "conduct": {
-    "page_title": "Codi de Conducta - B4OS",
+    "page_title": "Codi de conducta · B4OS",
     "page_description": "Codi de conducta per a la comunitat B4OS",
     "nav": {
-      "logo_alt": "B4OS - Bitcoin 4 Open Source Logo",
+      "logo_alt": "B4OS · Bitcoin 4 Open Source logo",
       "back_home_aria": "Tornar a l'inici de B4OS",
-      "close_btn": "✕ Tancar"
+      "close_btn": "Tancar"
     },
     "header": {
-      "title": "Codi de Conducta del Contribuent",
+      "title": "Codi de conducta del contribuent",
       "intro": "A B4OS ens comprometem a mantenir un ambient d'aprenentatge inclusiu, respectuós i professional per a tots els participants en el nostre programa."
     },
     "sections": {
@@ -646,7 +646,7 @@
       },
       "sanctions": {
         "title": "Sancions i expulsions",
-        "content": "Tota persona que tingui un comportament inacceptable perdrà tota oportunitat de ser part de l'equip de la Biblioteca de Satoshi o Líder d'Educació. Perdrà tota oportunitat d'obtenir els certificats de culminació de qualsevol activitat. Perdrà tota oportunitat d'obtenir beques. Pot ser sancionat i banejat de la comunitat per \"x\" quantitat de temps. Pot ser expulsat indefinidament."
+        "content": "Tota persona que tingui un comportament inacceptable perdrà tota oportunitat de ser part de l'equip de la Biblioteca de Satoshi o líder d'educació. Perdrà tota oportunitat d'obtenir les constàncies de finalització de qualsevol activitat. Perdrà tota oportunitat d'obtenir beques. Pot ser sancionat i banejat de la comunitat per \"x\" quantitat de temps. Pot ser expulsat indefinidament."
       }
     },
     "footer": {
@@ -657,44 +657,44 @@
     }
   },
   "donors": {
-    "title": "Els Nostres Donants",
+    "title": "Els nostres donants",
     "subtitle": "Organitzacions que donen suport a l'educació, els grants i el desenvolupament de l'ecosistema Bitcoin de codi obert.",
-    "platinumTitle": "Donant Platí",
+    "platinumTitle": "Donant platí",
     "platinumDescription": "Aquest donant dóna suport a tots els fons",
     "donorsLabel": "Donants:",
     "emptyStateCta": "La teva donació pot ser la primera",
     "funds": {
       "education": {
-        "title": "Fons d'Educació",
+        "title": "Fons d'educació",
         "description": "Formació tècnica en Bitcoin per a desenvolupadors.",
-        "donateButton": "Donar al Fons d'Educació"
+        "donateButton": "Donar al fons d'educació"
       },
       "grant": {
-        "title": "Fons de Grants",
+        "title": "Fons de grants",
         "description": "Finançament per a contribuïdors de Bitcoin Open Source.",
-        "donateButton": "Donar al Fons de Grants"
+        "donateButton": "Donar al fons de grants"
       },
       "operation": {
-        "title": "Pressupost d'Operació",
+        "title": "Pressupost d'operació",
         "description": "Sostenibilitat operativa del programa B4OS.",
-        "donateButton": "Donar al Pressupost d'Operació"
+        "donateButton": "Donar al pressupost d'operació"
       },
       "residency": {
-        "title": "Pressupost de Residències",
+        "title": "Pressupost de residències",
         "description": "Experiències immersives per a grantees del programa.",
-        "donateButton": "Donar al Pressupost de Residències"
+        "donateButton": "Donar al pressupost de residències"
       }
     },
     "donateModal": {
-      "taxDeductible": "Voleu que la vostra donació sigui deductible d'imposts?",
+      "taxDeductible": "Vols que la teva donació sigui deductible d'imposts?",
       "yes": "Sí",
       "no": "No",
       "name": "Nom (opcional)",
       "namePlaceholder": "Satoshi Nakamoto",
       "email": "Email (opcional)",
       "emailPlaceholder": "satoshi@donant.com",
-      "howMuch": "Quant voleu donar?",
-      "customAmountPlaceholder": "O introduiu un import personalitzat",
+      "howMuch": "Quant vols donar?",
+      "customAmountPlaceholder": "O introdueix un import personalitzat",
       "donateWithBitcoin": "Donar amb Bitcoin",
       "close": "Tancar modal",
       "nameRequired": "Nom *",
@@ -703,10 +703,10 @@
   },
   "careers": {
     "title": "Uneix-te al nostre equip",
-    "subtitle": "Estem construint el futur de l'educació tècnica de <strong>Bitcoin</strong>. <br>Busquem persones apassionades que comparteixin la nostra visió de formar la propera generació de talent en l'ecosistema Bitcoin: educació tècnica i emprenedoria especialitzada",
+    "subtitle": "Estem construint el futur de l'educació tècnica de <strong>Bitcoin</strong>. <br>Busquem persones compromeses que comparteixin la nostra visió de formar la propera generació de talent en l'ecosistema Bitcoin: educació tècnica i emprenedoria especialitzada",
     "highlights": {
       "remote": {
-        "title": "100% Remot",
+        "title": "100% remot",
         "description": "Treballem des de qualsevol lloc del món. La <strong>llibertat</strong> és part dels nostres valors fonamentals."
       },
       "bitcoin": {
@@ -728,14 +728,14 @@
     "title": "Subscriu-te al nostre butlletí",
     "description": "Rep les últimes novetats i notícies directament a la teva bústia.",
     "placeholder": "El teu correu electrònic",
-    "subscribe_button": "Subscriure's",
-    "success_message": "Subscripció completada!",
+    "subscribe_button": "Subscriure'm al butlletí",
+    "success_message": "T'has subscrit.",
     "error_message": "Error en la subscripció. Torna-ho a provar.",
     "loading_message": "Subscrivint..."
   },
   "footer": {
-    "logo_alt": "B4OS - Bitcoin 4 Open Source Logo",
-    "description": "<strong>B4OS (Bitcoin 4 Open Source)</strong> - Programa gratuït d'entrenament tècnic en Bitcoin per a desenvolupadors.",
+    "logo_alt": "B4OS · Bitcoin 4 Open Source logo",
+    "description": "<strong>B4OS (Bitcoin 4 Open Source)</strong>: programa gratuït d'entrenament tècnic en Bitcoin per a desenvolupadors.",
     "quick_links": {
       "title": "Enllaços ràpids"
     },
@@ -760,8 +760,8 @@
     "copyright": "Copyright {year} ISMOS. Tots els drets reservats.",
     "legal": {
       "privacy": "Política de privadesa",
-      "terms": "Termes d'Ús",
-      "conduct": "Codi de Conducta"
+      "terms": "Termes d'ús",
+      "conduct": "Codi de conducta"
     },
     "legal_aria": "Enllaços legals"
   }

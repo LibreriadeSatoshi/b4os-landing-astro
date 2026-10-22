@@ -1,29 +1,29 @@
 {
   "meta": {
-    "site_title": "B4OS 2025 - Free Bitcoin Training Program for Senior Developers | Bitcoin 4 Open Source",
+    "site_title": "B4OS 2025 · Free Bitcoin training program for senior developers | Bitcoin 4 Open Source",
     "site_description": "Free technical training program for senior developers interested in the Bitcoin open source ecosystem in Latin America, the Caribbean, and Spain. Join B4OS 2025.",
     "keywords": "Bitcoin FOSS, Lightning development, Bitcoin Latin America, Bitcoin Core, Bitcoin development, blockchain programming, Bitcoin open source, Bitcoin training, Bitcoin developers, Lightning Network, Bitcoin Latin America, Bitcoin Spain, Bitcoin Caribbean, Bitcoin residencies, Bitcoin mentoring",
     "author": "Librería de Satoshi",
-    "site_name": "B4OS - Bitcoin 4 Open Source",
-    "og_image_alt": "B4OS - Technical training program in Bitcoin for senior developers",
+    "site_name": "B4OS · Bitcoin 4 Open Source",
+    "og_image_alt": "B4OS · Technical training program in Bitcoin for senior developers",
     "twitter_site": "@libdesatoshi",
     "twitter_creator": "@libdesatoshi",
-    "twitter_image_alt": "B4OS - Technical training program in Bitcoin"
+    "twitter_image_alt": "B4OS · Technical training program in Bitcoin"
   },
   "schema": {
-    "organization_name": "B4OS - Bitcoin 4 Open Source",
+    "organization_name": "B4OS · Bitcoin 4 Open Source",
     "organization_description": "Free technical training program for senior developers interested in the Bitcoin open source ecosystem in Latin America, the Caribbean, and Spain",
     "address_region": "Latin America, Caribbean, Spain",
     "offer_description": "Free training program in Bitcoin and Lightning Network",
-    "credential_awarded": "Certification in Bitcoin FOSS Development",
-    "catalog_name": "B4OS 2025 Programs",
-    "course_southamerica_name": "South America Residency",
+    "credential_awarded": "Record of completion in Bitcoin FOSS development",
+    "catalog_name": "B4OS 2025 programs",
+    "course_southamerica_name": "South America residency",
     "course_southamerica_description": "Intensive 1-year program for senior developers",
-    "course_europe_name": "Europe Residency",
+    "course_europe_name": "Europe residency",
     "course_europe_description": "Intensive 2-week residency in Valencia (Spain)"
   },
   "nav": {
-    "logo_alt": "B4OS - Bitcoin 4 Open Source Logo",
+    "logo_alt": "B4OS · Bitcoin 4 Open Source logo",
     "menu_aria": "Main navigation",
     "brand_link_aria": "Go to B4OS home",
     "back_to_home": "Home",
@@ -38,8 +38,8 @@
     "alliances": "Alliances",
     "careers": "Careers",
     "contact": "Contact",
-    "b4os_program": "B4OS Program",
-    "chaincode_cta": "Chaincode Registration BOSS"
+    "b4os_program": "B4OS program",
+    "chaincode_cta": "Chaincode BOSS registration"
   },
   "hero": {
     "title_main": "Bitcoin 4 Open Source",
@@ -49,8 +49,8 @@
   },
   "chaincode_boss": {
     "hero_title": "₿OSS Challenge",
-    "hero_subtitle": "Programming challenge for devs who dare to make the leap to Bitcoin Open-Source.",
-    "cta_primary": "I accept the challenge",
+    "hero_subtitle": "Programming challenge for devs who dare to make the leap to Bitcoin open source.",
+    "cta_primary": "Accept the challenge",
     "registration": {
       "title": "Are you joining the challenge?",
       "description": "₿OSS Challenge is open and free. Just by registering with B4OS you get the following exclusive benefits:",
@@ -102,7 +102,7 @@
     }
   },
   "alumni": {
-    "title": "B4OS 2024 WAS A SUCCESS!",
+    "title": "B4OS 2024 was a success",
     "cohort": "Cohort",
     "coming_soon": "Coming soon",
     "stats_aria": "Program statistics",
@@ -112,7 +112,7 @@
       "fulltime": "Full-time grantees",
       "parttime": "Part-time or micro-grant grantees"
     },
-    "subtitle": "<strong>B4OS 2024 Graduates:</strong> building Bitcoin Open Source full-time",
+    "subtitle": "<strong>B4OS 2024 alumni:</strong> building Bitcoin open source full-time",
     "github_aria": "GitHub of {name}",
     "linkedin_aria": "LinkedIn of {name}",
     "twitter_aria": "Twitter of {name}",
@@ -120,7 +120,7 @@
     "grantee_b4os_localhost": "B4OS grantee",
     "grantee_spiral": "Spiral grantee",
     "grantee_bdk": "BDK Foundation grantee",
-    "grantee_whitenoise_b4os": "White Noise - B4OS grantee",
+    "grantee_whitenoise_b4os": "White Noise · B4OS grantee",
     "grantee_whitenoise": "White Noise grantee",
     "main_maintainer": "main maintainer"
   },
@@ -172,18 +172,18 @@
     "disclaimer": "* Dates may be subject to change. Selected participants will be notified in advance."
   },
   "timeline": {
-    "title": "B4OS Timeline",
-    "subtitle": "Learn about the <strong>important dates</strong> of the B4OS 2025–2026 program",
+    "title": "B4OS timeline",
+    "subtitle": "Learn about the <strong>important dates</strong> of the B4OS 2025-2026 program",
     "registration": {
-      "date": "Aug. 11 - Oct. 15, 2025",
+      "date": "Aug. 11 to Oct. 15, 2025",
       "title": "Open registration",
-      "description": "Registration of participants for the B4OS 2025–2026 program."
+      "description": "Registration of participants for the B4OS 2025-2026 program."
     },
     "challenges": {
       "date": "Sept. 15, 2025",
       "title": "Code challenges begin",
       "description": "Let's see your programming level and Bitcoin knowledge. This stage is an asynchronous phase on Discord without classes or mentoring, but with community support.",
-      "highlight": "🏆 <strong>The best developers move on to the next stage.</strong><br><strong>Rookie award:</strong> $300 USD for the best code from new developers who have never participated in B4OS, BOSS, or other programs."
+      "highlight": "<strong>The best developers move on to the next stage.</strong><br><strong>Rookie award:</strong> $300 USD for the best code from new developers who have never participated in B4OS, BOSS, or other programs."
     },
     "review": {
       "date": "Oct. 20, 2025",
@@ -200,9 +200,9 @@
       "title": "Division into tracks",
       "description": "From <strong>October 30, 2025</strong> to <strong>February 2026</strong>: portfolio building and FOSS contribution. Seminars, working groups, bitdevs and meetups (5 months online).",
       "routes": {
-        "core": "Bitcoin Core Protocol Developer",
-        "lightning": "Lightning Network Protocol Developer",
-        "application": "Application Developer"
+        "core": "Bitcoin Core protocol developer",
+        "lightning": "Lightning Network protocol developer",
+        "application": "Application developer"
       }
     },
     "southamerica_selection": {
@@ -219,7 +219,7 @@
     "grantees": {
       "date": "Apr. 2026",
       "title": "Assignment of new grantees",
-      "description": "Allocation of funding for new program beneficiaries. In exceptional cases, grants could be awarded at any time before April 2026."
+      "description": "Allocation of funding for new program grantees. In exceptional cases, grants could be awarded at any time before April 2026."
     },
     "status": {
       "completed": "Completed",
@@ -246,13 +246,13 @@
     },
     "closed": {
       "badge_label": "Status",
-      "badge_text": "Registration Closed",
+      "badge_text": "Registration closed",
       "title": "Registration temporarily closed",
       "subtitle": "We'll open new registrations soon. Be among the first to know:",
       "email_placeholder": "your@email.com",
       "email_aria_label": "Email for waitlist",
       "cta": "Notify me",
-      "success_title": "Perfect!",
+      "success_title": "Done.",
       "success_message": "We'll notify you when we open registrations",
       "error_message": "There was a problem. Please try again",
       "email_required": "Please enter your email"
@@ -309,7 +309,7 @@
       },
       "motivation": {
         "label": "What interests you about the Bitcoin ecosystem and \"freedom tech\" technologies? *",
-        "help": "We're interested in knowing what specific aspects of the Bitcoin ecosystem you're passionate about (Privacy, Security, Censorship resistance, Decentralization, etc.)."
+        "help": "We're interested in knowing what specific aspects of the Bitcoin ecosystem you care about most (privacy, security, censorship resistance, decentralization, etc.)."
       },
       "how_heard": {
         "label": "How did you hear about B4OS? *",
@@ -344,7 +344,7 @@
     }
   },
   "benefits": {
-    "title": "B4OS Program benefits",
+    "title": "B4OS program benefits",
     "subtitle": "Discover everything you get by participating in the <strong>most comprehensive Bitcoin training program</strong>",
     "cards": {
       "1": {
@@ -395,7 +395,7 @@
     }
   },
   "faq": {
-    "title": "Frequently Asked Questions",
+    "title": "Frequently asked questions",
     "subtitle": "Learn about the <strong>frequently asked questions</strong> about the B4OS 2025 program",
     "questions": {
       "1": {
@@ -428,7 +428,7 @@
       },
       "8": {
         "question": "Can I choose my learning path?",
-        "answer": "<strong>Yes, after the first 5 weeks</strong> you can specialize by choosing between: Bitcoin Core Protocol Development, Lightning Network Development, or Application Development. Your mentor will help you choose according to your professional interests."
+        "answer": "<strong>Yes, after the first 5 weeks</strong> you can specialize by choosing between: Bitcoin Core protocol development, Lightning Network development, or application development. Your mentor will help you choose according to your professional interests."
       },
       "9": {
         "question": "Are activities and challenges done in groups or individually?",
@@ -444,7 +444,7 @@
       },
       "12": {
         "question": "What results can I expect upon completion?",
-        "answer": "<strong>Tangible and verifiable achievements:</strong> Minimum of 3 accepted contributions to Bitcoin Core or Lightning Network, a functional personal project, direct connections with senior Bitcoin developers, and a verifiable certificate with your specific contributions."
+        "answer": "<strong>Tangible and verifiable achievements:</strong> Minimum of 3 accepted contributions to Bitcoin Core or Lightning Network, a functional personal project, direct connections with senior Bitcoin developers, and a verifiable record of completion with your specific contributions."
       },
       "13": {
         "question": "How does B4OS connect me with job opportunities?",
@@ -486,17 +486,17 @@
     }
   },
   "terms": {
-    "page_title": "Terms and Conditions - B4OS | Bitcoin 4 Open Source",
+    "page_title": "Terms and conditions · B4OS | Bitcoin 4 Open Source",
     "page_description": "Terms and conditions of the B4OS 2025 program. Information about participant selection, data usage, intellectual property, and program policies.",
     "nav": {
-      "logo_alt": "B4OS - Bitcoin 4 Open Source Logo",
+      "logo_alt": "B4OS · Bitcoin 4 Open Source logo",
       "back_home_aria": "Return to B4OS home",
-      "close_btn": "✕ Close"
+      "close_btn": "Close"
     },
     "header": {
-      "title": "B4OS 2025/26 - What you need to know",
-      "intro_1": "<strong>Hey developer!</strong> Before joining this adventure, we want you to know exactly what to expect from the <strong>B4OS</strong> program.",
-      "intro_2": "No confusing fine print - here's everything clear and straightforward."
+      "title": "B4OS 2025/26: what you need to know",
+      "intro_1": "<strong>Hey, developer.</strong> Before joining this adventure, we want you to know exactly what to expect from the <strong>B4OS</strong> program.",
+      "intro_2": "No confusing fine print: here's everything clear and straightforward."
     },
     "sections": {
       "about": {
@@ -519,7 +519,7 @@
       "how_it_works": {
         "title": "How the program works",
         "phase1": {
-          "title": "Phase 1: Code Challenges",
+          "title": "Phase 1: Code challenges",
           "items": [
             "Period defined by us",
             "Code exercises to showcase your skills",
@@ -528,7 +528,7 @@
           ]
         },
         "phase2": {
-          "title": "Phase 2: Portfolio + FOSS Contributions",
+          "title": "Phase 2: Portfolio + FOSS contributions",
           "intro": "<strong>If you pass the challenges, you enter the good phase:</strong>",
           "items": [
             "<strong>Actively contribute</strong> to open source projects (Bitcoin Core, Lightning Network, or Nostr)",
@@ -539,9 +539,9 @@
         "tools": {
           "title": "The tools we will use",
           "items": [
-            "<strong>Discord:</strong> For everything - support, community, questions",
+            "<strong>Discord:</strong> For everything: support, community, questions",
             "<strong>GitHub Classroom:</strong> For submitting and reviewing code",
-            "<strong>LMS Platform:</strong> For materials and resources"
+            "<strong>LMS platform:</strong> For materials and resources"
           ]
         }
       },
@@ -598,15 +598,15 @@
     }
   },
   "conduct": {
-    "page_title": "Code of Conduct - B4OS",
+    "page_title": "Code of conduct · B4OS",
     "page_description": "Code of conduct for the B4OS community",
     "nav": {
-      "logo_alt": "B4OS - Bitcoin 4 Open Source Logo",
+      "logo_alt": "B4OS · Bitcoin 4 Open Source logo",
       "back_home_aria": "Return to B4OS home",
-      "close_btn": "✕ Close"
+      "close_btn": "Close"
     },
     "header": {
-      "title": "Contributor Code of Conduct",
+      "title": "Contributor code of conduct",
       "intro": "At B4OS we are committed to maintaining an inclusive, respectful, and professional learning environment for all participants in our program."
     },
     "sections": {
@@ -646,7 +646,7 @@
       },
       "sanctions": {
         "title": "Sanctions and expulsions",
-        "content": "Any person who exhibits unacceptable behavior will lose all opportunities to be part of the B4OS program and the Libreria de Satoshi community. They will lose all opportunities to obtain completion certificates for any activity. They will lose all opportunities to obtain scholarships. They may be sanctioned and banned from the B4OS program, any course, and the Libreria community for 4 months."
+        "content": "Any person who exhibits unacceptable behavior will lose all opportunities to be part of the B4OS program and the Libreria de Satoshi community. They will lose all opportunities to obtain records of completion for any activity. They will lose all opportunities to obtain scholarships. They may be sanctioned and banned from the B4OS program, any course, and the Libreria community for 4 months."
       }
     },
     "footer": {
@@ -657,32 +657,32 @@
     }
   },
   "donors": {
-    "title": "Our Donors",
+    "title": "Our donors",
     "subtitle": "Organizations supporting education, grants, and Bitcoin open source ecosystem development.",
-    "platinumTitle": "Platinum Donor",
+    "platinumTitle": "Platinum donor",
     "platinumDescription": "This donor supports all funds",
     "donorsLabel": "Donors:",
     "emptyStateCta": "Your donation can be the first",
     "funds": {
       "education": {
-        "title": "Education Fund",
+        "title": "Education fund",
         "description": "Technical Bitcoin training for developers.",
-        "donateButton": "Donate to Education Fund"
+        "donateButton": "Donate to education fund"
       },
       "grant": {
-        "title": "Grant Fund",
+        "title": "Grant fund",
         "description": "Funding for Bitcoin Open Source contributors.",
-        "donateButton": "Donate to Grant Fund"
+        "donateButton": "Donate to grant fund"
       },
       "operation": {
-        "title": "Operation Budget",
+        "title": "Operation budget",
         "description": "Operational sustainability of the B4OS program.",
-        "donateButton": "Donate to Operation Budget"
+        "donateButton": "Donate to operation budget"
       },
       "residency": {
-        "title": "Residency Budget",
+        "title": "Residency budget",
         "description": "Immersive experiences for program grantees.",
-        "donateButton": "Donate to Residency Budget"
+        "donateButton": "Donate to residency budget"
       }
     },
     "donateModal": {
@@ -703,7 +703,7 @@
   },
   "careers": {
     "title": "Join our team",
-    "subtitle": "We are building the future of <strong>Bitcoin</strong> technical education. <br>We are looking for passionate people who share our vision of training the next generation of talent in the Bitcoin ecosystem: technical education and specialized entrepreneurship",
+    "subtitle": "We are building the future of <strong>Bitcoin</strong> technical education. <br>We are looking for committed people who share our vision of training the next generation of talent in the Bitcoin ecosystem: technical education and specialized entrepreneurship",
     "highlights": {
       "remote": {
         "title": "100% remote",
@@ -729,13 +729,13 @@
     "description": "Get the latest updates and announcements directly to your inbox.",
     "placeholder": "Your email address",
     "subscribe_button": "Subscribe",
-    "success_message": "Successfully subscribed!",
+    "success_message": "You are subscribed.",
     "error_message": "Subscription failed. Please try again.",
     "loading_message": "Subscribing..."
   },
   "footer": {
-    "logo_alt": "B4OS - Bitcoin 4 Open Source Logo",
-    "description": "<strong>B4OS (Bitcoin 4 Open Source)</strong> - Free technical Bitcoin training program for developers.",
+    "logo_alt": "B4OS · Bitcoin 4 Open Source logo",
+    "description": "<strong>B4OS (Bitcoin 4 Open Source)</strong>: free technical Bitcoin training program for developers.",
     "quick_links": {
       "title": "Quick links"
     },

@@ -479,8 +479,8 @@ globalThis.FormHandler = class FormHandler {
 
       // Éxito - mensaje basado en el entorno
       const successMessage = this.isLocalDevelopment()
-        ? "✅ [DESARROLLO] Formulario validado correctamente! (Simulación)"
-        : "¡Aplicación enviada exitosamente! Te contactaremos pronto.";
+        ? "[DESARROLLO] Formulario validado correctamente (simulación)"
+        : "Hemos recibido tu aplicación. Te escribiremos pronto.";
 
       globalThis.showNotification(successMessage, "success");
 
@@ -525,7 +525,7 @@ globalThis.FormHandler = class FormHandler {
       // Simular respuesta exitosa
       const simulatedResponse = {
         success: true,
-        message: "✅ [DESARROLLO] Aplicación simulada exitosamente",
+        message: "[DESARROLLO] Aplicación simulada correctamente",
         services: {
           customerIO: true,
         },

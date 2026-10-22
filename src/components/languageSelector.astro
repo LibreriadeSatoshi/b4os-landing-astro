@@ -77,7 +77,7 @@ const currentLanguage = languages.find(lang => lang.code === locale) || language
             <span class="lang-name">{lang.name}</span>
             <!-- <span class="lang-region">{lang.region}</span> -->
           </span>
-          {isActive && <span class="lang-check">✓</span>}
+          {isActive && <span class="lang-check"><Icon name="iconoir:check" size={20} aria-hidden="true" /></span>}
         </a>
       );
     })}

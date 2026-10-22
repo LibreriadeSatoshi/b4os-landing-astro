@@ -52,7 +52,7 @@ export class NewsletterSubscription {
             });
 
             const data = await response.json().catch(() => ({}));
-            const successMsg = this.form.dataset.successMsg || 'Successfully subscribed!';
+            const successMsg = this.form.dataset.successMsg || 'You are subscribed.';
             const errorMsg = this.form.dataset.errorMsg || 'Subscription failed. Please try again.';
 
             const isLocal = typeof window !== 'undefined' && /localhost|127\.0\.0\.1/.test(window.location?.hostname || '');
