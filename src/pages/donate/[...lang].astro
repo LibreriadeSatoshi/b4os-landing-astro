@@ -2,6 +2,7 @@
 // src/pages/donate/[...lang].astro - Donate page multi-language
 import Layout from '../../layouts/Layout.astro';
 import IsmosMark from '../../components/IsmosMark.astro';
+import IsmosLockup from '../../components/IsmosLockup.astro';
 import B4osLogo from '../../components/B4osLogo.astro';
 import '../../styles/donors.css';
 import { Icon } from 'astro-icon/components';
@@ -84,10 +85,8 @@ const isChaincodeFormOpen = chaincodeRegistrationFlag !== undefined
     <section id="donate" class="donors">
       <div class="container">
         <header class="section-header">
-          <div class="donors-libreria-logo">
-            <a href="https://libreriadesatoshi.com" target="_blank" rel="noopener" aria-label="Librería de Satoshi">
-              <img src="/libreria.png" alt="Librería de Satoshi" width="200" height="56" loading="eager">
-            </a>
+          <div class="donors-ismos-logo">
+            <IsmosLockup />
           </div>
           <h1 class="section-title">{t.donors.title}</h1>
           <p class="section-subtitle">{t.donors.subtitle}</p>
