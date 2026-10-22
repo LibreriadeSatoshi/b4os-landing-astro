@@ -2,7 +2,7 @@
 // Greenfield API: POST /api/v1/stores/{storeId}/invoices (https://docs.btcpayserver.org/Greenfield/Invoices)
 // Returns the checkoutLink to redirect the user directly to the payment
 
-exports.handler = async (event) => {
+export const handler = async (event) => {
   const headers = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type',
