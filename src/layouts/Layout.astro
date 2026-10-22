@@ -169,9 +169,6 @@ const hrefLangUrls = {
     <meta name="theme-color" content="#000000">
     <meta name="msapplication-TileColor" content="#000000">
     
-    <!-- DNS preconnections -->
-    <link rel="preconnect" href="https://restcountries.com">
-
     <!-- ISMOS fonts are self-hosted from design/ismos/fonts -->
     <!-- Structured JSON-LD data -->
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -310,6 +307,7 @@ const hrefLangUrls = {
         async function initializeB4OS() {
             try {
                 // Load scripts in order
+                await loadScript('/js/utils.js', () => typeof window.ErrorHandler !== 'undefined');
                 await loadScript('/js/location-api.js', () => typeof window.LocationAPI !== 'undefined');
                 await loadScript('/js/form-handler.js', () => typeof window.FormHandler !== 'undefined');
                 await loadScript('/js/waitlist-handler.js', () => true);
@@ -356,7 +354,7 @@ const hrefLangUrls = {
                 console.error('Error initializing B4OS:', error);
                 
                 // Silent fallback
-                let scripts = ['/js/location-api.js', '/js/form-handler.js', '/js/waitlist-handler.js', '/js/nav.js', '/js/carousel.js', '/js/language-selector.js', '/js/twitter-tracking.js'];
+                let scripts = ['/js/utils.js', '/js/location-api.js', '/js/form-handler.js', '/js/waitlist-handler.js', '/js/nav.js', '/js/carousel.js', '/js/language-selector.js', '/js/twitter-tracking.js'];
 
                 // Add script for legal pages if necessary
                 const isLegalPage = window.location.pathname.includes('terminos') ||

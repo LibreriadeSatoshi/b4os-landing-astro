@@ -60,13 +60,9 @@
       },
       "path": {
         "title": "Per als millors devs:",
-        "body": "<ul><li>Residències a Florianópolis (Brasil), València (Espanya) i Guadalajara (Mèxic)</li><li>Patrocini per assistir a conferències arreu del món</li><li>Classes d'anglès i portuguès</li></ul>"
+        "body": "<ul><li>Residència i fellowship de B4OS</li><li>Patrocini per assistir a conferències arreu del món</li><li>Classes d'anglès i portuguès</li></ul>"
       },
-      "closing": "Uneix-te al ₿OSS Challenge avui i descobreix fins on pots arribar.",
-      "period": {
-        "label": "Registre fins al",
-        "dates": "22 de novembre de 2026"
-      }
+      "closing": "Uneix-te al ₿OSS Challenge avui i descobreix fins on pots arribar."
     },
     "how_it_works": {
       "title": "Com funciona el ₿OSS Challenge?",
@@ -240,10 +236,11 @@
       "resilience": "<strong>Resiliència</strong> per completar el programa en la seva totalitat",
       "spanish": "Domini de l'<strong>anglès</strong> per participar activament en el programa"
     },
-    "period": {
-      "label": "Registre fins a",
-      "dates": "22 de novembre 2025"
+    "partnership": {
+      "title": "B4OS 2026 amb Chaincode i ₿OSS",
+      "body": "Aquest any fem B4OS juntament amb <strong>Chaincode</strong>, a través del seu programa <strong>₿OSS</strong>. Només qui s'inscriu en aquest web pot ser seleccionat per a la <strong>residència i el fellowship</strong> de B4OS."
     },
+    "open_badge": "Inscripcions obertes",
     "closed": {
       "badge_label": "Estat",
       "badge_text": "Registre tancat",

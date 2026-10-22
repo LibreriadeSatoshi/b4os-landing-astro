@@ -334,7 +334,11 @@ const getResidencyBadgeLabel = (status: ResidencyStatus, t: any): string => {
                 <div class="registration-info">
                     <h2>{t.registration.title}</h2>
                     <p set:html={t.registration.description}></p>
-                    
+                    <aside class="partnership-note">
+                        <h3>{t.registration.partnership.title}</h3>
+                        <p set:html={t.registration.partnership.body}></p>
+                    </aside>
+
                     <div class="requirements">
                         <h3>{t.registration.requirements.title}</h3>
                         <ul>
@@ -348,8 +352,9 @@ const getResidencyBadgeLabel = (status: ResidencyStatus, t: any): string => {
                     </div>
                     <div class="registration-period">
                         {isFormOpen ? (
-                            <div class="period-badge">
-                                <span><strong>{t.registration.period.label}:</strong> {t.registration.period.dates}</span>
+                            <div class="period-badge period-badge-open">
+                                <Icon name="iconoir:check-circle" size={20} aria-hidden="true" />
+                                <span><strong>{t.registration.closed?.badge_label || 'Estado'}:</strong> {t.registration.open_badge}</span>
                             </div>
                         ) : (
                             <div class="period-badge period-badge-closed">
