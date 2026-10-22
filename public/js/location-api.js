@@ -4,10 +4,6 @@
 globalThis.LocationAPI = class LocationAPI {
   constructor() {
     this.config = {
-      // API gratuita para todos los países
-      COUNTRIES_API:
-        "https://restcountries.com/v3.1/all?fields=name,cca2,translations,region,subregion",
-
       // Nueva API v2.1 de OpenDataSoft para ciudades
       CITIES_API_BASE: "https://public.opendatasoft.com/api/explore/v2.1",
       CITIES_DATASET: "geonames-all-cities-with-a-population-1000",
@@ -18,19 +14,6 @@ globalThis.LocationAPI = class LocationAPI {
     };
 
     this.countries = [];
-    this.targetRegions = ["Americas", "Europe", "Africa"]; // América + Europa (España) + África
-    this.targetSubregions = [
-      "South America",
-      "Central America",
-      "Caribbean",
-      "Southern Europe",
-      "North America",
-      "Northern Africa",
-      "Western Africa",
-      "Eastern Africa",
-      "Southern Africa",
-      "Middle Africa",
-    ];
   }
 
   /**
@@ -72,132 +55,192 @@ globalThis.LocationAPI = class LocationAPI {
   }
 
   /**
-   * Cargar países desde la API
+   * Países de América, Europa y África (más España), con nombre en español.
+   * Lista estática: la API de restcountries v3.1 está deprecada y el formulario
+   * no puede depender de un servicio externo. Fuente: mledoze/countries.
    */
   async loadCountries() {
-    // Intentar obtener del caché primero (v3 incluye África)
-    const cached = this.getFromCache("countries_v3");
-    if (cached) {
-      this.countries = cached;
-      return cached;
-    }
+    if (this.countries.length) return this.countries;
 
-    try {
-      const response = await fetch(this.config.COUNTRIES_API);
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const allCountries = await response.json();
-
-      // Filtrar países relevantes
-      const filteredCountries = allCountries
-        .filter((country) => {
-          // Incluir países de América y España
-          return (
-            this.targetRegions.includes(country.region) || country.cca2 === "ES"
-          ); // Asegurar que España esté incluida
-        })
-        .map((country) => ({
-          code: country.cca2,
-          name: this.getCountryName(country),
-          nameEnglish: country.name.common,
-          region: country.region,
-          subregion: country.subregion,
-        }))
-        .filter((country) => country.name) // Eliminar países sin nombre
-        .sort((a, b) =>
-          a.name.localeCompare(b.name, "es", { sensitivity: "base" }),
-        );
-
-      this.countries = filteredCountries;
-      this.saveToCache("countries_v3", filteredCountries);
-
-      return filteredCountries;
-    } catch (error) {
-      globalThis.ErrorHandler.warn("Failed to load countries", error);
-      // Fallback a lista básica de países prioritarios
-      return this.getFallbackCountries();
-    }
-  }
-
-  /**
-   * Obtener nombre del país en español
-   */
-  getCountryName(country) {
-    // Priorizar nombre en español
-    if (country.translations?.spa?.common) {
-      return country.translations.spa.common;
-    }
-
-    // Mapeo manual para países importantes
-    const spanishNames = {
-      AR: "Argentina",
-      BO: "Bolivia",
-      BR: "Brasil",
-      CL: "Chile",
-      CO: "Colombia",
-      CR: "Costa Rica",
-      CU: "Cuba",
-      EC: "Ecuador",
-      SV: "El Salvador",
-      ES: "España",
-      GT: "Guatemala",
-      HN: "Honduras",
-      MX: "México",
-      NI: "Nicaragua",
-      PA: "Panamá",
-      PY: "Paraguay",
-      PE: "Perú",
-      DO: "República Dominicana",
-      UY: "Uruguay",
-      VE: "Venezuela",
-      US: "Estados Unidos",
-      CA: "Canadá",
-    };
-
-    return spanishNames[country.cca2] || country.name.common;
-  }
-
-  /**
-   * Lista de fallback para países prioritarios
-   */
-  getFallbackCountries() {
     // Array format: [code, name, region, subregion]
     const rawData = [
+      ["AX", "Alandia", "Europe", "Northern Europe"],
+      ["AL", "Albania", "Europe", "Southeast Europe"],
+      ["DE", "Alemania", "Europe", "Western Europe"],
+      ["AD", "Andorra", "Europe", "Southern Europe"],
+      ["AO", "Angola", "Africa", "Middle Africa"],
+      ["AI", "Anguilla", "Americas", "Caribbean"],
+      ["AG", "Antigua y Barbuda", "Americas", "Caribbean"],
+      ["DZ", "Argelia", "Africa", "Northern Africa"],
       ["AR", "Argentina", "Americas", "South America"],
+      ["AW", "Aruba", "Americas", "Caribbean"],
+      ["AT", "Austria", "Europe", "Central Europe"],
+      ["BS", "Bahamas", "Americas", "Caribbean"],
+      ["BB", "Barbados", "Americas", "Caribbean"],
+      ["BE", "Bélgica", "Europe", "Western Europe"],
+      ["BZ", "Belice", "Americas", "Central America"],
+      ["BJ", "Benín", "Africa", "Western Africa"],
+      ["BM", "Bermudas", "Americas", "North America"],
+      ["BY", "Bielorrusia", "Europe", "Eastern Europe"],
       ["BO", "Bolivia", "Americas", "South America"],
+      ["BA", "Bosnia y Herzegovina", "Europe", "Southeast Europe"],
+      ["BW", "Botswana", "Africa", "Southern Africa"],
       ["BR", "Brasil", "Americas", "South America"],
+      ["BG", "Bulgaria", "Europe", "Southeast Europe"],
+      ["BF", "Burkina Faso", "Africa", "Western Africa"],
+      ["BI", "Burundi", "Africa", "Eastern Africa"],
+      ["CV", "Cabo Verde", "Africa", "Western Africa"],
+      ["CM", "Camerún", "Africa", "Middle Africa"],
+      ["CA", "Canadá", "Americas", "North America"],
+      ["BQ", "Caribe Neerlandés", "Americas", "Caribbean"],
+      ["TD", "Chad", "Africa", "Middle Africa"],
+      ["CZ", "Chequia", "Europe", "Central Europe"],
       ["CL", "Chile", "Americas", "South America"],
+      ["CY", "Chipre", "Europe", "Southern Europe"],
+      ["VA", "Ciudad del Vaticano", "Europe", "Southern Europe"],
       ["CO", "Colombia", "Americas", "South America"],
+      ["KM", "Comoras", "Africa", "Eastern Africa"],
+      ["CG", "Congo", "Africa", "Middle Africa"],
+      ["CD", "Congo (Rep. Dem.)", "Africa", "Middle Africa"],
+      ["CI", "Costa de Marfil", "Africa", "Western Africa"],
       ["CR", "Costa Rica", "Americas", "Central America"],
+      ["HR", "Croacia", "Europe", "Southeast Europe"],
       ["CU", "Cuba", "Americas", "Caribbean"],
+      ["CW", "Curazao", "Americas", "Caribbean"],
+      ["DK", "Dinamarca", "Europe", "Northern Europe"],
+      ["DJ", "Djibouti", "Africa", "Eastern Africa"],
+      ["DM", "Dominica", "Americas", "Caribbean"],
       ["EC", "Ecuador", "Americas", "South America"],
+      ["EG", "Egipto", "Africa", "Northern Africa"],
       ["SV", "El Salvador", "Americas", "Central America"],
+      ["ER", "Eritrea", "Africa", "Eastern Africa"],
+      ["SK", "Eslovaquia", "Europe", "Central Europe"],
+      ["SI", "Eslovenia", "Europe", "Central Europe"],
       ["ES", "España", "Europe", "Southern Europe"],
+      ["US", "Estados Unidos", "Americas", "North America"],
+      ["EE", "Estonia", "Europe", "Northern Europe"],
+      ["SZ", "Esuatini", "Africa", "Southern Africa"],
+      ["ET", "Etiopía", "Africa", "Eastern Africa"],
+      ["FI", "Finlandia", "Europe", "Northern Europe"],
+      ["FR", "Francia", "Europe", "Western Europe"],
+      ["GA", "Gabón", "Africa", "Middle Africa"],
+      ["GM", "Gambia", "Africa", "Western Africa"],
+      ["GH", "Ghana", "Africa", "Western Africa"],
+      ["GI", "Gibraltar", "Europe", "Southern Europe"],
+      ["GR", "Grecia", "Europe", "Southern Europe"],
+      ["GD", "Grenada", "Americas", "Caribbean"],
+      ["GL", "Groenlandia", "Americas", "North America"],
+      ["GP", "Guadalupe", "Americas", "Caribbean"],
       ["GT", "Guatemala", "Americas", "Central America"],
+      ["GF", "Guayana Francesa", "Americas", "South America"],
+      ["GG", "Guernsey", "Europe", "Northern Europe"],
+      ["GN", "Guinea", "Africa", "Western Africa"],
+      ["GQ", "Guinea Ecuatorial", "Africa", "Middle Africa"],
+      ["GW", "Guinea-Bisáu", "Africa", "Western Africa"],
+      ["GY", "Guyana", "Americas", "South America"],
+      ["HT", "Haití", "Americas", "Caribbean"],
       ["HN", "Honduras", "Americas", "Central America"],
+      ["HU", "Hungría", "Europe", "Central Europe"],
+      ["IE", "Irlanda", "Europe", "Northern Europe"],
+      ["IM", "Isla de Man", "Europe", "Northern Europe"],
+      ["IS", "Islandia", "Europe", "Northern Europe"],
+      ["KY", "Islas Caimán", "Americas", "Caribbean"],
+      ["FO", "Islas Faroe", "Europe", "Northern Europe"],
+      ["FK", "Islas Malvinas", "Americas", "South America"],
+      ["SJ", "Islas Svalbard y Jan Mayen", "Europe", "Northern Europe"],
+      ["TC", "Islas Turks y Caicos", "Americas", "Caribbean"],
+      ["UM", "Islas Ultramarinas Menores de Estados Unidos", "Americas", "North America"],
+      ["VI", "Islas Vírgenes de los Estados Unidos", "Americas", "Caribbean"],
+      ["VG", "Islas Vírgenes del Reino Unido", "Americas", "Caribbean"],
+      ["IT", "Italia", "Europe", "Southern Europe"],
+      ["JM", "Jamaica", "Americas", "Caribbean"],
+      ["JE", "Jersey", "Europe", "Northern Europe"],
+      ["KE", "Kenia", "Africa", "Eastern Africa"],
+      ["XK", "Kosovo", "Europe", "Southeast Europe"],
+      ["LS", "Lesotho", "Africa", "Southern Africa"],
+      ["LV", "Letonia", "Europe", "Northern Europe"],
+      ["LR", "Liberia", "Africa", "Western Africa"],
+      ["LY", "Libia", "Africa", "Northern Africa"],
+      ["LI", "Liechtenstein", "Europe", "Western Europe"],
+      ["LT", "Lituania", "Europe", "Northern Europe"],
+      ["LU", "Luxemburgo", "Europe", "Western Europe"],
+      ["MK", "Macedonia del Norte", "Europe", "Southeast Europe"],
+      ["MG", "Madagascar", "Africa", "Eastern Africa"],
+      ["MW", "Malawi", "Africa", "Eastern Africa"],
+      ["ML", "Mali", "Africa", "Western Africa"],
+      ["MT", "Malta", "Europe", "Southern Europe"],
+      ["MA", "Marruecos", "Africa", "Northern Africa"],
+      ["MQ", "Martinica", "Americas", "Caribbean"],
+      ["MU", "Mauricio", "Africa", "Eastern Africa"],
+      ["MR", "Mauritania", "Africa", "Western Africa"],
+      ["YT", "Mayotte", "Africa", "Eastern Africa"],
       ["MX", "México", "Americas", "North America"],
+      ["MD", "Moldavia", "Europe", "Eastern Europe"],
+      ["MC", "Mónaco", "Europe", "Western Europe"],
+      ["ME", "Montenegro", "Europe", "Southeast Europe"],
+      ["MS", "Montserrat", "Americas", "Caribbean"],
+      ["MZ", "Mozambique", "Africa", "Eastern Africa"],
+      ["NA", "Namibia", "Africa", "Southern Africa"],
       ["NI", "Nicaragua", "Americas", "Central America"],
+      ["NE", "Níger", "Africa", "Western Africa"],
+      ["NG", "Nigeria", "Africa", "Western Africa"],
+      ["NO", "Noruega", "Europe", "Northern Europe"],
+      ["NL", "Países Bajos", "Europe", "Western Europe"],
       ["PA", "Panamá", "Americas", "Central America"],
       ["PY", "Paraguay", "Americas", "South America"],
       ["PE", "Perú", "Americas", "South America"],
+      ["PL", "Polonia", "Europe", "Central Europe"],
+      ["PT", "Portugal", "Europe", "Southern Europe"],
+      ["PR", "Puerto Rico", "Americas", "Caribbean"],
+      ["GB", "Reino Unido", "Europe", "Northern Europe"],
+      ["CF", "República Centroafricana", "Africa", "Middle Africa"],
       ["DO", "República Dominicana", "Americas", "Caribbean"],
+      ["RE", "Reunión", "Africa", "Eastern Africa"],
+      ["RW", "Ruanda", "Africa", "Eastern Africa"],
+      ["RO", "Rumania", "Europe", "Southeast Europe"],
+      ["RU", "Rusia", "Europe", "Eastern Europe"],
+      ["EH", "Sahara Occidental", "Africa", "Northern Africa"],
+      ["MF", "Saint Martin", "Americas", "Caribbean"],
+      ["BL", "San Bartolomé", "Americas", "Caribbean"],
+      ["KN", "San Cristóbal y Nieves", "Americas", "Caribbean"],
+      ["SM", "San Marino", "Europe", "Southern Europe"],
+      ["PM", "San Pedro y Miquelón", "Americas", "North America"],
+      ["VC", "San Vicente y Granadinas", "Americas", "Caribbean"],
+      ["SH", "Santa Elena, Ascensión y Tristán de Acuña", "Africa", "Western Africa"],
+      ["LC", "Santa Lucía", "Americas", "Caribbean"],
+      ["ST", "Santo Tomé y Príncipe", "Africa", "Middle Africa"],
+      ["SN", "Senegal", "Africa", "Western Africa"],
+      ["RS", "Serbia", "Europe", "Southeast Europe"],
+      ["SC", "Seychelles", "Africa", "Eastern Africa"],
+      ["SL", "Sierra Leone", "Africa", "Western Africa"],
+      ["SX", "Sint Maarten", "Americas", "Caribbean"],
+      ["SO", "Somalia", "Africa", "Eastern Africa"],
+      ["ZA", "Sudáfrica", "Africa", "Southern Africa"],
+      ["SD", "Sudán", "Africa", "Northern Africa"],
+      ["SS", "Sudán del Sur", "Africa", "Middle Africa"],
+      ["SE", "Suecia", "Europe", "Northern Europe"],
+      ["CH", "Suiza", "Europe", "Western Europe"],
+      ["SR", "Surinam", "Americas", "South America"],
+      ["TZ", "Tanzania", "Africa", "Eastern Africa"],
+      ["IO", "Territorio Británico del Océano Índico", "Africa", "Eastern Africa"],
+      ["TG", "Togo", "Africa", "Western Africa"],
+      ["TT", "Trinidad y Tobago", "Americas", "Caribbean"],
+      ["TN", "Túnez", "Africa", "Northern Africa"],
+      ["UA", "Ucrania", "Europe", "Eastern Europe"],
+      ["UG", "Uganda", "Africa", "Eastern Africa"],
       ["UY", "Uruguay", "Americas", "South America"],
       ["VE", "Venezuela", "Americas", "South America"],
-      ["AO", "Angola", "Africa", "Middle Africa"],
+      ["ZM", "Zambia", "Africa", "Eastern Africa"],
+      ["ZW", "Zimbabue", "Africa", "Eastern Africa"],
     ];
 
-    const fallbackList = rawData.map(([code, name, region, subregion]) => ({
+    this.countries = rawData.map(([code, name, region, subregion]) => ({
       code,
       name,
       region,
       subregion,
     }));
-
-    this.countries = fallbackList;
-    return fallbackList;
+    return this.countries;
   }
 
   /**

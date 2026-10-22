@@ -2,6 +2,21 @@
    apply, but any rule in this site wins over them regardless of specificity. */
 @import "../../design/ismos/css/ismos.css" layer(ismos);
 
+/* Literata has no Bitcoin sign (U+20BF): titles take it from IBM Plex Sans,
+   so "₿OSS" and "₿4OS" render in a real face instead of a system fallback */
+@font-face {
+    font-family: "B4OS Bitcoin Sign";
+    src: url("../../design/ismos/fonts/IBMPlexSans-latin.woff2") format("woff2");
+    font-weight: 100 700;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+20BF;
+}
+
+:root {
+    --font-serif: "B4OS Bitcoin Sign", Literata, "Noto Serif SC", "Noto Serif JP", "Noto Naskh Arabic", "Noto Serif Devanagari", "Noto Serif Bengali", Georgia, serif;
+}
+
 /* Legacy variables mapped onto ISMOS tokens (design/ismos/css/tokens.css).
    New code should use the ISMOS tokens directly. */
 :root {
@@ -2596,4 +2611,89 @@ a:hover .sponsor-highlight {
     line-height: 14px;
     font-weight: 500;
     letter-spacing: 0.4em;
+}
+
+/* Applications note: B4OS with Chaincode through ₿OSS. 6px bar, hairline box */
+.partnership-note {
+    margin: var(--space-24) 0;
+    padding: var(--space-24);
+    border: var(--rule-1) solid var(--hairline);
+    border-radius: var(--radius-4);
+    text-align: left;
+}
+
+.partnership-note::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: var(--rule-6);
+    margin-bottom: var(--space-16);
+    background: var(--bar);
+}
+
+.partnership-note h3 {
+    font-size: 21px;
+    line-height: 28px;
+    margin-bottom: var(--space-8);
+}
+
+.partnership-note p {
+    margin: 0;
+    color: var(--text);
+}
+
+.period-badge-open {
+    border-color: var(--status-success);
+    color: var(--status-success);
+}
+
+/* Closed registration on /chaincode-boss: the form is not rendered, only this box */
+.form-overlay {
+    display: flex;
+    justify-content: center;
+}
+
+.waitlist-box {
+    width: 100%;
+    max-width: var(--reading-column);
+    padding: var(--space-48) var(--space-32);
+    border: var(--rule-1) solid var(--hairline);
+    border-radius: var(--radius-4);
+    text-align: center;
+}
+
+.waitlist-icon {
+    display: flex;
+    justify-content: center;
+    color: var(--text);
+    margin-bottom: var(--space-16);
+}
+
+.waitlist-title {
+    font-size: 28px;
+    line-height: 34px;
+    margin-bottom: var(--space-8);
+}
+
+.waitlist-subtitle {
+    color: var(--text-muted);
+    margin-bottom: var(--space-24);
+}
+
+.waitlist-form {
+    display: flex;
+    gap: var(--space-8);
+    justify-content: center;
+}
+
+.waitlist-form input {
+    min-height: var(--size-input);
+    background: var(--surface);
+    color: var(--text);
+    border: 1.5px solid var(--border-input);
+    border-radius: var(--radius-4);
+}
+
+.waitlist-form input:focus-visible {
+    border-color: var(--border-strong);
 }

@@ -84,6 +84,11 @@ const backHomeUrl = locale === 'es' ? '/' : `/${locale}`;
             <h2>{t.chaincode_boss.registration.title}</h2>
             <p class="registration-description">{t.chaincode_boss.registration.description}</p>
 
+            <aside class="partnership-note">
+                <h3>{t.registration.partnership.title}</h3>
+                <p set:html={t.registration.partnership.body}></p>
+            </aside>
+
             <div class="boss-registration-intro">
                 <div class="boss-block">
                     <h3>{t.chaincode_boss.registration.career.title}</h3>
@@ -112,8 +117,9 @@ const backHomeUrl = locale === 'es' ? '/' : `/${locale}`;
 
             <div class="registration-period">
                 {isFormOpen ? (
-                    <div class="period-badge">
-                        <span><strong>{t.chaincode_boss.registration.period.label}:</strong> {t.chaincode_boss.registration.period.dates}</span>
+                    <div class="period-badge period-badge-open">
+                        <Icon name="iconoir:check-circle" size={20} aria-hidden="true" />
+                        <span><strong>{t.registration.closed?.badge_label || 'Estado'}:</strong> {t.registration.open_badge}</span>
                     </div>
                 ) : (
                     <div class="period-badge period-badge-closed">
@@ -201,6 +207,7 @@ const backHomeUrl = locale === 'es' ? '/' : `/${locale}`;
                     </div>
                 )}
 
+                {isFormOpen && (
                 <form class="registration-form" id="registrationForm" role="form" aria-label={t.registration.form.aria_label}>
                     <h3>{t.registration.form.title}</h3>
 
@@ -343,6 +350,7 @@ const backHomeUrl = locale === 'es' ? '/' : `/${locale}`;
                         {t.registration.form.submit}
                     </button>
                 </form>
+                )}
             </div>
         </div>
     </section>
@@ -673,11 +681,12 @@ const backHomeUrl = locale === 'es' ? '/' : `/${locale}`;
         width: 52px;
         height: 52px;
         padding: 0 var(--spacing-xs);
-        background: var(--primary-color);
-        color: var(--text-dark);
+        border: var(--rule-2) solid var(--text);
+        color: var(--text);
         border-radius: var(--radius-4);
-        font-size: var(--font-size-sm);
-        font-weight: 600;
+        font-family: var(--font-mono);
+        font-size: 21px;
+        font-weight: 500;
         margin-bottom: var(--spacing-md);
         line-height: 1;
     }
